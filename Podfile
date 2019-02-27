@@ -4,5 +4,12 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'TimeManager' do
-    pod 'Alamofire'
+    pod 'SQLite.swift'
 end
+
+
+target 'TimeManager_Widget' do
+    pod 'SQLite.swift'
+end
+
+
