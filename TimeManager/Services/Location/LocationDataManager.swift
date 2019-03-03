@@ -31,11 +31,12 @@ extension DatabaseMamager {
                 t.column(helper.altitude)
             }))
         } catch {
-            print("location创建失败▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+            print(error.localizedDescription)
         }
     }
     
     func insertLocation(location:CLLocation) {
+        
         guard case(true) = needUpdateLocation(location: location) else {
             print("❌不需要更新")
             return;
@@ -54,13 +55,13 @@ extension DatabaseMamager {
         if let latest_location = latestLocationInDataBase() {
             //distance max than 200 meters
             let distance = latest_location.distance(from: location)
-            print(distance)
+//            print(distance)
             if distance > 200 {
                 return true
             }
             //time max than 1 hours
             let time = latest_location.timestamp.timeIntervalSince1970 - Date().timeIntervalSince1970
-            print(time)
+//            print(time)
             if time > 60 * 60 * 6 {
                 return true
             }
@@ -72,7 +73,7 @@ extension DatabaseMamager {
         let helper = DataBaserTableHelper()
         do {
             if let max_id = try db?.scalar(helper.location_table.select(helper.id.max)) {
-                print("现在总共\(max_id)条位置信息")
+//                print("现在总共\(max_id)条位置信息")
                 let query = helper.location_table.filter(helper.id == max_id)
                 if let user = try db?.pluck(query) {
                     let latitude = user[helper.latitude]

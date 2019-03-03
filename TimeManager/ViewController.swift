@@ -19,11 +19,13 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         LocationManager.shared.start(auto_stop: true)
         
-        let defaults = UserDefaults(suiteName: "group.TimeManager") // this is the name of the group we added in "App Groups"
-        defaults?.synchronize()
         
-        print(defaults?.integer(forKey: "key"))
+        HealthDataManager.shared.sleepData()
         
+        CalendarManager.shared.required()
+        let currentTime = Date()
+        let fromTime = Date(timeIntervalSince1970: currentTime.timeIntervalSince1970 - 3600)
+        CalendarManager.shared.createEvent(fromTime: fromTime, toTime: currentTime, eventName: "Test")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

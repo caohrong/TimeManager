@@ -20,6 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>请求访问日历权限</string>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>使用健康中心使用健康中心使用健康中心使用健康中心</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>使用健康中心使用健康中心使用健康中心使用健康中心</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>使用健康中心使用健康中心使用健康中心使用健康中心</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>位置</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -28,6 +36,8 @@
 	<array>
 		<string>location</string>
 	</array>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -75,10 +75,8 @@ extension LocationManager {
 extension LocationManager : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("位置更新-----------");
-        
-        let database = DatabaseMamager.shared;
         guard let mode = locations.last else { return }
-        database.insertLocation(location: mode)
+        DatabaseMamager.shared.insertLocation(location: mode)
     }
     
     func locationManager(_ manager: CLLocationManager,

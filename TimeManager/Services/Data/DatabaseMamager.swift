@@ -18,7 +18,7 @@ class DatabaseMamager {
             path.appendPathComponent("db.sqlite3")
             print(path.absoluteURL)
             self.db = try? Connection(path.absoluteString)
-            create_table()
+//            create_table()
         }
     }
     
