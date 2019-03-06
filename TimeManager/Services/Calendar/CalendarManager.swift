@@ -12,6 +12,7 @@ import EventKit
 struct CalendarManager {
     static var shared = CalendarManager()
     let store = EKEventStore()
+    let calenderName = "Useless"
     
     private init() {
         
@@ -30,6 +31,11 @@ struct CalendarManager {
         }
     }
     
+    func checkCalenderExist() {
+        if calenderInSystem(name: calenderName) == nil {
+            
+        }
+    }
     func calenderInSystem(name:String) -> EKCalendar? {
         for calendar in store.calendars(for: .event) {
 //            print(calendar.title)
@@ -56,4 +62,17 @@ struct CalendarManager {
             print(error.localizedDescription)
         }
     }
+    
+    func deletedEvent(name:String) {
+        guard let calender = calenderInSystem(name: "Useless") else {
+            return
+        }
+        do {
+            try store.removeCalendar(calender, commit: true)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
 }

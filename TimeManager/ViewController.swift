@@ -17,15 +17,16 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        LocationManager.shared.start(auto_stop: true)
+//        LocationManager.shared.start(auto_stop: true)
         
-        
-        HealthDataManager.shared.sleepData()
+//        HealthDataManager.shared.sleepData()
         
         CalendarManager.shared.required()
-        let currentTime = Date()
-        let fromTime = Date(timeIntervalSince1970: currentTime.timeIntervalSince1970 - 3600)
-        CalendarManager.shared.createEvent(fromTime: fromTime, toTime: currentTime, eventName: "Test")
+//        let currentTime = Date()
+//        let fromTime = Date(timeIntervalSince1970: currentTime.timeIntervalSince1970 - 3600)
+//        CalendarManager.shared.createEvent(fromTime: fromTime, toTime: currentTime, eventName: "Test")
+        
+        CalendarManager.shared.deletedEvent(name: "Sleeping Time")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

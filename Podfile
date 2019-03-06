@@ -5,6 +5,8 @@ use_frameworks!
 
 target 'TimeManager' do
     pod 'SQLite.swift'
+    pod 'Charts'
+    pod 'Firebase/Core'
 end
 
 
