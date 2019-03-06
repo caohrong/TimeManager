@@ -36,7 +36,6 @@ extension DatabaseMamager {
     }
     
     func insertLocation(location:CLLocation) {
-        
         guard case(true) = needUpdateLocation(location: location) else {
             print("❌不需要更新")
             return;
