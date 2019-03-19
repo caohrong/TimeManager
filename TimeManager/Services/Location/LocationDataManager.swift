@@ -17,6 +17,13 @@ struct DataBaserTableHelper {
     let latitude = Expression<Double>("latitude")
     let longitude = Expression<Double>("longitude")
     let altitude = Expression<Double>("altitude")
+    
+    func rowCoverToLocation(row:Row) -> CLLocation {
+//        let helper = DataBaserTableHelper()
+        let date = Date(timeIntervalSince1970: row[timestamp])
+        let location = CLLocation(coordinate: CLLocationCoordinate2DMake(row[altitude], row[longitude]), altitude: row[altitude], horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: date)
+        return location
+    }
 }
 
 extension DatabaseMamager {
@@ -41,7 +48,7 @@ extension DatabaseMamager {
             return;
         }
         let helper = DataBaserTableHelper()
-        let insert = helper.location_table.insert(helper.timestamp <- location.timestamp.timeIntervalSince1970, helper.latitude <- location.coordinate.latitude, helper.longitude <- location.coordinate.longitude, helper.altitude <- location.altitude)
+        let insert = helper.location_table.insert(helper.timestamp <- location.timestamp.timeIntervalSince1970, helper.latitude <- location.coordinate.latitude, helper.longitude <- location.coordinate.longitude, helper.altitude <- location.coordinate.latitude)
         do {
             try db?.run(insert)
             print("✅位置插入成功")
@@ -72,7 +79,7 @@ extension DatabaseMamager {
         let helper = DataBaserTableHelper()
         do {
             if let max_id = try db?.scalar(helper.location_table.select(helper.id.max)) {
-//                print("现在总共\(max_id)条位置信息")
+                print("现在总共\(max_id)条位置信息")
                 let query = helper.location_table.filter(helper.id == max_id)
                 if let user = try db?.pluck(query) {
                     let latitude = user[helper.latitude]
@@ -87,5 +94,25 @@ extension DatabaseMamager {
             print(error.localizedDescription);
         }
         return nil
+    }
+    
+    func allLocationInDataBase(finish: ([CLLocation])->()) {
+        let helper = DataBaserTableHelper()
+        do {
+            var locations:[CLLocation] = []
+            for location in try (db?.prepare(helper.location_table))! {
+                locations.append(helper.rowCoverToLocation(row: location))
+            }
+            finish(locations)
+        } catch {
+            
+        }
+        
+        
+//        do {
+//            let query =
+//        } catch {
+//
+//        }
     }
 }

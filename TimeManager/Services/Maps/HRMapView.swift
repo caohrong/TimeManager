@@ -25,8 +25,6 @@ class HRMapView: UIView, MKMapViewDelegate {
         mapView.backgroundColor = UIColor.blue
         self.addSubview(mapView)
         
-        
-        
         self.translatesAutoresizingMaskIntoConstraints = false
         mapView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -34,7 +32,6 @@ class HRMapView: UIView, MKMapViewDelegate {
         mapView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
         mapView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         mapView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
-
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -9,9 +9,17 @@
 /* Begin PBXBuildFile section */
 		38D27FE27892652DF501CC4F /* Pods_TimeManager_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262C8E540A00FE0D2FDAF292 /* Pods_TimeManager_Widget.framework */; };
 		3C3E732D9C0D962B53CE95CD /* Pods_TimeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */; };
+		7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D687F992239169500D780E9 /* TimeSummaryController.swift */; };
+		7D687F9D2239182800D780E9 /* TimeSummaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D687F9C2239182800D780E9 /* TimeSummaryManager.swift */; };
+		7D687F9F2239197600D780E9 /* TimeSummaryDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D687F9E2239197600D780E9 /* TimeSummaryDataBase.swift */; };
 		7D817156222BC7E8000E53EB /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D817155222BC7E8000E53EB /* CalendarManager.swift */; };
 		7D81715A222BCBA2000E53EB /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D817159222BCBA2000E53EB /* CalendarModel.swift */; };
 		7D9B129A222FC24B005F432E /* HRMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B1299222FC24B005F432E /* HRMapView.swift */; };
+		7DE9A25322322FFE0039357D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE9A25222322FFE0039357D /* GoogleService-Info.plist */; };
+		7DE9A256223247F60039357D /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A255223247F60039357D /* AuthController.swift */; };
+		7DE9A259223248230039357D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A258223248230039357D /* AuthViewController.swift */; };
+		7DE9A25C22324DC80039357D /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A25B22324DC80039357D /* ServiceManager.swift */; };
+		7DE9A25E22324F030039357D /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A25D22324F030039357D /* LocationController.swift */; };
 		7DFF512C22262ED000D98613 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF512B22262ED000D98613 /* AppDelegate.swift */; };
 		7DFF512E22262ED000D98613 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF512D22262ED000D98613 /* ViewController.swift */; };
 		7DFF513122262ED000D98613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF512F22262ED000D98613 /* Main.storyboard */; };
@@ -62,9 +70,19 @@
 		262C8E540A00FE0D2FDAF292 /* Pods_TimeManager_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManager_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6D0982D83AE56D3F96DB23 /* Pods-TimeManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager/Pods-TimeManager.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D687F992239169500D780E9 /* TimeSummaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSummaryController.swift; sourceTree = "<group>"; };
+		7D687F9C2239182800D780E9 /* TimeSummaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSummaryManager.swift; sourceTree = "<group>"; };
+		7D687F9E2239197600D780E9 /* TimeSummaryDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSummaryDataBase.swift; sourceTree = "<group>"; };
 		7D817155222BC7E8000E53EB /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		7D817159222BCBA2000E53EB /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		7D9B1299222FC24B005F432E /* HRMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRMapView.swift; sourceTree = "<group>"; };
+		7DE9A25222322FFE0039357D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7DE9A255223247F60039357D /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		7DE9A258223248230039357D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		7DE9A25B22324DC80039357D /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		7DE9A25D22324F030039357D /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		7DE9A26122326A270039357D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7DE9A26222326A580039357D /* Localizable.strings(cn).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Localizable.strings(cn).xcconfig"; sourceTree = "<group>"; };
 		7DFF512822262ED000D98613 /* TimeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFF512B22262ED000D98613 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DFF512D22262ED000D98613 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +132,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D687F9B2239180700D780E9 /* TimeSummary */ = {
+			isa = PBXGroup;
+			children = (
+				7D687F9C2239182800D780E9 /* TimeSummaryManager.swift */,
+				7D687F9E2239197600D780E9 /* TimeSummaryDataBase.swift */,
+			);
+			path = TimeSummary;
+			sourceTree = "<group>";
+		};
 		7D817154222BC7D3000E53EB /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +156,49 @@
 				7D9B1299222FC24B005F432E /* HRMapView.swift */,
 			);
 			path = Maps;
+			sourceTree = "<group>";
+		};
+		7DE9A254223247A70039357D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7DE9A255223247F60039357D /* AuthController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		7DE9A257223248100039357D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7DE9A258223248230039357D /* AuthViewController.swift */,
+				7DE9A25D22324F030039357D /* LocationController.swift */,
+				7D687F992239169500D780E9 /* TimeSummaryController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7DE9A25A22324DAD0039357D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7DE9A25B22324DC80039357D /* ServiceManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7DE9A25F223269E60039357D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7DE9A260223269E60039357D /* Localizale */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		7DE9A260223269E60039357D /* Localizale */ = {
+			isa = PBXGroup;
+			children = (
+				7DE9A26122326A270039357D /* Localizable.strings */,
+				7DE9A26222326A580039357D /* Localizable.strings(cn).xcconfig */,
+			);
+			path = Localizale;
 			sourceTree = "<group>";
 		};
 		7DFF511F22262ED000D98613 = {
@@ -154,6 +224,8 @@
 		7DFF512A22262ED000D98613 /* TimeManager */ = {
 			isa = PBXGroup;
 			children = (
+				7DE9A25F223269E60039357D /* Source */,
+				7DE9A257223248100039357D /* Controllers */,
 				7DFF51532226681800D98613 /* Basic */,
 				7DFF514722264CAA00D98613 /* Services */,
 				7DFF513D22264B7000D98613 /* TimeManager.entitlements */,
@@ -163,6 +235,7 @@
 				7DFF513222262ED200D98613 /* Assets.xcassets */,
 				7DFF513422262ED200D98613 /* LaunchScreen.storyboard */,
 				7DFF513722262ED200D98613 /* Info.plist */,
+				7DE9A25222322FFE0039357D /* GoogleService-Info.plist */,
 			);
 			path = TimeManager;
 			sourceTree = "<group>";
@@ -170,6 +243,9 @@
 		7DFF514722264CAA00D98613 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7D687F9B2239180700D780E9 /* TimeSummary */,
+				7DE9A25A22324DAD0039357D /* Manager */,
+				7DE9A254223247A70039357D /* Auth */,
 				7D817158222BC8F8000E53EB /* Maps */,
 				7D817154222BC7D3000E53EB /* Calendar */,
 				7DFF514B22264CC400D98613 /* Data */,
@@ -348,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DFF513622262ED200D98613 /* LaunchScreen.storyboard in Resources */,
+				7DE9A25322322FFE0039357D /* GoogleService-Info.plist in Resources */,
 				7DFF513322262ED200D98613 /* Assets.xcassets in Resources */,
 				7DFF513122262ED000D98613 /* Main.storyboard in Resources */,
 			);
@@ -408,16 +485,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TimeManager/Pods-TimeManager-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -432,15 +511,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DFF51712226AD1F00D98613 /* HealthDataManager.swift in Sources */,
+				7DE9A256223247F60039357D /* AuthController.swift in Sources */,
+				7D687F9D2239182800D780E9 /* TimeSummaryManager.swift in Sources */,
 				7D81715A222BCBA2000E53EB /* CalendarModel.swift in Sources */,
+				7D687F9F2239197600D780E9 /* TimeSummaryDataBase.swift in Sources */,
 				7D817156222BC7E8000E53EB /* CalendarManager.swift in Sources */,
 				7DFF512E22262ED000D98613 /* ViewController.swift in Sources */,
+				7DE9A25C22324DC80039357D /* ServiceManager.swift in Sources */,
 				7DFF51552226682F00D98613 /* FilesManger.swift in Sources */,
 				7DFF51732226ADCC00D98613 /* HealthSleepDataManager.swift in Sources */,
 				7DFF512C22262ED000D98613 /* AppDelegate.swift in Sources */,
+				7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */,
+				7DE9A259223248230039357D /* AuthViewController.swift in Sources */,
 				7D9B129A222FC24B005F432E /* HRMapView.swift in Sources */,
 				7DFF514A22264CAA00D98613 /* LocationManager.swift in Sources */,
 				7DFF514E222656B100D98613 /* DatabaseMamager.swift in Sources */,
+				7DE9A25E22324F030039357D /* LocationController.swift in Sources */,
 				7DFF51502226597A00D98613 /* LocationDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

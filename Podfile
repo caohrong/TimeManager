@@ -6,9 +6,11 @@ use_frameworks!
 target 'TimeManager' do
     pod 'SQLite.swift'
     pod 'Charts'
-    pod 'Firebase/Core'
+#    pod 'Firebase/Core'
+#    pod 'FirebaseUI'
+    pod 'RxSwift'
+    pod 'RxCocoa'
 end
-
 
 target 'TimeManager_Widget' do
     pod 'SQLite.swift'
