@@ -138,12 +138,6 @@ class HealthDataManager: NSObject {
                     } else {
                         dic[currentDateKey] = [item]
                     }
-                    //分类
-                    
-                    //遍历所有的随眠时间
-                    
-                    //计算出睡眠时间
-//                    CalendarManager.shared.createEvent(fromTime: item.startDate, toTime: item.endDate, eventName: "Sleeping Time")
                 }
                 break
             case 1:
@@ -157,8 +151,6 @@ class HealthDataManager: NSObject {
                 break
             }
         }
-        
-//        var dicNew:[String:HKCategorySample] = [:]
         for singleValue in dic {
             var tempValues = singleValue.value
             var currentMixitem:HKCategorySample = tempValues.remove(at: 0)
