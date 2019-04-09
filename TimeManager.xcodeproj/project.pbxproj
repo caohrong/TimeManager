@@ -64,6 +64,7 @@
 		7D9A4240225CB4BF00355C8D /* BPRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A423A225CB4BF00355C8D /* BPRegion.m */; };
 		7D9A4241225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A423C225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.m */; };
 		7D9A4242225CB4BF00355C8D /* BPPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A423D225CB4BF00355C8D /* BPPolygon.m */; };
+		7D9A424B225CB83300355C8D /* china.kml in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A424A225CB83300355C8D /* china.kml */; };
 		7DE9A259223248230039357D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A258223248230039357D /* AuthViewController.swift */; };
 		7DE9A25E22324F030039357D /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A25D22324F030039357D /* LocationController.swift */; };
 		7DFF513F22264B7100D98613 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFF513E22264B7000D98613 /* HealthKit.framework */; };
@@ -162,6 +163,8 @@
 		7D9A423D225CB4BF00355C8D /* BPPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPolygon.m; sourceTree = "<group>"; };
 		7D9A423E225CB4BF00355C8D /* BPRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPRegion.h; sourceTree = "<group>"; };
 		7D9A423F225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+ChinaMapDeviation.h"; sourceTree = "<group>"; };
+		7D9A4246225CB5D700355C8D /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		7D9A424A225CB83300355C8D /* china.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = china.kml; sourceTree = "<group>"; };
 		7DE9A258223248230039357D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		7DE9A25D22324F030039357D /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		7DFF512822262ED000D98613 /* TimeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +284,7 @@
 				7D9A41A5225C820D00355C8D /* GoogleService-Info.plist */,
 				7D9A41A6225C820D00355C8D /* LaunchScreen.storyboard */,
 				7D9A41A8225C820D00355C8D /* AppDelegate.swift */,
+				7D9A4246225CB5D700355C8D /* Bridging-Header.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -438,6 +442,7 @@
 				7D9A423A225CB4BF00355C8D /* BPRegion.m */,
 				7D9A423F225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.h */,
 				7D9A423C225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.m */,
+				7D9A424A225CB83300355C8D /* china.kml */,
 			);
 			path = "Deviation of China Map";
 			sourceTree = "<group>";
@@ -625,6 +630,7 @@
 			files = (
 				7D999D43225B39B1006B49B7 /* Images.xcassets in Resources */,
 				7D9A41ED225C820F00355C8D /* Localizable.strings in Resources */,
+				7D9A424B225CB83300355C8D /* china.kml in Resources */,
 				7D9A41F0225C820F00355C8D /* GoogleService-Info.plist in Resources */,
 				7D9A41F1225C820F00355C8D /* LaunchScreen.storyboard in Resources */,
 				7D9A41EF225C820F00355C8D /* Assets.xcassets in Resources */,
@@ -928,6 +934,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caohr.TimeManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TimeManager/Supporting Files/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -950,6 +957,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caohr.TimeManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TimeManager/Supporting Files/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
