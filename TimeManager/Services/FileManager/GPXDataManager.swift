@@ -23,7 +23,6 @@ class GPXDataManager {
             self.GPXData = self.loadDataFromDocument()
         }
     }
-    
     deinit {
         self.notificationUnRegister()
     }
