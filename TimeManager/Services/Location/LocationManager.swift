@@ -14,19 +14,32 @@ class LocationManager: NSObject {
     private override init() {
         super.init()
         self.enableLocationServices()
+        locationManager.delegate = self
     }
+    
+    weak var delegate: CLLocationManagerDelegate? {
+        didSet {
+            locationManager.delegate = delegate
+        }
+    }
+    
     fileprivate let locationManager:CLLocationManager = {
-        let locationManager = CLLocationManager()
-        locationManager.distanceFilter = 20;
-        locationManager.desiredAccuracy = 15;
-        return locationManager;
+        let manager = CLLocationManager()
+        manager.requestAlwaysAuthorization()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.distanceFilter = 2 //meters
+        manager.headingFilter = 1 //degrees (1 is default)
+        manager.pausesLocationUpdatesAutomatically = false
+        if #available(iOS 9.0, *) {
+            manager.allowsBackgroundLocationUpdates = true
+        }
+        return manager;
     }()
 }
 
 //request auth
 extension LocationManager {
     func enableLocationServices() {
-        locationManager.delegate = self
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
             print("用户没有选择位置更新");
@@ -69,6 +82,10 @@ extension LocationManager {
         print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬停止更新位置");
         locationManager.stopUpdatingLocation()
     }
+    
+    func startHeading() {
+        locationManager.startUpdatingHeading()
+    }
 }
 
 //Delegate
@@ -77,8 +94,9 @@ extension LocationManager : CLLocationManagerDelegate {
 //        print("位置更新-----------");
         let location = locations[0]
 //        print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬\(location.coordinate.latitude)---\(location.coordinate.longitude)")
-        guard let mode = locations.last else { return }
-        DatabaseMamager.shared.insertLocation(location: mode)
+        
+//        guard let mode = locations.last else { return }
+//        DatabaseMamager.shared.insertLocation(location: mode)
     }
     
     func locationManager(_ manager: CLLocationManager,
@@ -87,12 +105,10 @@ extension LocationManager : CLLocationManagerDelegate {
         // Disable your app's location features
         //        disableMyLocationBasedFeatures()
         break
-        
     case .authorizedWhenInUse:
         // Enable only your app's when-in-use features.
         //        enableMyWhenInUseFeatures()
         break
-        
     case .authorizedAlways:
         // Enable any of your app's location services.
         //        enableMyAlwaysFeatures()

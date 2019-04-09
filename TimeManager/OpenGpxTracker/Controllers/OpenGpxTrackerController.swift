@@ -9,16 +9,15 @@ import UIKit
 import CoreLocation
 import MapKit
 import CoreGPX
-import WatchConnectivity
 
-//Button colors
-let kPurpleButtonBackgroundColor: UIColor =  UIColor(red: 146.0/255.0, green: 166.0/255.0, blue: 218.0/255.0, alpha: 0.90)
-let kGreenButtonBackgroundColor: UIColor = UIColor(red: 142.0/255.0, green: 224.0/255.0, blue: 102.0/255.0, alpha: 0.90)
-let kRedButtonBackgroundColor: UIColor =  UIColor(red: 244.0/255.0, green: 94.0/255.0, blue: 94.0/255.0, alpha: 0.90)
-let kBlueButtonBackgroundColor: UIColor = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 0.90)
-let kDisabledBlueButtonBackgroundColor: UIColor = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 0.10)
-let kDisabledRedButtonBackgroundColor: UIColor =  UIColor(red: 244.0/255.0, green: 94.0/255.0, blue: 94.0/255.0, alpha: 0.10)
-let kWhiteBackgroundColor: UIColor = UIColor(red: 254.0/255.0, green: 254.0/255.0, blue: 254.0/255.0, alpha: 0.90)
+////Button colors
+//let UIColor.purple: UIColor =  UIColor(red: 146.0/255.0, green: 166.0/255.0, blue: 218.0/255.0, alpha: 0.90)
+//let UIColor.green: UIColor = UIColor(red: 142.0/255.0, green: 224.0/255.0, blue: 102.0/255.0, alpha: 0.90)
+//let UIColor.red: UIColor =  UIColor(red: 244.0/255.0, green: 94.0/255.0, blue: 94.0/255.0, alpha: 0.90)
+//let UIColor.blue: UIColor = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 0.90)
+//let UIColor.blue: UIColor = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 0.10)
+//let UIColor.red: UIColor =  UIColor(red: 244.0/255.0, green: 94.0/255.0, blue: 94.0/255.0, alpha: 0.10)
+//let UIColor.white: UIColor = UIColor(red: 254.0/255.0, green: 254.0/255.0, blue: 254.0/255.0, alpha: 0.90)
 
 //Accesory View buttons tags
 let kDeleteWaypointAccesoryButtonTag = 666
@@ -35,6 +34,7 @@ let kButtonLargeSize: CGFloat = 96.0
 /// Separation between buttons
 let kButtonSeparation: CGFloat = 6.0
 
+//GPS信号强度
 /// Upper limits threshold (in meters) on signal accuracy.
 let kSignalAccuracy6 = 6.0
 let kSignalAccuracy5 = 11.0
@@ -49,7 +49,7 @@ let kSignalAccuracy1 = 201.0
 /// Displays a map and a set the buttons to control the tracking
 ///
 ///
-class ViewController: UIViewController, UIGestureRecognizerDelegate  {
+class OpenGpxTrackerController: UIViewController, UIGestureRecognizerDelegate  {
     
     /// Shall the map be centered on current user position?
     /// If yes, whenever the user moves, the center of the map too.
@@ -70,21 +70,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
     
     var followUserBeforePinchGesture = true
     
-    
     //MapView
-    let locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        manager.requestAlwaysAuthorization()
-        
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.distanceFilter = 2 //meters
-        manager.headingFilter = 1 //degrees (1 is default)
-        manager.pausesLocationUpdatesAutomatically = false
-        if #available(iOS 9.0, *) {
-            manager.allowsBackgroundLocationUpdates = true
-        }
-        return manager
-    }()
+    let locationManager: LocationManager = LocationManager.shared
     
     /// Map View
     var map: GPXMapView
@@ -103,13 +90,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         /// Whenever it is updated, if it has waypoints it sets the save and reset button
         didSet {
             if hasWaypoints {
-                saveButton.backgroundColor = kBlueButtonBackgroundColor
-                resetButton.backgroundColor = kRedButtonBackgroundColor
+                saveButton.backgroundColor = UIColor.blue
+                resetButton.backgroundColor = UIColor.red
             }
         }
     }
     
-   
     /// Defines the different statuses regarding tracking current user location.
     enum GpxTrackingStatus {
         
@@ -132,10 +118,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
                 print("switched to non started")
                 // set Tracker button to allow Start 
                 trackerButton.setTitle("Start Tracking", for: UIControl.State())
-                trackerButton.backgroundColor = kGreenButtonBackgroundColor
+                trackerButton.backgroundColor = UIColor.green
                 //save & reset button to transparent.
-                saveButton.backgroundColor = kDisabledBlueButtonBackgroundColor
-                resetButton.backgroundColor = kDisabledRedButtonBackgroundColor
+                saveButton.backgroundColor = UIColor.blue
+                resetButton.backgroundColor = UIColor.red
                 //reset clock
                 stopWatch.reset()
                 timeLabel.text = stopWatch.elapsedTimeString
@@ -160,10 +146,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
                 print("switched to tracking mode")
                 // set tracerkButton to allow Pause
                 trackerButton.setTitle("Pause", for: UIControl.State())
-                trackerButton.backgroundColor = kPurpleButtonBackgroundColor
+                trackerButton.backgroundColor = UIColor.purple
                 //activate save & reset buttons
-                saveButton.backgroundColor = kBlueButtonBackgroundColor
-                resetButton.backgroundColor = kRedButtonBackgroundColor
+                saveButton.backgroundColor = UIColor.blue
+                resetButton.backgroundColor = UIColor.red
                 // start clock
                 self.stopWatch.start()
                 
@@ -171,10 +157,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
                 print("switched to paused mode")
                 // set trackerButton to allow Resume
                 self.trackerButton.setTitle("Resume", for: UIControl.State())
-                self.trackerButton.backgroundColor = kGreenButtonBackgroundColor
+                self.trackerButton.backgroundColor = UIColor.green
                 // activate save & reset (just in case switched from .NotStarted)
-                saveButton.backgroundColor = kBlueButtonBackgroundColor
-                resetButton.backgroundColor = kRedButtonBackgroundColor
+                saveButton.backgroundColor = UIColor.blue
+                resetButton.backgroundColor = UIColor.red
                 //pause clock
                 self.stopWatch.stop()
                 // start new track segment
@@ -185,7 +171,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
 
     /// Editing Waypoint Temporal Reference
     var lastLocation: CLLocation? //Last point of current segment.
-    
     
     //UI
     //labels
@@ -198,7 +183,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
     var speedLabel: UILabel
     var totalTrackedDistanceLabel: UIDistanceLabel
     var currentSegmentDistanceLabel: UIDistanceLabel
- 
     
     // Buttons
     var followUserButton: UIButton
@@ -210,64 +194,49 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
     var resetButton: UIButton
     var trackerButton: UIButton
     var saveButton: UIButton
-    
-    // Signal accuracy images
-    let signalImage0 = UIImage(named: "signal0")
-    let signalImage1 = UIImage(named: "signal1")
-    let signalImage2 = UIImage(named: "signal2")
-    let signalImage3 = UIImage(named: "signal3")
-    let signalImage4 = UIImage(named: "signal4")
-    let signalImage5 = UIImage(named: "signal5")
-    let signalImage6 = UIImage(named: "signal6")
- 
+
     // Initializer. Just initializes the class vars/const
-    required init(coder aDecoder: NSCoder) {
-        self.map = GPXMapView(coder: aDecoder)!
+    init() {
         
-        self.appTitleLabel = UILabel(coder: aDecoder)!
-        self.signalImageView = UIImageView(coder: aDecoder)!
-        self.signalAccuracyLabel = UILabel(coder: aDecoder)!
-        self.coordsLabel = UILabel(coder: aDecoder)!
+        self.map = GPXMapView()
         
-        self.timeLabel = UILabel(coder: aDecoder)!
-        self.speedLabel = UILabel(coder: aDecoder)!
-        self.totalTrackedDistanceLabel = UIDistanceLabel(coder: aDecoder)!
-        self.currentSegmentDistanceLabel = UIDistanceLabel(coder: aDecoder)!
+        self.appTitleLabel = UILabel()
+        self.signalImageView = UIImageView()
+        self.signalAccuracyLabel = UILabel()
+        self.coordsLabel = UILabel()
+        self.timeLabel = UILabel()
+        self.speedLabel = UILabel()
+        self.totalTrackedDistanceLabel = UIDistanceLabel()
+        self.currentSegmentDistanceLabel = UIDistanceLabel()
         
-        self.followUserButton = UIButton(coder: aDecoder)!
-        self.newPinButton = UIButton(coder: aDecoder)!
-        self.folderButton = UIButton(coder: aDecoder)!
-        self.resetButton = UIButton(coder: aDecoder)!
-        self.aboutButton = UIButton(coder: aDecoder)!
-        self.preferencesButton = UIButton(coder: aDecoder)!
-        self.shareButton = UIButton(coder: aDecoder)!
-        
-        self.trackerButton = UIButton(coder: aDecoder)!
-        self.saveButton = UIButton(coder: aDecoder)!
-        
-        super.init(coder: aDecoder)!
+        self.followUserButton = UIButton()
+        self.newPinButton = UIButton()
+        self.folderButton = UIButton()
+        self.resetButton = UIButton()
+        self.aboutButton = UIButton()
+        self.preferencesButton = UIButton()
+        self.shareButton = UIButton()
+        self.trackerButton = UIButton()
+        self.saveButton = UIButton()
         followUser = true
+        
+        super.init(nibName: nil, bundle: nil)
     }
     
-    ///
-    /// De initalize the ViewController.
-    ///
-    /// Current implementation removes notification observers
-    ///
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     deinit {
         print("*** deinit")
         removeNotificationObservers()
     }
-   
     
-    ///
-    /// Initializes the view. It adds the UI elements to the view.
-    ///
-    /// All the UI is built programatically on this method. Interface builder is not used.
-    ///
     override func viewDidLoad() {
         super.viewDidLoad()
         stopWatch.delegate = self
+        
+        self.navigationController?.navigationBar.isHidden = true
         
         //Because of the edges, iPhone X* is slightly different on the layout.
         //So, Is the current device an iPhone X?
@@ -293,21 +262,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
                 print("UNDETERMINED")
             }
         }
-        
-        // Watch communication session activation (available >iOS 9)
-        if #available(iOS 9.0, *) {
-            if WCSession.isSupported() {
-                print("ViewController:: WCSession is supported")
-                let session = WCSession.default
-                session.delegate = self
-                session.activate()
-                print("ViewController:: WCSession activated")
-            }
-            else {
-                print("ViewController:: WCSession is not supported")
-            }
-        }
-        
+
         // Map autorotate configuration
         map.autoresizesSubviews = true
         map.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -326,17 +281,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         
         //If user long presses the map, it will add a Pin (waypoint) at that point
         map.addGestureRecognizer(
-            UILongPressGestureRecognizer(target: self, action: #selector(ViewController.addPinAtTappedLocation(_:)))
+            UILongPressGestureRecognizer(target: self, action: #selector(OpenGpxTrackerController.addPinAtTappedLocation(_:)))
         )
         
         //Each time user pans, if the map is following the user, it stops doing that.
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(ViewController.stopFollowingUser(_:)))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(OpenGpxTrackerController.stopFollowingUser(_:)))
         panGesture.delegate = self
         map.addGestureRecognizer(panGesture)
         
         locationManager.delegate = self
-        locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
+        locationManager.start(auto_stop: false)
+        locationManager.startHeading()
         
         //let pinchGesture = UIPinchGestureRecognizer(target: self, action: "pinchGesture")
         //map.addGestureRecognizer(pinchGesture)
@@ -361,15 +316,16 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         // Config user interface
         //
         
-        // Set default zoom
-        let center = locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 8.90, longitude: -79.50)
+//         Set default zoom
+        let center = CLLocationCoordinate2D(latitude: 8.90, longitude: -79.50)
         let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: center, span: span)
         map.setRegion(region, animated: true)
+        //设置默认的缩放区域
+        
         self.view.addSubview(map)
         
         addNotificationObservers()
-        
         //
         // ---------------------- Build Interface Area -----------------------------
         //
@@ -445,9 +401,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         aboutButton.frame = CGRect(x: 5 + 8, y: 14 + 5 + 48 + 5 + iPhoneXdiff, width: 32, height: 32)
         aboutButton.setImage(UIImage(named: "info"), for: UIControl.State())
         aboutButton.setImage(UIImage(named: "info_high"), for: .highlighted)
-        aboutButton.addTarget(self, action: #selector(ViewController.openAboutViewController), for: .touchUpInside)
+        aboutButton.addTarget(self, action: #selector(OpenGpxTrackerController.openAboutViewController), for: .touchUpInside)
         aboutButton.autoresizingMask = [.flexibleRightMargin]
-        //aboutButton.backgroundColor = kWhiteBackgroundColor
+        //aboutButton.backgroundColor = UIColor.white
         //aboutButton.layer.cornerRadius = 24
         map.addSubview(aboutButton)
         
@@ -455,9 +411,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         preferencesButton.frame = CGRect(x: 5 + 10 + 48, y: 14 + 5 + 8  + iPhoneXdiff, width: 32, height: 32)
         preferencesButton.setImage(UIImage(named: "prefs"), for: UIControl.State())
         preferencesButton.setImage(UIImage(named: "prefs_high"), for: .highlighted)
-        preferencesButton.addTarget(self, action: #selector(ViewController.openPreferencesTableViewController), for: .touchUpInside)
+        preferencesButton.addTarget(self, action: #selector(OpenGpxTrackerController.openPreferencesTableViewController), for: .touchUpInside)
         preferencesButton.autoresizingMask = [.flexibleRightMargin]
-        //aboutButton.backgroundColor = kWhiteBackgroundColor
+        //aboutButton.backgroundColor = UIColor.white
         //aboutButton.layer.cornerRadius = 24
         map.addSubview(preferencesButton)
         
@@ -465,9 +421,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         shareButton.frame = CGRect(x: 5 + 10 + 48 * 2, y: 14 + 5 + 8  + iPhoneXdiff, width: 32, height: 32)
         shareButton.setImage(UIImage(named: "share"), for: UIControl.State())
         shareButton.setImage(UIImage(named: "share_high"), for: .highlighted)
-        shareButton.addTarget(self, action: #selector(ViewController.openShare), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(OpenGpxTrackerController.openShare), for: .touchUpInside)
         shareButton.autoresizingMask = [.flexibleRightMargin]
-        //aboutButton.backgroundColor = kWhiteBackgroundColor
+        //aboutButton.backgroundColor = UIColor.white
         //aboutButton.layer.cornerRadius = 24
         map.addSubview(shareButton)
         
@@ -480,14 +436,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         folderButton.center = CGPoint(x: folderX, y: folderY)
         folderButton.setImage(UIImage(named: "folder"), for: UIControl.State())
         folderButton.setImage(UIImage(named: "folderHigh"), for: .highlighted)
-        folderButton.addTarget(self, action: #selector(ViewController.openFolderViewController), for: .touchUpInside)
-        folderButton.backgroundColor = kWhiteBackgroundColor
+        folderButton.addTarget(self, action: #selector(OpenGpxTrackerController.openFolderViewController), for: .touchUpInside)
+        folderButton.backgroundColor = UIColor.white
         folderButton.layer.cornerRadius = 24
         folderButton.autoresizingMask = [.flexibleRightMargin]
         map.addSubview(folderButton)
         
         // Add signal accuracy images and labels
-        signalImageView.image = signalImage0
+        signalImageView.image = UIImage(named: "signal0")
         signalImageView.frame = CGRect(x: self.view.frame.width/2 - 25.0, y:  14 + 5 + iPhoneXdiff, width: 50, height: 30)
         signalImageView.autoresizingMask  = [.flexibleLeftMargin, .flexibleRightMargin]
         map.addSubview(signalImageView)
@@ -497,7 +453,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         signalAccuracyLabel.textAlignment = .center
         signalAccuracyLabel.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         map.addSubview(signalAccuracyLabel)
-        
         
         //
         // Button Bar
@@ -527,8 +482,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         trackerButton.center = CGPoint(x: trackerX, y: trackerY)
         trackerButton.layer.cornerRadius = trackerW/2
         trackerButton.setTitle("Start Tracking", for: UIControl.State())
-        trackerButton.backgroundColor = kGreenButtonBackgroundColor
-        trackerButton.addTarget(self, action: #selector(ViewController.trackerButtonTapped), for: .touchUpInside)
+        trackerButton.backgroundColor = UIColor.green
+        trackerButton.addTarget(self, action: #selector(OpenGpxTrackerController.trackerButtonTapped), for: .touchUpInside)
         trackerButton.isHidden = false
         trackerButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         trackerButton.titleLabel?.numberOfLines = 2
@@ -544,10 +499,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         newPinButton.frame = CGRect(x: 0, y: 0, width: newPinW, height: newPinH)
         newPinButton.center = CGPoint(x: newPinX, y: newPinY)
         newPinButton.layer.cornerRadius = newPinW/2
-        newPinButton.backgroundColor = kWhiteBackgroundColor
+        newPinButton.backgroundColor = UIColor.white
         newPinButton.setImage(UIImage(named: "addPin"), for: UIControl.State())
         newPinButton.setImage(UIImage(named: "addPinHigh"), for: .highlighted)
-        newPinButton.addTarget(self, action: #selector(ViewController.addPinAtMyLocation), for: .touchUpInside)
+        newPinButton.addTarget(self, action: #selector(OpenGpxTrackerController.addPinAtMyLocation), for: .touchUpInside)
         newPinButton.autoresizingMask = [.flexibleLeftMargin, .flexibleTopMargin, .flexibleBottomMargin, .flexibleRightMargin]
         //let newPinLongPress = UILongPressGestureRecognizer(target: self, action: Selector("newPinLongPress:"))
         //newPinButton.addGestureRecognizer(newPinLongPress)
@@ -561,11 +516,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         followUserButton.frame = CGRect(x: 0, y: 0, width: followW, height: followH)
         followUserButton.center = CGPoint(x: followX, y: followY)
         followUserButton.layer.cornerRadius = followW/2
-        followUserButton.backgroundColor = kWhiteBackgroundColor
+        followUserButton.backgroundColor = UIColor.white
         //follow_user_high represents the user is being followed. Default status when app starts
         followUserButton.setImage(UIImage(named: "follow_user_high"), for: UIControl.State())
         followUserButton.setImage(UIImage(named: "follow_user_high"), for: .highlighted)
-        followUserButton.addTarget(self, action: #selector(ViewController.followButtonTroggler), for: .touchUpInside)
+        followUserButton.addTarget(self, action: #selector(OpenGpxTrackerController.followButtonTroggler), for: .touchUpInside)
         followUserButton.autoresizingMask = [.flexibleLeftMargin, .flexibleTopMargin, .flexibleBottomMargin, .flexibleRightMargin]
         map.addSubview(followUserButton)
         
@@ -578,8 +533,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         saveButton.center = CGPoint(x: saveX, y: saveY)
         saveButton.layer.cornerRadius = saveW/2
         saveButton.setTitle("Save", for: UIControl.State())
-        saveButton.backgroundColor = kDisabledBlueButtonBackgroundColor
-        saveButton.addTarget(self, action: #selector(ViewController.saveButtonTapped), for: .touchUpInside)
+        saveButton.backgroundColor = UIColor.blue
+        saveButton.addTarget(self, action: #selector(OpenGpxTrackerController.saveButtonTapped), for: .touchUpInside)
         saveButton.isHidden = false
         saveButton.titleLabel?.textAlignment = .center
         saveButton.autoresizingMask = [.flexibleLeftMargin, .flexibleTopMargin, .flexibleBottomMargin, .flexibleRightMargin]
@@ -594,12 +549,27 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         resetButton.center = CGPoint(x: resetX, y: resetY)
         resetButton.layer.cornerRadius = resetW/2
         resetButton.setTitle("Reset", for: UIControl.State())
-        resetButton.backgroundColor = kDisabledRedButtonBackgroundColor
-        resetButton.addTarget(self, action: #selector(ViewController.resetButtonTapped), for: .touchUpInside)
+        resetButton.backgroundColor = UIColor.red
+        resetButton.addTarget(self, action: #selector(OpenGpxTrackerController.resetButtonTapped), for: .touchUpInside)
         resetButton.isHidden = false
         resetButton.titleLabel?.textAlignment = .center
         resetButton.autoresizingMask = [.flexibleLeftMargin, .flexibleTopMargin, .flexibleBottomMargin, .flexibleRightMargin]
         map.addSubview(resetButton)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard let baseURL = URL.init(string: "file:///Users/huanrong/Library/Developer/CoreSimulator/Devices/18A990FD-F3A1-44CE-9B75-2A45990F3BE6/data/Containers/Data/Application/7090B6BB-DA9F-4643-BB9A-CDB64580C1A1/Documents") else {
+            return
+        }
+        
+        let file1 = baseURL.appendingPathComponent("2019-03-29.gpx")
+        let file2 = baseURL.appendingPathComponent("08-Apr-2019-2109.gpx")
+        let file3 = baseURL.appendingPathComponent("2019-03-28.gpx")
+        let file4 = baseURL.appendingPathComponent("2019-04-08.gpx")
+        
+//        self.didLoadGPXFileWithName(<#T##gpxFilename: String##String#>, gpxRoot: <#T##GPXRoot#>)
     }
     
     ///
@@ -614,7 +584,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
     func addNotificationObservers() {
         let notificationCenter = NotificationCenter.default
         
-        notificationCenter.addObserver(self, selector: #selector(ViewController.didEnterBackground),
+        notificationCenter.addObserver(self, selector: #selector(OpenGpxTrackerController.didEnterBackground),
                                        name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
        
         notificationCenter.addObserver(self, selector: #selector(applicationDidBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
@@ -651,8 +621,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
             return
         }
         checkLocationServicesStatus()
-        locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
+        locationManager.start(auto_stop: false)
+        locationManager.startHeading()
     }
     
     ///
@@ -666,7 +636,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         wasSentToBackground = true // flag the application was sent to background
         print("viewController:: didEnterBackground")
         if gpxTrackingStatus != .tracking {
-            locationManager.stopUpdatingLocation()
+            locationManager.stop()
         }
     }
     
@@ -682,6 +652,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
     ///
     /// Displays the view controller with the list of GPX Files.
     ///
+    // Mark 打开文件
     @objc func openFolderViewController() {
         print("openFolderViewController")
         let vc = GPXFilesTableViewController(nibName: nil, bundle: nil)
@@ -800,12 +771,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         self.gpxTrackingStatus = .notStarted
     }
     
-
-    ///
-    /// Main Start/Pause Button was tapped.
-    ///
-    /// It sets the status to tracking or paused.
-    ///
+// MARK: - 按钮点击
     @objc func trackerButtonTapped() {
         print("startGpxTracking::")
         switch gpxTrackingStatus {
@@ -819,11 +785,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         }
     }
     
-    ///
-    /// Triggered when user taps on save Button
-    ///
-    /// It prompts the user to set a name of the file.
-    ///
+    // MARK: - 保存按钮
     @objc func saveButtonTapped() {
         print("save Button tapped")
         // ignore the save button if there is nothing to save.
@@ -842,6 +804,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         let saveAction = UIAlertAction(title: "Save", style: .default) { (action) in
             let filename = (alertController.textFields?[0].text!.utf16.count == 0) ? self.defaultFilename() : alertController.textFields?[0].text
             print("Save File \(String(describing: filename))")
+            
             //export to a file
             let gpxString = self.map.exportToGPXString()
             GPXFileManager.save(filename!, gpxContents: gpxString)
@@ -853,7 +816,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true)
-        
     }
     
     ///
@@ -940,7 +902,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate  {
 /// user has been tracking his position.
 ///
 ///
-extension ViewController: StopWatchDelegate {
+extension OpenGpxTrackerController: StopWatchDelegate {
     func stopWatch(_ stropWatch: StopWatch, didUpdateElapsedTimeString elapsedTimeString: String) {
         timeLabel.text = elapsedTimeString
     }
@@ -948,7 +910,7 @@ extension ViewController: StopWatchDelegate {
 
 // MARK: PreferencesTableViewControllerDelegate
 
-extension ViewController: PreferencesTableViewControllerDelegate {
+extension OpenGpxTrackerController: PreferencesTableViewControllerDelegate {
     ///
     /// Updates the `tileServer` the map is using.
     ///
@@ -975,13 +937,14 @@ extension ViewController: PreferencesTableViewControllerDelegate {
 // MARK: location manager Delegate
 
 
-extension ViewController: GPXFilesTableViewControllerDelegate {
+extension OpenGpxTrackerController: GPXFilesTableViewControllerDelegate {
     ///
     /// Loads the selected GPX File into the map.
     ///
     /// Resets whatever estatus was before.
     ///
     func didLoadGPXFileWithName(_ gpxFilename: String, gpxRoot: GPXRoot) {
+        
         //emulate a reset button tap
         self.resetButtonTapped()
         //println("Loaded GPX file", gpx.gpx())
@@ -1002,15 +965,13 @@ extension ViewController: GPXFilesTableViewControllerDelegate {
 }
 
 // MARK: CLLocationManagerDelegate
-
-
-extension ViewController: CLLocationManagerDelegate {
+extension OpenGpxTrackerController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("didFailWithError \(error)")
         coordsLabel.text = kNotGettingLocationText
         signalAccuracyLabel.text = kUnknownAccuracyText
-        signalImageView.image = signalImage0
+        signalImageView.image = UIImage(named: "signal0")
         let locationError = error as? CLError
         switch locationError?.code {
         case CLError.locationUnknown:
@@ -1026,61 +987,28 @@ extension ViewController: CLLocationManagerDelegate {
   
     }
     
-    ///
-    /// Updates location accuracy and map information when user is in a new position
-    ///
-    ///
+    //Mark - 位置更新
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //updates signal image accuracy
         let newLocation = locations.first!
-        print("isUserLocationVisible: \(map.isUserLocationVisible) showUserLocation: \(map.showsUserLocation)")
-        print("didUpdateLocation: received \(newLocation.coordinate) hAcc: \(newLocation.horizontalAccuracy) vAcc: \(newLocation.verticalAccuracy) floor: \(newLocation.floor?.description ?? "''") map.userTrackingMode: \(map.userTrackingMode.rawValue)")
-        let hAcc = newLocation.horizontalAccuracy
-        signalAccuracyLabel.text = "±\(hAcc)m"
-        if hAcc < kSignalAccuracy6 {
-            self.signalImageView.image = signalImage6
-        } else if hAcc < kSignalAccuracy5 {
-            self.signalImageView.image = signalImage5
-        } else if hAcc < kSignalAccuracy4 {
-            self.signalImageView.image = signalImage4
-        } else if hAcc < kSignalAccuracy3 {
-            self.signalImageView.image = signalImage3
-        } else if hAcc < kSignalAccuracy2 {
-            self.signalImageView.image = signalImage2
-        } else if hAcc < kSignalAccuracy1 {
-            self.signalImageView.image = signalImage1
-        } else{
-            self.signalImageView.image = signalImage0
-        }
+
+        signalAccuracyLabel.text = newLocation.singleAccuracyLevelFormate
+        self.signalImageView.image = UIImage(named: "signal\(newLocation.singleAccuracyLevel)")
         
-        //Update coordsLabel
-        let latFormat = String(format: "%.6f", newLocation.coordinate.latitude)
-        let lonFormat = String(format: "%.6f", newLocation.coordinate.longitude)
-        let altFormat = String(format: "%.2f", newLocation.altitude)
-        coordsLabel.text = "(\(latFormat),\(lonFormat)) · altitude: \(altFormat)m"
-        
-        
-        //Update speed (provided in m/s, but displayed in km/h)
-        var speedFormat: String
-        if newLocation.speed < 0 {
-            speedFormat = kUnknownSpeedText
-        } else {
-            speedFormat = String(format: "%.2f", (newLocation.speed * 3.6))
-        }
-        speedLabel.text = "\(speedFormat) km/h"
+        coordsLabel.text = newLocation.description
+        speedLabel.text = "\(newLocation.speedFormat) km/h"
         
         //Update Map center and track overlay if user is being followed
         if followUser {
             map.setCenter(newLocation.coordinate, animated: true)
         }
+        
         if gpxTrackingStatus == .tracking {
-            print("didUpdateLocation: adding point to track (\(newLocation.coordinate.latitude),\(newLocation.coordinate.longitude))")
             map.addPointToCurrentTrackSegmentAtLocation(newLocation)
             totalTrackedDistanceLabel.distance = map.totalTrackedDistance
             currentSegmentDistanceLabel.distance = map.currentSegmentDistance
         }
     }
-    
     
     ///
     ///
@@ -1094,61 +1022,4 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
-
-// MARK: WCSessionDelegate
-
-///
-/// Handles file transfers from Apple Watch companion app
-/// Should be non intrusive to UI, handling all in the background.
-
-/// File received are automatically moved to default location which stores all GPX files
-///
-/// Only available > iOS 9
-///
-@available(iOS 9.0, *)
-extension ViewController: WCSessionDelegate {
-    
-    // called when `WCSession` goes inactive
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        print("GPXFilesTableViewController:: WCSession has become inactive")
-    }
-    
-    func sessionDidDeactivate(_ session: WCSession) {
-        print("GPXFilesTableViewController:: WCSession has deactivated")
-    }
-    
-    @available(iOS 9.3, *)
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        switch activationState {
-        case .activated:
-            print("GPXFilesTableViewController:: activationDidCompleteWithActivationState: session activated")
-        case .inactive:
-            print("GPXFilesTableViewController:: activationDidCompleteWithActivationState: session inactive")
-        case .notActivated:
-            print("GPXFilesTableViewController:: activationDidCompleteWithActivationState: session not activated, error:\(String(describing: error))")
-            
-        default: break
-        }
-    }
-    
-    func session(_ session: WCSession, didReceive file: WCSessionFile) {
-        let fileName = file.metadata!["fileName"] as! String?
-        
-        // alert to display to notify user that file has been received.
-        let controller = UIAlertController(title: "File Received from Apple Watch", message: "Received file: \"\(fileName!)\"", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Done", style: .default) {
-            (action) in
-            print("ViewController:: Presented file received message from WatchConnectivity Session")
-        }
-        
-        controller.addAction(action)
-        
-        DispatchQueue.global().sync {
-            GPXFileManager.moveFrom(file.fileURL, fileName: fileName)
-            print("ViewController:: Received file from WatchConnectivity Session")
-        }
-        
-        self.present(controller, animated: true, completion: nil)
-    }
-}
 

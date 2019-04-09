@@ -5,7 +5,10 @@ import UIKit
 class TrackerButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = kWhiteBackgroundColor
+    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = UIColor.white
     }
     
     override func layoutSubviews() {

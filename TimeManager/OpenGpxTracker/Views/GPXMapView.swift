@@ -111,14 +111,58 @@ class GPXMapView: MKMapView {
     /// Overlay that holds map tiles
     var tileServerOverlay: MKTileOverlay = MKTileOverlay()
     
+    
+    var saveMapViewZoom:Bool = true
+    fileprivate var mapViewZoom:MKCoordinateRegion? {
+        get {
+            guard let codeData = UserDefaults.standard.data(forKey: "mapViewZoomKey") else {
+                return nil
+            }
+            guard let status = try! NSKeyedUnarchiver.unarchiveObject(with: codeData) as? MapViewZoomStatusModel else {
+                return nil
+            }
+            return MKCoordinateRegion.init(center: CLLocationCoordinate2D(latitude: status.latitude, longitude: status.longitude), span: MKCoordinateSpan.init(latitudeDelta: status.longitudeDelta, longitudeDelta: status.longitudeDelta))
+        }
+        
+        set {
+            guard let newValue = newValue else { return }
+            let status = MapViewZoomStatusModel(coordinate: newValue.center, coordinateSpan: newValue.span)
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: status)
+            UserDefaults.standard.set(encodedData, forKey: "mapViewZoomKey")
+        }
+    }
+    
     ///
     /// Initializes the map with an empty currentSegmentOverlay.
     ///
-    required init?(coder aDecoder: NSCoder) {
+    required init() {
         var tmpCoords: [CLLocationCoordinate2D] = [] //init with empty
         self.currentSegmentOverlay = MKPolyline(coordinates: &tmpCoords, count: 0)
         self.compassRect = CGRect.init(x: 0, y: 0, width: 36, height: 36)
-        super.init(coder: aDecoder)
+        super.init(frame: compassRect)
+        
+//        let center = CLLocationCoordinate2D(latitude: 8.90, longitude: -79.50)
+//        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+//        let region = MKCoordinateRegion(center: center, span: span)
+//        mapViewZoom = region
+//        
+//        if let zoom = mapViewZoom {
+//            print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬存储成功")
+//        } else {
+//            print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬存储失败")
+//        }
+        
+    }
+    
+    deinit {
+        // let center = locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 8.90, longitude: -79.50)
+        // let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        // let region = MKCoordinateRegion(center: center, span: span)
+        // map.setRegion(region, animated: true)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     ///
@@ -146,7 +190,6 @@ class GPXMapView: MKMapView {
         let coords: CLLocationCoordinate2D = self.convert(point, toCoordinateFrom: self)
         let waypoint = GPXWaypoint(coordinate: coords)
         self.addWaypoint(waypoint)
-        
     }
     
     ///
@@ -287,8 +330,7 @@ class GPXMapView: MKMapView {
     func regionToGPXExtent() {
         self.setRegion(extent.region, animated: true)
     }
-
-
+    
     /*
     func importFromGPXString(gpxString: String) {
         // TODO
@@ -301,7 +343,6 @@ class GPXMapView: MKMapView {
     ///     - gpx: The result of loading a gpx file with iOS-GPX-Framework.
     ///
     func importFromGPXRoot(_ gpx: GPXRoot) {
-        
         //clear current map
         self.clearMap()
         
@@ -311,23 +352,39 @@ class GPXMapView: MKMapView {
         for pt in self.waypoints {
             self.addWaypoint(pt)
         }
-
         //add track segments
         self.tracks = gpx.tracks
-        
         
         for oneTrack in self.tracks {
             totalTrackedDistance += oneTrack.length
             for segment in oneTrack.tracksegments {
-					let overlay = segment.overlay
+                let overlay = segment.overlay
                 self.add(overlay)
-
-					let segmentTrackpoints = segment.trackpoints
-						//add point to map extent
-						for waypoint in segmentTrackpoints {
-                            self.extent.extendAreaToIncludeLocation(waypoint.coordinate)
-						}
+                let segmentTrackpoints = segment.trackpoints
+                //add point to map extent
+                for waypoint in segmentTrackpoints {
+                    self.extent.extendAreaToIncludeLocation(waypoint.coordinate)
+                }
             }
         }
     }
 }
+
+struct MapViewZoomStatusModel : Codable {
+//    let center = CLLocationCoordinate2D(latitude: 8.90, longitude: -79.50)
+//    let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+//    let region = MKCoordinateRegion(center: center, span: span)
+//    mapViewZoom = region
+    var latitude:Double
+    var longitude:Double
+    var latitudeDelta:Double
+    var longitudeDelta:Double
+    
+    init(coordinate:CLLocationCoordinate2D, coordinateSpan:MKCoordinateSpan) {
+        latitude = coordinate.latitude
+        longitude = coordinate.longitude
+        latitudeDelta = coordinateSpan.longitudeDelta
+        longitudeDelta = coordinateSpan.longitudeDelta
+    }
+}
+

@@ -16,7 +16,6 @@ let kFileExt = "gpx"
 /// It works on the default document directory of the app.
 ///
 class GPXFileManager: NSObject {
-    
     ///
     /// Folder that where all GPX files are stored
     ///
@@ -32,6 +31,7 @@ class GPXFileManager: NSObject {
     ///
     class var fileList: [GPXFileInfo] {
         get {
+            let kFileExts:Set = ["gpx", "GPX"]
             var GPXFiles: [GPXFileInfo] = []
             let fileManager = FileManager.default
             let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -53,7 +53,7 @@ class GPXFileManager: NSObject {
                         print(sortedURLs)
                         //Now we filter GPX Files
                         for (url, modificationDate, fileSize) in sortedURLs {
-                            if url.pathExtension == kFileExt {
+                            if kFileExts.contains(url.pathExtension) {
                                 GPXFiles.append(GPXFileInfo(fileURL: url))
                                 //GPXFiles.append(url.deletingPathExtension().lastPathComponent)
                                 print("\(modificationDate) \(modificationDate.timeAgo(numericDates: true)) \(fileSize)bytes -- \(url.deletingPathExtension().lastPathComponent)")

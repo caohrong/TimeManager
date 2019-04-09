@@ -14,44 +14,44 @@
 		7D687F9F2239197600D780E9 /* TimeSummaryDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D687F9E2239197600D780E9 /* TimeSummaryDataBase.swift */; };
 		7D817156222BC7E8000E53EB /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D817155222BC7E8000E53EB /* CalendarManager.swift */; };
 		7D81715A222BCBA2000E53EB /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D817159222BCBA2000E53EB /* CalendarModel.swift */; };
+		7D999D42225B39B1006B49B7 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D20225B39B0006B49B7 /* GPXTileServer.swift */; };
+		7D999D43225B39B1006B49B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D999D21225B39B0006B49B7 /* Images.xcassets */; };
+		7D999D44225B39B1006B49B7 /* iOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D22225B39B0006B49B7 /* iOSVersion.swift */; };
+		7D999D45225B39B1006B49B7 /* OpenGpxTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D23225B39B0006B49B7 /* OpenGpxTracker.xcdatamodeld */; };
+		7D999D46225B39B1006B49B7 /* GPXFileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D26225B39B0006B49B7 /* GPXFileInfo.swift */; };
+		7D999D47225B39B1006B49B7 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D27225B39B0006B49B7 /* GPXWaypoint+MKAnnotation.swift */; };
+		7D999D48225B39B1006B49B7 /* GPXRoot+length.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D28225B39B0006B49B7 /* GPXRoot+length.swift */; };
+		7D999D49225B39B1006B49B7 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D29225B39B0006B49B7 /* GPXExtentCoordinates.swift */; };
+		7D999D4A225B39B1006B49B7 /* GPXFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D2A225B39B0006B49B7 /* GPXFileManager.swift */; };
+		7D999D4B225B39B1006B49B7 /* CachedTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D2B225B39B0006B49B7 /* CachedTileOverlay.swift */; };
+		7D999D4C225B39B1006B49B7 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D2C225B39B0006B49B7 /* GPXTrackSegment+MapKit.swift */; };
+		7D999D4D225B39B1006B49B7 /* StopWatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D2D225B39B0006B49B7 /* StopWatchDelegate.swift */; };
+		7D999D4E225B39B1006B49B7 /* GPXTrack+length.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D2E225B39B0006B49B7 /* GPXTrack+length.swift */; };
+		7D999D4F225B39B1006B49B7 /* GPXTrackPoint+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D2F225B39B0006B49B7 /* GPXTrackPoint+MapKit.swift */; };
+		7D999D50225B39B1006B49B7 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D30225B39B0006B49B7 /* StopWatch.swift */; };
+		7D999D51225B39B1006B49B7 /* Date+timeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D31225B39B0006B49B7 /* Date+timeAgo.swift */; };
+		7D999D52225B39B1006B49B7 /* Int+asFilesize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D32225B39B0006B49B7 /* Int+asFilesize.swift */; };
+		7D999D53225B39B1006B49B7 /* TrackRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D34225B39B0006B49B7 /* TrackRecorder.swift */; };
+		7D999D54225B39B1006B49B7 /* OpenGpxTrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D35225B39B0006B49B7 /* OpenGpxTrackerController.swift */; };
+		7D999D55225B39B1006B49B7 /* GPXFilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D36225B39B0006B49B7 /* GPXFilesTableViewController.swift */; };
+		7D999D56225B39B1006B49B7 /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D37225B39B0006B49B7 /* PreferencesTableViewController.swift */; };
+		7D999D57225B39B1006B49B7 /* MailerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D38225B39B0006B49B7 /* MailerManager.swift */; };
+		7D999D58225B39B1006B49B7 /* PreferencesTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D39225B39B0006B49B7 /* PreferencesTableViewControllerDelegate.swift */; };
+		7D999D59225B39B1006B49B7 /* GPXFilesTableViewControlllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D3A225B39B0006B49B7 /* GPXFilesTableViewControlllerDelegate.swift */; };
+		7D999D5A225B39B1006B49B7 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D3B225B39B0006B49B7 /* AboutViewController.swift */; };
+		7D999D5B225B39B1006B49B7 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D3C225B39B0006B49B7 /* MapViewDelegate.swift */; };
+		7D999D5C225B39B1006B49B7 /* UIDistanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D3E225B39B0006B49B7 /* UIDistanceLabel.swift */; };
+		7D999D5D225B39B1006B49B7 /* TrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D3F225B39B0006B49B7 /* TrackerButton.swift */; };
+		7D999D5E225B39B1006B49B7 /* GPXMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D40225B39B0006B49B7 /* GPXMapView.swift */; };
+		7D999D60225B3DDF006B49B7 /* HRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D5F225B3DDF006B49B7 /* HRViewController.swift */; };
+		7D999D62225B4990006B49B7 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D61225B4990006B49B7 /* LocationModel.swift */; };
 		7D9B129A222FC24B005F432E /* HRMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B1299222FC24B005F432E /* HRMapView.swift */; };
-		7DA26834225B2ECD0060C058 /* GPXFileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2680E225B2ECD0060C058 /* GPXFileInfo.swift */; };
-		7DA26835225B2ECD0060C058 /* TrackRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2680F225B2ECD0060C058 /* TrackRecorder.swift */; };
-		7DA26836225B2ECD0060C058 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26810225B2ECD0060C058 /* ViewController.swift */; };
-		7DA26837225B2ECD0060C058 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26811225B2ECD0060C058 /* GPXWaypoint+MKAnnotation.swift */; };
-		7DA26838225B2ECD0060C058 /* GPXRoot+length.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26812225B2ECD0060C058 /* GPXRoot+length.swift */; };
-		7DA26839225B2ECD0060C058 /* GPXFilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26813225B2ECD0060C058 /* GPXFilesTableViewController.swift */; };
-		7DA2683A225B2ECD0060C058 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26814225B2ECD0060C058 /* GPXExtentCoordinates.swift */; };
-		7DA2683B225B2ECD0060C058 /* GPXFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26815225B2ECD0060C058 /* GPXFileManager.swift */; };
-		7DA2683C225B2ECD0060C058 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 7DA26816225B2ECD0060C058 /* about.html */; };
-		7DA2683D225B2ECD0060C058 /* CachedTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26817225B2ECD0060C058 /* CachedTileOverlay.swift */; };
-		7DA2683E225B2ECD0060C058 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26818225B2ECD0060C058 /* GPXTrackSegment+MapKit.swift */; };
-		7DA2683F225B2ECD0060C058 /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26819225B2ECD0060C058 /* PreferencesTableViewController.swift */; };
-		7DA26840225B2ECD0060C058 /* MailerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2681A225B2ECD0060C058 /* MailerManager.swift */; };
-		7DA26841225B2ECD0060C058 /* StopWatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2681B225B2ECD0060C058 /* StopWatchDelegate.swift */; };
-		7DA26842225B2ECD0060C058 /* PreferencesTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2681C225B2ECD0060C058 /* PreferencesTableViewControllerDelegate.swift */; };
-		7DA26843225B2ECD0060C058 /* GPXTrack+length.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2681D225B2ECD0060C058 /* GPXTrack+length.swift */; };
-		7DA26846225B2ECD0060C058 /* GPXTrackPoint+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26823225B2ECD0060C058 /* GPXTrackPoint+MapKit.swift */; };
-		7DA26847225B2ECD0060C058 /* UIDistanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26824225B2ECD0060C058 /* UIDistanceLabel.swift */; };
-		7DA26848225B2ECD0060C058 /* GPXFilesTableViewControlllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26825225B2ECD0060C058 /* GPXFilesTableViewControlllerDelegate.swift */; };
-		7DA26849225B2ECD0060C058 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26826225B2ECD0060C058 /* StopWatch.swift */; };
-		7DA2684A225B2ECD0060C058 /* TrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26827225B2ECD0060C058 /* TrackerButton.swift */; };
-		7DA2684B225B2ECD0060C058 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26828225B2ECD0060C058 /* GPXTileServer.swift */; };
-		7DA2684C225B2ECD0060C058 /* GPXMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26829225B2ECD0060C058 /* GPXMapView.swift */; };
-		7DA2684D225B2ECD0060C058 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DA2682A225B2ECD0060C058 /* Images.xcassets */; };
-		7DA2684E225B2ECD0060C058 /* iOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2682B225B2ECD0060C058 /* iOSVersion.swift */; };
-		7DA2684F225B2ECD0060C058 /* Date+timeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2682C225B2ECD0060C058 /* Date+timeAgo.swift */; };
-		7DA26851225B2ECD0060C058 /* OpenGpxTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DA2682E225B2ECD0060C058 /* OpenGpxTracker.xcdatamodeld */; };
-		7DA26852225B2ECD0060C058 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26830225B2ECD0060C058 /* AboutViewController.swift */; };
-		7DA26853225B2ECD0060C058 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26831225B2ECD0060C058 /* MapViewDelegate.swift */; };
-		7DA26854225B2ECD0060C058 /* Int+asFilesize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA26832225B2ECD0060C058 /* Int+asFilesize.swift */; };
 		7DE9A25322322FFE0039357D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE9A25222322FFE0039357D /* GoogleService-Info.plist */; };
 		7DE9A256223247F60039357D /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A255223247F60039357D /* AuthController.swift */; };
 		7DE9A259223248230039357D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A258223248230039357D /* AuthViewController.swift */; };
 		7DE9A25C22324DC80039357D /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A25B22324DC80039357D /* ServiceManager.swift */; };
 		7DE9A25E22324F030039357D /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A25D22324F030039357D /* LocationController.swift */; };
 		7DFF512C22262ED000D98613 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF512B22262ED000D98613 /* AppDelegate.swift */; };
-		7DFF513122262ED000D98613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF512F22262ED000D98613 /* Main.storyboard */; };
 		7DFF513322262ED200D98613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF513222262ED200D98613 /* Assets.xcassets */; };
 		7DFF513622262ED200D98613 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF513422262ED200D98613 /* LaunchScreen.storyboard */; };
 		7DFF513F22264B7100D98613 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFF513E22264B7000D98613 /* HealthKit.framework */; };
@@ -104,39 +104,39 @@
 		7D687F9E2239197600D780E9 /* TimeSummaryDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSummaryDataBase.swift; sourceTree = "<group>"; };
 		7D817155222BC7E8000E53EB /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		7D817159222BCBA2000E53EB /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		7D999D20225B39B0006B49B7 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
+		7D999D21225B39B0006B49B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7D999D22225B39B0006B49B7 /* iOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSVersion.swift; sourceTree = "<group>"; };
+		7D999D24225B39B0006B49B7 /* OpenGpxTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OpenGpxTracker.xcdatamodel; sourceTree = "<group>"; };
+		7D999D26225B39B0006B49B7 /* GPXFileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFileInfo.swift; sourceTree = "<group>"; };
+		7D999D27225B39B0006B49B7 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
+		7D999D28225B39B0006B49B7 /* GPXRoot+length.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXRoot+length.swift"; sourceTree = "<group>"; };
+		7D999D29225B39B0006B49B7 /* GPXExtentCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXExtentCoordinates.swift; sourceTree = "<group>"; };
+		7D999D2A225B39B0006B49B7 /* GPXFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFileManager.swift; sourceTree = "<group>"; };
+		7D999D2B225B39B0006B49B7 /* CachedTileOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedTileOverlay.swift; sourceTree = "<group>"; };
+		7D999D2C225B39B0006B49B7 /* GPXTrackSegment+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrackSegment+MapKit.swift"; sourceTree = "<group>"; };
+		7D999D2D225B39B0006B49B7 /* StopWatchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatchDelegate.swift; sourceTree = "<group>"; };
+		7D999D2E225B39B0006B49B7 /* GPXTrack+length.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrack+length.swift"; sourceTree = "<group>"; };
+		7D999D2F225B39B0006B49B7 /* GPXTrackPoint+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrackPoint+MapKit.swift"; sourceTree = "<group>"; };
+		7D999D30225B39B0006B49B7 /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		7D999D31225B39B0006B49B7 /* Date+timeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+timeAgo.swift"; sourceTree = "<group>"; };
+		7D999D32225B39B0006B49B7 /* Int+asFilesize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+asFilesize.swift"; sourceTree = "<group>"; };
+		7D999D34225B39B0006B49B7 /* TrackRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackRecorder.swift; sourceTree = "<group>"; };
+		7D999D35225B39B0006B49B7 /* OpenGpxTrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGpxTrackerController.swift; sourceTree = "<group>"; };
+		7D999D36225B39B0006B49B7 /* GPXFilesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFilesTableViewController.swift; sourceTree = "<group>"; };
+		7D999D37225B39B0006B49B7 /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
+		7D999D38225B39B0006B49B7 /* MailerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailerManager.swift; sourceTree = "<group>"; };
+		7D999D39225B39B0006B49B7 /* PreferencesTableViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewControllerDelegate.swift; sourceTree = "<group>"; };
+		7D999D3A225B39B0006B49B7 /* GPXFilesTableViewControlllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFilesTableViewControlllerDelegate.swift; sourceTree = "<group>"; };
+		7D999D3B225B39B0006B49B7 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		7D999D3C225B39B0006B49B7 /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		7D999D3E225B39B0006B49B7 /* UIDistanceLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDistanceLabel.swift; sourceTree = "<group>"; };
+		7D999D3F225B39B0006B49B7 /* TrackerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerButton.swift; sourceTree = "<group>"; };
+		7D999D40225B39B0006B49B7 /* GPXMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXMapView.swift; sourceTree = "<group>"; };
+		7D999D5F225B3DDF006B49B7 /* HRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRViewController.swift; sourceTree = "<group>"; };
+		7D999D61225B4990006B49B7 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		7D9B1299222FC24B005F432E /* HRMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRMapView.swift; sourceTree = "<group>"; };
 		7DA2680C225B26560060C058 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
-		7DA2680E225B2ECD0060C058 /* GPXFileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFileInfo.swift; sourceTree = "<group>"; };
-		7DA2680F225B2ECD0060C058 /* TrackRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackRecorder.swift; sourceTree = "<group>"; };
-		7DA26810225B2ECD0060C058 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7DA26811225B2ECD0060C058 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
-		7DA26812225B2ECD0060C058 /* GPXRoot+length.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXRoot+length.swift"; sourceTree = "<group>"; };
-		7DA26813225B2ECD0060C058 /* GPXFilesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFilesTableViewController.swift; sourceTree = "<group>"; };
-		7DA26814225B2ECD0060C058 /* GPXExtentCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXExtentCoordinates.swift; sourceTree = "<group>"; };
-		7DA26815225B2ECD0060C058 /* GPXFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFileManager.swift; sourceTree = "<group>"; };
-		7DA26816225B2ECD0060C058 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
-		7DA26817225B2ECD0060C058 /* CachedTileOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedTileOverlay.swift; sourceTree = "<group>"; };
-		7DA26818225B2ECD0060C058 /* GPXTrackSegment+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrackSegment+MapKit.swift"; sourceTree = "<group>"; };
-		7DA26819225B2ECD0060C058 /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
-		7DA2681A225B2ECD0060C058 /* MailerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailerManager.swift; sourceTree = "<group>"; };
-		7DA2681B225B2ECD0060C058 /* StopWatchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatchDelegate.swift; sourceTree = "<group>"; };
-		7DA2681C225B2ECD0060C058 /* PreferencesTableViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewControllerDelegate.swift; sourceTree = "<group>"; };
-		7DA2681D225B2ECD0060C058 /* GPXTrack+length.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrack+length.swift"; sourceTree = "<group>"; };
-		7DA2681E225B2ECD0060C058 /* ObjectiveCBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveCBridgingHeader.h; sourceTree = "<group>"; };
-		7DA26823225B2ECD0060C058 /* GPXTrackPoint+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrackPoint+MapKit.swift"; sourceTree = "<group>"; };
-		7DA26824225B2ECD0060C058 /* UIDistanceLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDistanceLabel.swift; sourceTree = "<group>"; };
-		7DA26825225B2ECD0060C058 /* GPXFilesTableViewControlllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFilesTableViewControlllerDelegate.swift; sourceTree = "<group>"; };
-		7DA26826225B2ECD0060C058 /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
-		7DA26827225B2ECD0060C058 /* TrackerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerButton.swift; sourceTree = "<group>"; };
-		7DA26828225B2ECD0060C058 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
-		7DA26829225B2ECD0060C058 /* GPXMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXMapView.swift; sourceTree = "<group>"; };
-		7DA2682A225B2ECD0060C058 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7DA2682B225B2ECD0060C058 /* iOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSVersion.swift; sourceTree = "<group>"; };
-		7DA2682C225B2ECD0060C058 /* Date+timeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+timeAgo.swift"; sourceTree = "<group>"; };
-		7DA2682F225B2ECD0060C058 /* OpenGpxTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OpenGpxTracker.xcdatamodel; sourceTree = "<group>"; };
-		7DA26830225B2ECD0060C058 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		7DA26831225B2ECD0060C058 /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
-		7DA26832225B2ECD0060C058 /* Int+asFilesize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+asFilesize.swift"; sourceTree = "<group>"; };
 		7DE9A25222322FFE0039357D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DE9A255223247F60039357D /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		7DE9A258223248230039357D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +146,6 @@
 		7DE9A26222326A580039357D /* Localizable.strings(cn).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Localizable.strings(cn).xcconfig"; sourceTree = "<group>"; };
 		7DFF512822262ED000D98613 /* TimeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFF512B22262ED000D98613 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7DFF513022262ED000D98613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DFF513222262ED200D98613 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DFF513522262ED200D98613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DFF513722262ED200D98613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -218,42 +217,72 @@
 			path = Maps;
 			sourceTree = "<group>";
 		};
-		7DA2680D225B2ECD0060C058 /* OpenGpxTracker */ = {
+		7D999D1C225B39B0006B49B7 /* OpenGpxTracker */ = {
 			isa = PBXGroup;
 			children = (
-				7DA2680E225B2ECD0060C058 /* GPXFileInfo.swift */,
-				7DA2680F225B2ECD0060C058 /* TrackRecorder.swift */,
-				7DA26810225B2ECD0060C058 /* ViewController.swift */,
-				7DA26811225B2ECD0060C058 /* GPXWaypoint+MKAnnotation.swift */,
-				7DA26812225B2ECD0060C058 /* GPXRoot+length.swift */,
-				7DA26813225B2ECD0060C058 /* GPXFilesTableViewController.swift */,
-				7DA26814225B2ECD0060C058 /* GPXExtentCoordinates.swift */,
-				7DA26815225B2ECD0060C058 /* GPXFileManager.swift */,
-				7DA26816225B2ECD0060C058 /* about.html */,
-				7DA26817225B2ECD0060C058 /* CachedTileOverlay.swift */,
-				7DA26818225B2ECD0060C058 /* GPXTrackSegment+MapKit.swift */,
-				7DA26819225B2ECD0060C058 /* PreferencesTableViewController.swift */,
-				7DA2681A225B2ECD0060C058 /* MailerManager.swift */,
-				7DA2681B225B2ECD0060C058 /* StopWatchDelegate.swift */,
-				7DA2681C225B2ECD0060C058 /* PreferencesTableViewControllerDelegate.swift */,
-				7DA2681D225B2ECD0060C058 /* GPXTrack+length.swift */,
-				7DA2681E225B2ECD0060C058 /* ObjectiveCBridgingHeader.h */,
-				7DA26823225B2ECD0060C058 /* GPXTrackPoint+MapKit.swift */,
-				7DA26824225B2ECD0060C058 /* UIDistanceLabel.swift */,
-				7DA26825225B2ECD0060C058 /* GPXFilesTableViewControlllerDelegate.swift */,
-				7DA26826225B2ECD0060C058 /* StopWatch.swift */,
-				7DA26827225B2ECD0060C058 /* TrackerButton.swift */,
-				7DA26828225B2ECD0060C058 /* GPXTileServer.swift */,
-				7DA26829225B2ECD0060C058 /* GPXMapView.swift */,
-				7DA2682A225B2ECD0060C058 /* Images.xcassets */,
-				7DA2682B225B2ECD0060C058 /* iOSVersion.swift */,
-				7DA2682C225B2ECD0060C058 /* Date+timeAgo.swift */,
-				7DA2682E225B2ECD0060C058 /* OpenGpxTracker.xcdatamodeld */,
-				7DA26830225B2ECD0060C058 /* AboutViewController.swift */,
-				7DA26831225B2ECD0060C058 /* MapViewDelegate.swift */,
-				7DA26832225B2ECD0060C058 /* Int+asFilesize.swift */,
+				7D999D1D225B39B0006B49B7 /* Resources */,
+				7D999D25225B39B0006B49B7 /* Models */,
+				7D999D33225B39B0006B49B7 /* Controllers */,
+				7D999D3D225B39B0006B49B7 /* Views */,
 			);
 			path = OpenGpxTracker;
+			sourceTree = "<group>";
+		};
+		7D999D1D225B39B0006B49B7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7D999D20225B39B0006B49B7 /* GPXTileServer.swift */,
+				7D999D21225B39B0006B49B7 /* Images.xcassets */,
+				7D999D22225B39B0006B49B7 /* iOSVersion.swift */,
+				7D999D23225B39B0006B49B7 /* OpenGpxTracker.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7D999D25225B39B0006B49B7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D999D26225B39B0006B49B7 /* GPXFileInfo.swift */,
+				7D999D27225B39B0006B49B7 /* GPXWaypoint+MKAnnotation.swift */,
+				7D999D28225B39B0006B49B7 /* GPXRoot+length.swift */,
+				7D999D29225B39B0006B49B7 /* GPXExtentCoordinates.swift */,
+				7D999D2A225B39B0006B49B7 /* GPXFileManager.swift */,
+				7D999D2B225B39B0006B49B7 /* CachedTileOverlay.swift */,
+				7D999D2C225B39B0006B49B7 /* GPXTrackSegment+MapKit.swift */,
+				7D999D2D225B39B0006B49B7 /* StopWatchDelegate.swift */,
+				7D999D2E225B39B0006B49B7 /* GPXTrack+length.swift */,
+				7D999D2F225B39B0006B49B7 /* GPXTrackPoint+MapKit.swift */,
+				7D999D30225B39B0006B49B7 /* StopWatch.swift */,
+				7D999D31225B39B0006B49B7 /* Date+timeAgo.swift */,
+				7D999D32225B39B0006B49B7 /* Int+asFilesize.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7D999D33225B39B0006B49B7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7D999D35225B39B0006B49B7 /* OpenGpxTrackerController.swift */,
+				7D999D34225B39B0006B49B7 /* TrackRecorder.swift */,
+				7D999D36225B39B0006B49B7 /* GPXFilesTableViewController.swift */,
+				7D999D37225B39B0006B49B7 /* PreferencesTableViewController.swift */,
+				7D999D38225B39B0006B49B7 /* MailerManager.swift */,
+				7D999D39225B39B0006B49B7 /* PreferencesTableViewControllerDelegate.swift */,
+				7D999D3A225B39B0006B49B7 /* GPXFilesTableViewControlllerDelegate.swift */,
+				7D999D3B225B39B0006B49B7 /* AboutViewController.swift */,
+				7D999D3C225B39B0006B49B7 /* MapViewDelegate.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7D999D3D225B39B0006B49B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D999D3E225B39B0006B49B7 /* UIDistanceLabel.swift */,
+				7D999D3F225B39B0006B49B7 /* TrackerButton.swift */,
+				7D999D40225B39B0006B49B7 /* GPXMapView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7DE9A254223247A70039357D /* Auth */ = {
@@ -322,19 +351,19 @@
 		7DFF512A22262ED000D98613 /* TimeManager */ = {
 			isa = PBXGroup;
 			children = (
-				7DA2680D225B2ECD0060C058 /* OpenGpxTracker */,
+				7D999D1C225B39B0006B49B7 /* OpenGpxTracker */,
 				7DE9A25F223269E60039357D /* Source */,
 				7DE9A257223248100039357D /* Controllers */,
 				7DFF51532226681800D98613 /* Basic */,
 				7DFF514722264CAA00D98613 /* Services */,
 				7DFF513D22264B7000D98613 /* TimeManager.entitlements */,
 				7DFF512B22262ED000D98613 /* AppDelegate.swift */,
-				7DFF512F22262ED000D98613 /* Main.storyboard */,
 				7DFF513222262ED200D98613 /* Assets.xcassets */,
 				7DFF513422262ED200D98613 /* LaunchScreen.storyboard */,
 				7DFF513722262ED200D98613 /* Info.plist */,
 				7DE9A25222322FFE0039357D /* GoogleService-Info.plist */,
 				7DA2680C225B26560060C058 /* Location.gpx */,
+				7D999D5F225B3DDF006B49B7 /* HRViewController.swift */,
 			);
 			path = TimeManager;
 			sourceTree = "<group>";
@@ -359,6 +388,7 @@
 			children = (
 				7DFF514922264CAA00D98613 /* LocationManager.swift */,
 				7DFF514F2226597A00D98613 /* LocationDataManager.swift */,
+				7D999D61225B4990006B49B7 /* LocationModel.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -522,12 +552,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DA2684D225B2ECD0060C058 /* Images.xcassets in Resources */,
 				7DFF513622262ED200D98613 /* LaunchScreen.storyboard in Resources */,
 				7DE9A25322322FFE0039357D /* GoogleService-Info.plist in Resources */,
 				7DFF513322262ED200D98613 /* Assets.xcassets in Resources */,
-				7DA2683C225B2ECD0060C058 /* about.html in Resources */,
-				7DFF513122262ED000D98613 /* Main.storyboard in Resources */,
+				7D999D43225B39B1006B49B7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,50 +630,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D999D45225B39B1006B49B7 /* OpenGpxTracker.xcdatamodeld in Sources */,
 				7DFF51712226AD1F00D98613 /* HealthDataManager.swift in Sources */,
-				7DA26834225B2ECD0060C058 /* GPXFileInfo.swift in Sources */,
-				7DA2683A225B2ECD0060C058 /* GPXExtentCoordinates.swift in Sources */,
-				7DA26852225B2ECD0060C058 /* AboutViewController.swift in Sources */,
 				7DE9A256223247F60039357D /* AuthController.swift in Sources */,
+				7D999D42225B39B1006B49B7 /* GPXTileServer.swift in Sources */,
+				7D999D4F225B39B1006B49B7 /* GPXTrackPoint+MapKit.swift in Sources */,
+				7D999D4E225B39B1006B49B7 /* GPXTrack+length.swift in Sources */,
+				7D999D5B225B39B1006B49B7 /* MapViewDelegate.swift in Sources */,
 				7D687F9D2239182800D780E9 /* TimeSummaryManager.swift in Sources */,
+				7D999D55225B39B1006B49B7 /* GPXFilesTableViewController.swift in Sources */,
+				7D999D53225B39B1006B49B7 /* TrackRecorder.swift in Sources */,
 				7D81715A222BCBA2000E53EB /* CalendarModel.swift in Sources */,
-				7DA26835225B2ECD0060C058 /* TrackRecorder.swift in Sources */,
-				7DA2684E225B2ECD0060C058 /* iOSVersion.swift in Sources */,
-				7DA26851225B2ECD0060C058 /* OpenGpxTracker.xcdatamodeld in Sources */,
 				7D687F9F2239197600D780E9 /* TimeSummaryDataBase.swift in Sources */,
-				7DA2684B225B2ECD0060C058 /* GPXTileServer.swift in Sources */,
-				7DA26846225B2ECD0060C058 /* GPXTrackPoint+MapKit.swift in Sources */,
-				7DA26839225B2ECD0060C058 /* GPXFilesTableViewController.swift in Sources */,
+				7D999D49225B39B1006B49B7 /* GPXExtentCoordinates.swift in Sources */,
 				7D817156222BC7E8000E53EB /* CalendarManager.swift in Sources */,
-				7DA2683E225B2ECD0060C058 /* GPXTrackSegment+MapKit.swift in Sources */,
-				7DA26849225B2ECD0060C058 /* StopWatch.swift in Sources */,
-				7DA2683D225B2ECD0060C058 /* CachedTileOverlay.swift in Sources */,
+				7D999D4A225B39B1006B49B7 /* GPXFileManager.swift in Sources */,
+				7D999D4D225B39B1006B49B7 /* StopWatchDelegate.swift in Sources */,
 				7DE9A25C22324DC80039357D /* ServiceManager.swift in Sources */,
-				7DA26841225B2ECD0060C058 /* StopWatchDelegate.swift in Sources */,
 				7DFF51552226682F00D98613 /* FilesManger.swift in Sources */,
-				7DA26838225B2ECD0060C058 /* GPXRoot+length.swift in Sources */,
-				7DA26847225B2ECD0060C058 /* UIDistanceLabel.swift in Sources */,
-				7DA26843225B2ECD0060C058 /* GPXTrack+length.swift in Sources */,
-				7DA2683F225B2ECD0060C058 /* PreferencesTableViewController.swift in Sources */,
-				7DA26837225B2ECD0060C058 /* GPXWaypoint+MKAnnotation.swift in Sources */,
+				7D999D44225B39B1006B49B7 /* iOSVersion.swift in Sources */,
+				7D999D58225B39B1006B49B7 /* PreferencesTableViewControllerDelegate.swift in Sources */,
+				7D999D5E225B39B1006B49B7 /* GPXMapView.swift in Sources */,
+				7D999D48225B39B1006B49B7 /* GPXRoot+length.swift in Sources */,
+				7D999D47225B39B1006B49B7 /* GPXWaypoint+MKAnnotation.swift in Sources */,
+				7D999D56225B39B1006B49B7 /* PreferencesTableViewController.swift in Sources */,
 				7DFF51732226ADCC00D98613 /* HealthSleepDataManager.swift in Sources */,
+				7D999D4C225B39B1006B49B7 /* GPXTrackSegment+MapKit.swift in Sources */,
+				7D999D57225B39B1006B49B7 /* MailerManager.swift in Sources */,
 				7DFF512C22262ED000D98613 /* AppDelegate.swift in Sources */,
+				7D999D46225B39B1006B49B7 /* GPXFileInfo.swift in Sources */,
+				7D999D62225B4990006B49B7 /* LocationModel.swift in Sources */,
 				7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */,
-				7DA26848225B2ECD0060C058 /* GPXFilesTableViewControlllerDelegate.swift in Sources */,
-				7DA26840225B2ECD0060C058 /* MailerManager.swift in Sources */,
-				7DA2684F225B2ECD0060C058 /* Date+timeAgo.swift in Sources */,
+				7D999D60225B3DDF006B49B7 /* HRViewController.swift in Sources */,
 				7DE9A259223248230039357D /* AuthViewController.swift in Sources */,
-				7DA2683B225B2ECD0060C058 /* GPXFileManager.swift in Sources */,
+				7D999D54225B39B1006B49B7 /* OpenGpxTrackerController.swift in Sources */,
+				7D999D50225B39B1006B49B7 /* StopWatch.swift in Sources */,
+				7D999D52225B39B1006B49B7 /* Int+asFilesize.swift in Sources */,
 				7D9B129A222FC24B005F432E /* HRMapView.swift in Sources */,
 				7DFF514A22264CAA00D98613 /* LocationManager.swift in Sources */,
-				7DA2684A225B2ECD0060C058 /* TrackerButton.swift in Sources */,
-				7DA26842225B2ECD0060C058 /* PreferencesTableViewControllerDelegate.swift in Sources */,
-				7DA26854225B2ECD0060C058 /* Int+asFilesize.swift in Sources */,
-				7DA2684C225B2ECD0060C058 /* GPXMapView.swift in Sources */,
+				7D999D5A225B39B1006B49B7 /* AboutViewController.swift in Sources */,
 				7DFF514E222656B100D98613 /* DatabaseMamager.swift in Sources */,
-				7DA26853225B2ECD0060C058 /* MapViewDelegate.swift in Sources */,
-				7DA26836225B2ECD0060C058 /* ViewController.swift in Sources */,
+				7D999D51225B39B1006B49B7 /* Date+timeAgo.swift in Sources */,
 				7DE9A25E22324F030039357D /* LocationController.swift in Sources */,
+				7D999D59225B39B1006B49B7 /* GPXFilesTableViewControlllerDelegate.swift in Sources */,
+				7D999D4B225B39B1006B49B7 /* CachedTileOverlay.swift in Sources */,
+				7D999D5C225B39B1006B49B7 /* UIDistanceLabel.swift in Sources */,
+				7D999D5D225B39B1006B49B7 /* TrackerButton.swift in Sources */,
 				7DFF51502226597A00D98613 /* LocationDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,14 +702,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7DFF512F22262ED000D98613 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7DFF513022262ED000D98613 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7DFF513422262ED200D98613 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -932,12 +954,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7DA2682E225B2ECD0060C058 /* OpenGpxTracker.xcdatamodeld */ = {
+		7D999D23225B39B0006B49B7 /* OpenGpxTracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7DA2682F225B2ECD0060C058 /* OpenGpxTracker.xcdatamodel */,
+				7D999D24225B39B0006B49B7 /* OpenGpxTracker.xcdatamodel */,
 			);
-			currentVersion = 7DA2682F225B2ECD0060C058 /* OpenGpxTracker.xcdatamodel */;
+			currentVersion = 7D999D24225B39B0006B49B7 /* OpenGpxTracker.xcdatamodel */;
 			path = OpenGpxTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
