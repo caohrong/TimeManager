@@ -10,10 +10,6 @@
 		38D27FE27892652DF501CC4F /* Pods_TimeManager_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262C8E540A00FE0D2FDAF292 /* Pods_TimeManager_Widget.framework */; };
 		3C3E732D9C0D962B53CE95CD /* Pods_TimeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */; };
 		7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D687F992239169500D780E9 /* TimeSummaryController.swift */; };
-		7D687F9D2239182800D780E9 /* TimeSummaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D687F9C2239182800D780E9 /* TimeSummaryManager.swift */; };
-		7D687F9F2239197600D780E9 /* TimeSummaryDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D687F9E2239197600D780E9 /* TimeSummaryDataBase.swift */; };
-		7D817156222BC7E8000E53EB /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D817155222BC7E8000E53EB /* CalendarManager.swift */; };
-		7D81715A222BCBA2000E53EB /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D817159222BCBA2000E53EB /* CalendarModel.swift */; };
 		7D999D42225B39B1006B49B7 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D20225B39B0006B49B7 /* GPXTileServer.swift */; };
 		7D999D43225B39B1006B49B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D999D21225B39B0006B49B7 /* Images.xcassets */; };
 		7D999D44225B39B1006B49B7 /* iOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D22225B39B0006B49B7 /* iOSVersion.swift */; };
@@ -43,32 +39,35 @@
 		7D999D5C225B39B1006B49B7 /* UIDistanceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D3E225B39B0006B49B7 /* UIDistanceLabel.swift */; };
 		7D999D5D225B39B1006B49B7 /* TrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D3F225B39B0006B49B7 /* TrackerButton.swift */; };
 		7D999D5E225B39B1006B49B7 /* GPXMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D40225B39B0006B49B7 /* GPXMapView.swift */; };
-		7D999D60225B3DDF006B49B7 /* HRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D5F225B3DDF006B49B7 /* HRViewController.swift */; };
-		7D999D62225B4990006B49B7 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D61225B4990006B49B7 /* LocationModel.swift */; };
-		7D9B129A222FC24B005F432E /* HRMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B1299222FC24B005F432E /* HRMapView.swift */; };
-		7DE9A25322322FFE0039357D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DE9A25222322FFE0039357D /* GoogleService-Info.plist */; };
-		7DE9A256223247F60039357D /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A255223247F60039357D /* AuthController.swift */; };
+		7D9A41ED225C820F00355C8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A41A2225C820D00355C8D /* Localizable.strings */; };
+		7D9A41EE225C820F00355C8D /* Localizable.strings(cn).xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A41A3225C820D00355C8D /* Localizable.strings(cn).xcconfig */; };
+		7D9A41EF225C820F00355C8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A41A4225C820D00355C8D /* Assets.xcassets */; };
+		7D9A41F0225C820F00355C8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A41A5225C820D00355C8D /* GoogleService-Info.plist */; };
+		7D9A41F1225C820F00355C8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9A41A6225C820D00355C8D /* LaunchScreen.storyboard */; };
+		7D9A41F2225C820F00355C8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41A8225C820D00355C8D /* AppDelegate.swift */; };
+		7D9A41F8225C820F00355C8D /* FilesManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41B1225C820E00355C8D /* FilesManger.swift */; };
+		7D9A4216225C820F00355C8D /* HRMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41D9225C820F00355C8D /* HRMapView.swift */; };
+		7D9A4217225C820F00355C8D /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41DB225C820F00355C8D /* CalendarModel.swift */; };
+		7D9A4218225C820F00355C8D /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41DC225C820F00355C8D /* CalendarManager.swift */; };
+		7D9A4219225C820F00355C8D /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41DE225C820F00355C8D /* AuthController.swift */; };
+		7D9A421A225C820F00355C8D /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41E0225C820F00355C8D /* LocationDataManager.swift */; };
+		7D9A421B225C820F00355C8D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41E1225C820F00355C8D /* LocationManager.swift */; };
+		7D9A421C225C820F00355C8D /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41E2225C820F00355C8D /* LocationModel.swift */; };
+		7D9A421D225C820F00355C8D /* HealthSleepDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41E4225C820F00355C8D /* HealthSleepDataManager.swift */; };
+		7D9A421E225C820F00355C8D /* HealthDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41E5225C820F00355C8D /* HealthDataManager.swift */; };
+		7D9A421F225C820F00355C8D /* TimeSummaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41E7225C820F00355C8D /* TimeSummaryManager.swift */; };
+		7D9A4220225C820F00355C8D /* TimeSummaryDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41E8225C820F00355C8D /* TimeSummaryDataBase.swift */; };
+		7D9A4221225C820F00355C8D /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41EA225C820F00355C8D /* ServiceManager.swift */; };
+		7D9A4222225C820F00355C8D /* DatabaseMamager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41EC225C820F00355C8D /* DatabaseMamager.swift */; };
+		7D9A4225225C855200355C8D /* HRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A4224225C855200355C8D /* HRViewController.swift */; };
 		7DE9A259223248230039357D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A258223248230039357D /* AuthViewController.swift */; };
-		7DE9A25C22324DC80039357D /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A25B22324DC80039357D /* ServiceManager.swift */; };
 		7DE9A25E22324F030039357D /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A25D22324F030039357D /* LocationController.swift */; };
-		7DFF512C22262ED000D98613 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF512B22262ED000D98613 /* AppDelegate.swift */; };
-		7DFF513322262ED200D98613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF513222262ED200D98613 /* Assets.xcassets */; };
-		7DFF513622262ED200D98613 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF513422262ED200D98613 /* LaunchScreen.storyboard */; };
 		7DFF513F22264B7100D98613 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFF513E22264B7000D98613 /* HealthKit.framework */; };
-		7DFF514A22264CAA00D98613 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF514922264CAA00D98613 /* LocationManager.swift */; };
-		7DFF514E222656B100D98613 /* DatabaseMamager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF514D222656B100D98613 /* DatabaseMamager.swift */; };
-		7DFF51502226597A00D98613 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF514F2226597A00D98613 /* LocationDataManager.swift */; };
 		7DFF51522226677000D98613 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFF51512226677000D98613 /* CloudKit.framework */; };
-		7DFF51552226682F00D98613 /* FilesManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF51542226682F00D98613 /* FilesManger.swift */; };
 		7DFF515E22269E3100D98613 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFF515D22269E3100D98613 /* NotificationCenter.framework */; };
 		7DFF516122269E3100D98613 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF516022269E3100D98613 /* TodayViewController.swift */; };
 		7DFF516422269E3100D98613 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF516222269E3100D98613 /* MainInterface.storyboard */; };
 		7DFF516822269E3100D98613 /* TimeManager_Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7DFF515C22269E3100D98613 /* TimeManager_Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7DFF516D2226A1FB00D98613 /* DatabaseMamager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF514D222656B100D98613 /* DatabaseMamager.swift */; };
-		7DFF516E2226A20100D98613 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF514922264CAA00D98613 /* LocationManager.swift */; };
-		7DFF516F2226A20400D98613 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF514F2226597A00D98613 /* LocationDataManager.swift */; };
-		7DFF51712226AD1F00D98613 /* HealthDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF51702226AD1F00D98613 /* HealthDataManager.swift */; };
-		7DFF51732226ADCC00D98613 /* HealthSleepDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF51722226ADCC00D98613 /* HealthSleepDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,10 +99,6 @@
 		2F6D0982D83AE56D3F96DB23 /* Pods-TimeManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager/Pods-TimeManager.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D687F992239169500D780E9 /* TimeSummaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSummaryController.swift; sourceTree = "<group>"; };
-		7D687F9C2239182800D780E9 /* TimeSummaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSummaryManager.swift; sourceTree = "<group>"; };
-		7D687F9E2239197600D780E9 /* TimeSummaryDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSummaryDataBase.swift; sourceTree = "<group>"; };
-		7D817155222BC7E8000E53EB /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
-		7D817159222BCBA2000E53EB /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		7D999D20225B39B0006B49B7 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
 		7D999D21225B39B0006B49B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D999D22225B39B0006B49B7 /* iOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSVersion.swift; sourceTree = "<group>"; };
@@ -133,36 +128,38 @@
 		7D999D3E225B39B0006B49B7 /* UIDistanceLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDistanceLabel.swift; sourceTree = "<group>"; };
 		7D999D3F225B39B0006B49B7 /* TrackerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerButton.swift; sourceTree = "<group>"; };
 		7D999D40225B39B0006B49B7 /* GPXMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXMapView.swift; sourceTree = "<group>"; };
-		7D999D5F225B3DDF006B49B7 /* HRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRViewController.swift; sourceTree = "<group>"; };
-		7D999D61225B4990006B49B7 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
-		7D9B1299222FC24B005F432E /* HRMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRMapView.swift; sourceTree = "<group>"; };
-		7DA2680C225B26560060C058 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
-		7DE9A25222322FFE0039357D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7DE9A255223247F60039357D /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		7D9A41A2225C820D00355C8D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7D9A41A3225C820D00355C8D /* Localizable.strings(cn).xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Localizable.strings(cn).xcconfig"; sourceTree = "<group>"; };
+		7D9A41A4225C820D00355C8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D9A41A5225C820D00355C8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7D9A41A7225C820D00355C8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7D9A41A8225C820D00355C8D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7D9A41B1225C820E00355C8D /* FilesManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesManger.swift; sourceTree = "<group>"; };
+		7D9A41D9225C820F00355C8D /* HRMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRMapView.swift; sourceTree = "<group>"; };
+		7D9A41DB225C820F00355C8D /* CalendarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		7D9A41DC225C820F00355C8D /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		7D9A41DE225C820F00355C8D /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		7D9A41E0225C820F00355C8D /* LocationDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
+		7D9A41E1225C820F00355C8D /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		7D9A41E2225C820F00355C8D /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		7D9A41E4225C820F00355C8D /* HealthSleepDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthSleepDataManager.swift; sourceTree = "<group>"; };
+		7D9A41E5225C820F00355C8D /* HealthDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthDataManager.swift; sourceTree = "<group>"; };
+		7D9A41E7225C820F00355C8D /* TimeSummaryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSummaryManager.swift; sourceTree = "<group>"; };
+		7D9A41E8225C820F00355C8D /* TimeSummaryDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSummaryDataBase.swift; sourceTree = "<group>"; };
+		7D9A41EA225C820F00355C8D /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		7D9A41EC225C820F00355C8D /* DatabaseMamager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseMamager.swift; sourceTree = "<group>"; };
+		7D9A4223225C843200355C8D /* TimeManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeManager.entitlements; sourceTree = "<group>"; };
+		7D9A4224225C855200355C8D /* HRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRViewController.swift; sourceTree = "<group>"; };
 		7DE9A258223248230039357D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		7DE9A25B22324DC80039357D /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		7DE9A25D22324F030039357D /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
-		7DE9A26122326A270039357D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		7DE9A26222326A580039357D /* Localizable.strings(cn).xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Localizable.strings(cn).xcconfig"; sourceTree = "<group>"; };
 		7DFF512822262ED000D98613 /* TimeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DFF512B22262ED000D98613 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7DFF513222262ED200D98613 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7DFF513522262ED200D98613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7DFF513722262ED200D98613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DFF513D22264B7000D98613 /* TimeManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeManager.entitlements; sourceTree = "<group>"; };
 		7DFF513E22264B7000D98613 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		7DFF514922264CAA00D98613 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		7DFF514D222656B100D98613 /* DatabaseMamager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseMamager.swift; sourceTree = "<group>"; };
-		7DFF514F2226597A00D98613 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
 		7DFF51512226677000D98613 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		7DFF51542226682F00D98613 /* FilesManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManger.swift; sourceTree = "<group>"; };
 		7DFF515C22269E3100D98613 /* TimeManager_Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TimeManager_Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFF515D22269E3100D98613 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7DFF516022269E3100D98613 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		7DFF516322269E3100D98613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7DFF516522269E3100D98613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DFF51702226AD1F00D98613 /* HealthDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataManager.swift; sourceTree = "<group>"; };
-		7DFF51722226ADCC00D98613 /* HealthSleepDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSleepDataManager.swift; sourceTree = "<group>"; };
 		A5CD7FEE22ACE6BEF33BC3EF /* Pods-TimeManager_Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager_Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager_Widget/Pods-TimeManager_Widget.release.xcconfig"; sourceTree = "<group>"; };
 		CB074745B6FA9F35852192A9 /* Pods-TimeManager_Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager_Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager_Widget/Pods-TimeManager_Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		ED5FC6DEDD20FDB83F5D3D10 /* Pods-TimeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager/Pods-TimeManager.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,32 +188,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D687F9B2239180700D780E9 /* TimeSummary */ = {
-			isa = PBXGroup;
-			children = (
-				7D687F9C2239182800D780E9 /* TimeSummaryManager.swift */,
-				7D687F9E2239197600D780E9 /* TimeSummaryDataBase.swift */,
-			);
-			path = TimeSummary;
-			sourceTree = "<group>";
-		};
-		7D817154222BC7D3000E53EB /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				7D817155222BC7E8000E53EB /* CalendarManager.swift */,
-				7D817159222BCBA2000E53EB /* CalendarModel.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
-		7D817158222BC8F8000E53EB /* Maps */ = {
-			isa = PBXGroup;
-			children = (
-				7D9B1299222FC24B005F432E /* HRMapView.swift */,
-			);
-			path = Maps;
-			sourceTree = "<group>";
-		};
 		7D999D1C225B39B0006B49B7 /* OpenGpxTracker */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,47 +256,157 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		7DE9A254223247A70039357D /* Auth */ = {
+		7D9A419E225C820D00355C8D /* UI-Component */ = {
 			isa = PBXGroup;
 			children = (
-				7DE9A255223247F60039357D /* AuthController.swift */,
+			);
+			path = "UI-Component";
+			sourceTree = "<group>";
+		};
+		7D9A419F225C820D00355C8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41A0225C820D00355C8D /* Source */,
+				7D9A41A4225C820D00355C8D /* Assets.xcassets */,
+				7D9A41A5225C820D00355C8D /* GoogleService-Info.plist */,
+				7D9A41A6225C820D00355C8D /* LaunchScreen.storyboard */,
+				7D9A41A8225C820D00355C8D /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7D9A41A0225C820D00355C8D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41A1225C820D00355C8D /* Localizale */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		7D9A41A1225C820D00355C8D /* Localizale */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41A2225C820D00355C8D /* Localizable.strings */,
+				7D9A41A3225C820D00355C8D /* Localizable.strings(cn).xcconfig */,
+			);
+			path = Localizale;
+			sourceTree = "<group>";
+		};
+		7D9A41B0225C820E00355C8D /* General */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41B1225C820E00355C8D /* FilesManger.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		7D9A41D5225C820E00355C8D /* General-Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "General-Tools";
+			sourceTree = "<group>";
+		};
+		7D9A41D6225C820F00355C8D /* AbstractBaseClass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AbstractBaseClass;
+			sourceTree = "<group>";
+		};
+		7D9A41D7225C820F00355C8D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41D8225C820F00355C8D /* Maps */,
+				7D9A41DA225C820F00355C8D /* Calendar */,
+				7D9A41DD225C820F00355C8D /* Auth */,
+				7D9A41DF225C820F00355C8D /* Location */,
+				7D9A41E3225C820F00355C8D /* Health */,
+				7D9A41E6225C820F00355C8D /* TimeSummary */,
+				7D9A41E9225C820F00355C8D /* Manager */,
+				7D9A41EB225C820F00355C8D /* Data */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7D9A41D8225C820F00355C8D /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41D9225C820F00355C8D /* HRMapView.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		7D9A41DA225C820F00355C8D /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41DB225C820F00355C8D /* CalendarModel.swift */,
+				7D9A41DC225C820F00355C8D /* CalendarManager.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		7D9A41DD225C820F00355C8D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41DE225C820F00355C8D /* AuthController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		7D9A41DF225C820F00355C8D /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41E0225C820F00355C8D /* LocationDataManager.swift */,
+				7D9A41E1225C820F00355C8D /* LocationManager.swift */,
+				7D9A41E2225C820F00355C8D /* LocationModel.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		7D9A41E3225C820F00355C8D /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41E4225C820F00355C8D /* HealthSleepDataManager.swift */,
+				7D9A41E5225C820F00355C8D /* HealthDataManager.swift */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+		7D9A41E6225C820F00355C8D /* TimeSummary */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41E7225C820F00355C8D /* TimeSummaryManager.swift */,
+				7D9A41E8225C820F00355C8D /* TimeSummaryDataBase.swift */,
+			);
+			path = TimeSummary;
+			sourceTree = "<group>";
+		};
+		7D9A41E9225C820F00355C8D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41EA225C820F00355C8D /* ServiceManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7D9A41EB225C820F00355C8D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A41EC225C820F00355C8D /* DatabaseMamager.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		7DE9A257223248100039357D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7D9A4224225C855200355C8D /* HRViewController.swift */,
 				7DE9A258223248230039357D /* AuthViewController.swift */,
 				7DE9A25D22324F030039357D /* LocationController.swift */,
 				7D687F992239169500D780E9 /* TimeSummaryController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		7DE9A25A22324DAD0039357D /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				7DE9A25B22324DC80039357D /* ServiceManager.swift */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		7DE9A25F223269E60039357D /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				7DE9A260223269E60039357D /* Localizale */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		7DE9A260223269E60039357D /* Localizale */ = {
-			isa = PBXGroup;
-			children = (
-				7DE9A26122326A270039357D /* Localizable.strings */,
-				7DE9A26222326A580039357D /* Localizable.strings(cn).xcconfig */,
-			);
-			path = Localizale;
 			sourceTree = "<group>";
 		};
 		7DFF511F22262ED000D98613 = {
@@ -351,71 +432,17 @@
 		7DFF512A22262ED000D98613 /* TimeManager */ = {
 			isa = PBXGroup;
 			children = (
+				7D9A4223225C843200355C8D /* TimeManager.entitlements */,
+				7D9A41D6225C820F00355C8D /* AbstractBaseClass */,
+				7D9A41B0225C820E00355C8D /* General */,
+				7D9A41D5225C820E00355C8D /* General-Tools */,
+				7D9A41D7225C820F00355C8D /* Services */,
+				7D9A419F225C820D00355C8D /* Supporting Files */,
+				7D9A419E225C820D00355C8D /* UI-Component */,
 				7D999D1C225B39B0006B49B7 /* OpenGpxTracker */,
-				7DE9A25F223269E60039357D /* Source */,
 				7DE9A257223248100039357D /* Controllers */,
-				7DFF51532226681800D98613 /* Basic */,
-				7DFF514722264CAA00D98613 /* Services */,
-				7DFF513D22264B7000D98613 /* TimeManager.entitlements */,
-				7DFF512B22262ED000D98613 /* AppDelegate.swift */,
-				7DFF513222262ED200D98613 /* Assets.xcassets */,
-				7DFF513422262ED200D98613 /* LaunchScreen.storyboard */,
-				7DFF513722262ED200D98613 /* Info.plist */,
-				7DE9A25222322FFE0039357D /* GoogleService-Info.plist */,
-				7DA2680C225B26560060C058 /* Location.gpx */,
-				7D999D5F225B3DDF006B49B7 /* HRViewController.swift */,
 			);
 			path = TimeManager;
-			sourceTree = "<group>";
-		};
-		7DFF514722264CAA00D98613 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				7D687F9B2239180700D780E9 /* TimeSummary */,
-				7DE9A25A22324DAD0039357D /* Manager */,
-				7DE9A254223247A70039357D /* Auth */,
-				7D817158222BC8F8000E53EB /* Maps */,
-				7D817154222BC7D3000E53EB /* Calendar */,
-				7DFF514B22264CC400D98613 /* Data */,
-				7DFF514C22264CC400D98613 /* Health */,
-				7DFF514822264CAA00D98613 /* Location */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		7DFF514822264CAA00D98613 /* Location */ = {
-			isa = PBXGroup;
-			children = (
-				7DFF514922264CAA00D98613 /* LocationManager.swift */,
-				7DFF514F2226597A00D98613 /* LocationDataManager.swift */,
-				7D999D61225B4990006B49B7 /* LocationModel.swift */,
-			);
-			path = Location;
-			sourceTree = "<group>";
-		};
-		7DFF514B22264CC400D98613 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				7DFF514D222656B100D98613 /* DatabaseMamager.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		7DFF514C22264CC400D98613 /* Health */ = {
-			isa = PBXGroup;
-			children = (
-				7DFF51702226AD1F00D98613 /* HealthDataManager.swift */,
-				7DFF51722226ADCC00D98613 /* HealthSleepDataManager.swift */,
-			);
-			path = Health;
-			sourceTree = "<group>";
-		};
-		7DFF51532226681800D98613 /* Basic */ = {
-			isa = PBXGroup;
-			children = (
-				7DFF51542226682F00D98613 /* FilesManger.swift */,
-			);
-			path = Basic;
 			sourceTree = "<group>";
 		};
 		7DFF515F22269E3100D98613 /* TimeManager_Widget */ = {
@@ -552,10 +579,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DFF513622262ED200D98613 /* LaunchScreen.storyboard in Resources */,
-				7DE9A25322322FFE0039357D /* GoogleService-Info.plist in Resources */,
-				7DFF513322262ED200D98613 /* Assets.xcassets in Resources */,
 				7D999D43225B39B1006B49B7 /* Images.xcassets in Resources */,
+				7D9A41ED225C820F00355C8D /* Localizable.strings in Resources */,
+				7D9A41F0225C820F00355C8D /* GoogleService-Info.plist in Resources */,
+				7D9A41F1225C820F00355C8D /* LaunchScreen.storyboard in Resources */,
+				7D9A41EF225C820F00355C8D /* Assets.xcassets in Resources */,
+				7D9A41EE225C820F00355C8D /* Localizable.strings(cn).xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,52 +660,52 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D999D45225B39B1006B49B7 /* OpenGpxTracker.xcdatamodeld in Sources */,
-				7DFF51712226AD1F00D98613 /* HealthDataManager.swift in Sources */,
-				7DE9A256223247F60039357D /* AuthController.swift in Sources */,
 				7D999D42225B39B1006B49B7 /* GPXTileServer.swift in Sources */,
+				7D9A421F225C820F00355C8D /* TimeSummaryManager.swift in Sources */,
 				7D999D4F225B39B1006B49B7 /* GPXTrackPoint+MapKit.swift in Sources */,
 				7D999D4E225B39B1006B49B7 /* GPXTrack+length.swift in Sources */,
 				7D999D5B225B39B1006B49B7 /* MapViewDelegate.swift in Sources */,
-				7D687F9D2239182800D780E9 /* TimeSummaryManager.swift in Sources */,
 				7D999D55225B39B1006B49B7 /* GPXFilesTableViewController.swift in Sources */,
 				7D999D53225B39B1006B49B7 /* TrackRecorder.swift in Sources */,
-				7D81715A222BCBA2000E53EB /* CalendarModel.swift in Sources */,
-				7D687F9F2239197600D780E9 /* TimeSummaryDataBase.swift in Sources */,
+				7D9A421D225C820F00355C8D /* HealthSleepDataManager.swift in Sources */,
+				7D9A421A225C820F00355C8D /* LocationDataManager.swift in Sources */,
+				7D9A4225225C855200355C8D /* HRViewController.swift in Sources */,
 				7D999D49225B39B1006B49B7 /* GPXExtentCoordinates.swift in Sources */,
-				7D817156222BC7E8000E53EB /* CalendarManager.swift in Sources */,
+				7D9A41F2225C820F00355C8D /* AppDelegate.swift in Sources */,
+				7D9A4217225C820F00355C8D /* CalendarModel.swift in Sources */,
 				7D999D4A225B39B1006B49B7 /* GPXFileManager.swift in Sources */,
 				7D999D4D225B39B1006B49B7 /* StopWatchDelegate.swift in Sources */,
-				7DE9A25C22324DC80039357D /* ServiceManager.swift in Sources */,
-				7DFF51552226682F00D98613 /* FilesManger.swift in Sources */,
 				7D999D44225B39B1006B49B7 /* iOSVersion.swift in Sources */,
 				7D999D58225B39B1006B49B7 /* PreferencesTableViewControllerDelegate.swift in Sources */,
+				7D9A41F8225C820F00355C8D /* FilesManger.swift in Sources */,
+				7D9A4219225C820F00355C8D /* AuthController.swift in Sources */,
 				7D999D5E225B39B1006B49B7 /* GPXMapView.swift in Sources */,
+				7D9A4221225C820F00355C8D /* ServiceManager.swift in Sources */,
 				7D999D48225B39B1006B49B7 /* GPXRoot+length.swift in Sources */,
+				7D9A4216225C820F00355C8D /* HRMapView.swift in Sources */,
+				7D9A4218225C820F00355C8D /* CalendarManager.swift in Sources */,
 				7D999D47225B39B1006B49B7 /* GPXWaypoint+MKAnnotation.swift in Sources */,
 				7D999D56225B39B1006B49B7 /* PreferencesTableViewController.swift in Sources */,
-				7DFF51732226ADCC00D98613 /* HealthSleepDataManager.swift in Sources */,
 				7D999D4C225B39B1006B49B7 /* GPXTrackSegment+MapKit.swift in Sources */,
+				7D9A421C225C820F00355C8D /* LocationModel.swift in Sources */,
 				7D999D57225B39B1006B49B7 /* MailerManager.swift in Sources */,
-				7DFF512C22262ED000D98613 /* AppDelegate.swift in Sources */,
+				7D9A4220225C820F00355C8D /* TimeSummaryDataBase.swift in Sources */,
 				7D999D46225B39B1006B49B7 /* GPXFileInfo.swift in Sources */,
-				7D999D62225B4990006B49B7 /* LocationModel.swift in Sources */,
 				7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */,
-				7D999D60225B3DDF006B49B7 /* HRViewController.swift in Sources */,
 				7DE9A259223248230039357D /* AuthViewController.swift in Sources */,
 				7D999D54225B39B1006B49B7 /* OpenGpxTrackerController.swift in Sources */,
 				7D999D50225B39B1006B49B7 /* StopWatch.swift in Sources */,
 				7D999D52225B39B1006B49B7 /* Int+asFilesize.swift in Sources */,
-				7D9B129A222FC24B005F432E /* HRMapView.swift in Sources */,
-				7DFF514A22264CAA00D98613 /* LocationManager.swift in Sources */,
+				7D9A421B225C820F00355C8D /* LocationManager.swift in Sources */,
+				7D9A4222225C820F00355C8D /* DatabaseMamager.swift in Sources */,
 				7D999D5A225B39B1006B49B7 /* AboutViewController.swift in Sources */,
-				7DFF514E222656B100D98613 /* DatabaseMamager.swift in Sources */,
 				7D999D51225B39B1006B49B7 /* Date+timeAgo.swift in Sources */,
 				7DE9A25E22324F030039357D /* LocationController.swift in Sources */,
 				7D999D59225B39B1006B49B7 /* GPXFilesTableViewControlllerDelegate.swift in Sources */,
 				7D999D4B225B39B1006B49B7 /* CachedTileOverlay.swift in Sources */,
 				7D999D5C225B39B1006B49B7 /* UIDistanceLabel.swift in Sources */,
 				7D999D5D225B39B1006B49B7 /* TrackerButton.swift in Sources */,
-				7DFF51502226597A00D98613 /* LocationDataManager.swift in Sources */,
+				7D9A421E225C820F00355C8D /* HealthDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,9 +714,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DFF516122269E3100D98613 /* TodayViewController.swift in Sources */,
-				7DFF516D2226A1FB00D98613 /* DatabaseMamager.swift in Sources */,
-				7DFF516F2226A20400D98613 /* LocationDataManager.swift in Sources */,
-				7DFF516E2226A20100D98613 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,10 +728,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7DFF513422262ED200D98613 /* LaunchScreen.storyboard */ = {
+		7D9A41A6225C820D00355C8D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7DFF513522262ED200D98613 /* Base */,
+				7D9A41A7225C820D00355C8D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -846,7 +872,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeManager/TimeManager.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EJ866KW4R6;
-				INFOPLIST_FILE = TimeManager/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TimeManager/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -868,7 +894,7 @@
 				CODE_SIGN_ENTITLEMENTS = TimeManager/TimeManager.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EJ866KW4R6;
-				INFOPLIST_FILE = TimeManager/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TimeManager/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

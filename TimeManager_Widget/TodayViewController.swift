@@ -14,7 +14,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
-        LocationManager.shared.start(auto_stop: true)
+//        LocationManager.shared.start(auto_stop: true)
+//        
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

@@ -16,7 +16,6 @@ target 'TimeManager' do
     pod 'SQLite.swift'
 #    pod 'LocoKit'
 #    pod 'LocoKit/LocalStore'
-
 #  XML
 #    pod 'Ono'
     pod 'Kanna'
