@@ -13,10 +13,23 @@ TODO LIST:
 * load gpx data to map.
 * save all gpx data to SQLite
 * check whether the data already import.(user md5 and create the table record all the file already import)
+* 
 
 ### GPS Data Tracker
 
 
 ###  Apple Health Analytics
 
+## Notes
+
+### The Deviation of China Map
+![](https://wuyongzheng.github.io/china-map-deviation/gmapsat.png)
+
+#### Reference
+
+[The Deviation of China Map as a Regression Problem](https://wuyongzheng.github.io/china-map-deviation/paper.html)
+[Restrictions on geographic data in China](https://en.wikipedia.org/wiki/Restrictions_on_geographic_data_in_China)
+
+[ChinaMapDeviation](https://github.com/maxime/ChinaMapDeviation)
+[objc-borderpatrol](https://github.com/square/objc-borderpatrol)
 

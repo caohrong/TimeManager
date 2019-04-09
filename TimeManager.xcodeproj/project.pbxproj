@@ -61,6 +61,9 @@
 		7D9A4228225C892700355C8D /* FileDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A4227225C892700355C8D /* FileDetailInfo.swift */; };
 		7D9A422A225C894B00355C8D /* GPXFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A4229225C894B00355C8D /* GPXFileManager.swift */; };
 		7D9A422C225C8CBD00355C8D /* GPXDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A422B225C8CBD00355C8D /* GPXDataManager.swift */; };
+		7D9A4240225CB4BF00355C8D /* BPRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A423A225CB4BF00355C8D /* BPRegion.m */; };
+		7D9A4241225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A423C225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.m */; };
+		7D9A4242225CB4BF00355C8D /* BPPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A423D225CB4BF00355C8D /* BPPolygon.m */; };
 		7DE9A259223248230039357D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A258223248230039357D /* AuthViewController.swift */; };
 		7DE9A25E22324F030039357D /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A25D22324F030039357D /* LocationController.swift */; };
 		7DFF513F22264B7100D98613 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFF513E22264B7000D98613 /* HealthKit.framework */; };
@@ -152,6 +155,13 @@
 		7D9A4227225C892700355C8D /* FileDetailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDetailInfo.swift; sourceTree = "<group>"; };
 		7D9A4229225C894B00355C8D /* GPXFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFileManager.swift; sourceTree = "<group>"; };
 		7D9A422B225C8CBD00355C8D /* GPXDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXDataManager.swift; sourceTree = "<group>"; };
+		7D9A4239225CB4BF00355C8D /* BorderPatrol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderPatrol.h; sourceTree = "<group>"; };
+		7D9A423A225CB4BF00355C8D /* BPRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPRegion.m; sourceTree = "<group>"; };
+		7D9A423B225CB4BF00355C8D /* BPPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPolygon.h; sourceTree = "<group>"; };
+		7D9A423C225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+ChinaMapDeviation.m"; sourceTree = "<group>"; };
+		7D9A423D225CB4BF00355C8D /* BPPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPolygon.m; sourceTree = "<group>"; };
+		7D9A423E225CB4BF00355C8D /* BPRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPRegion.h; sourceTree = "<group>"; };
+		7D9A423F225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+ChinaMapDeviation.h"; sourceTree = "<group>"; };
 		7DE9A258223248230039357D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		7DE9A25D22324F030039357D /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		7DFF512822262ED000D98613 /* TimeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -303,6 +313,7 @@
 		7D9A41D5225C820E00355C8D /* General-Tools */ = {
 			isa = PBXGroup;
 			children = (
+				7D9A422D225CAF8200355C8D /* GPS */,
 			);
 			path = "General-Tools";
 			sourceTree = "<group>";
@@ -407,6 +418,28 @@
 				7D9A422B225C8CBD00355C8D /* GPXDataManager.swift */,
 			);
 			path = FileManager;
+			sourceTree = "<group>";
+		};
+		7D9A422D225CAF8200355C8D /* GPS */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A4238225CB4BF00355C8D /* Deviation of China Map */,
+			);
+			path = GPS;
+			sourceTree = "<group>";
+		};
+		7D9A4238225CB4BF00355C8D /* Deviation of China Map */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A4239225CB4BF00355C8D /* BorderPatrol.h */,
+				7D9A423B225CB4BF00355C8D /* BPPolygon.h */,
+				7D9A423D225CB4BF00355C8D /* BPPolygon.m */,
+				7D9A423E225CB4BF00355C8D /* BPRegion.h */,
+				7D9A423A225CB4BF00355C8D /* BPRegion.m */,
+				7D9A423F225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.h */,
+				7D9A423C225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.m */,
+			);
+			path = "Deviation of China Map";
 			sourceTree = "<group>";
 		};
 		7DE9A257223248100039357D /* Controllers */ = {
@@ -683,9 +716,11 @@
 				7D9A421A225C820F00355C8D /* LocationDataManager.swift in Sources */,
 				7D9A4225225C855200355C8D /* HRViewController.swift in Sources */,
 				7D999D49225B39B1006B49B7 /* GPXExtentCoordinates.swift in Sources */,
+				7D9A4242225CB4BF00355C8D /* BPPolygon.m in Sources */,
 				7D9A41F2225C820F00355C8D /* AppDelegate.swift in Sources */,
 				7D9A4217225C820F00355C8D /* CalendarModel.swift in Sources */,
 				7D999D4D225B39B1006B49B7 /* StopWatchDelegate.swift in Sources */,
+				7D9A4240225CB4BF00355C8D /* BPRegion.m in Sources */,
 				7D999D44225B39B1006B49B7 /* iOSVersion.swift in Sources */,
 				7D999D58225B39B1006B49B7 /* PreferencesTableViewControllerDelegate.swift in Sources */,
 				7D9A41F8225C820F00355C8D /* FilesManger.swift in Sources */,
@@ -705,6 +740,7 @@
 				7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */,
 				7DE9A259223248230039357D /* AuthViewController.swift in Sources */,
 				7D999D54225B39B1006B49B7 /* OpenGpxTrackerController.swift in Sources */,
+				7D9A4241225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.m in Sources */,
 				7D999D50225B39B1006B49B7 /* StopWatch.swift in Sources */,
 				7D999D52225B39B1006B49B7 /* Int+asFilesize.swift in Sources */,
 				7D9A421B225C820F00355C8D /* LocationManager.swift in Sources */,
