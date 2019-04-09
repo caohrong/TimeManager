@@ -10,15 +10,6 @@ import CoreLocation
 import MapKit
 import CoreGPX
 
-////Button colors
-//let UIColor.purple: UIColor =  UIColor(red: 146.0/255.0, green: 166.0/255.0, blue: 218.0/255.0, alpha: 0.90)
-//let UIColor.green: UIColor = UIColor(red: 142.0/255.0, green: 224.0/255.0, blue: 102.0/255.0, alpha: 0.90)
-//let UIColor.red: UIColor =  UIColor(red: 244.0/255.0, green: 94.0/255.0, blue: 94.0/255.0, alpha: 0.90)
-//let UIColor.blue: UIColor = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 0.90)
-//let UIColor.blue: UIColor = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 0.10)
-//let UIColor.red: UIColor =  UIColor(red: 244.0/255.0, green: 94.0/255.0, blue: 94.0/255.0, alpha: 0.10)
-//let UIColor.white: UIColor = UIColor(red: 254.0/255.0, green: 254.0/255.0, blue: 254.0/255.0, alpha: 0.90)
-
 //Accesory View buttons tags
 let kDeleteWaypointAccesoryButtonTag = 666
 let kEditWaypointAccesoryButtonTag = 333
@@ -33,15 +24,6 @@ let  kButtonSmallSize: CGFloat = 48.0
 let kButtonLargeSize: CGFloat = 96.0
 /// Separation between buttons
 let kButtonSeparation: CGFloat = 6.0
-
-//GPS信号强度
-/// Upper limits threshold (in meters) on signal accuracy.
-let kSignalAccuracy6 = 6.0
-let kSignalAccuracy5 = 11.0
-let kSignalAccuracy4 = 31.0
-let kSignalAccuracy3 = 51.0
-let kSignalAccuracy2 = 101.0
-let kSignalAccuracy1 = 201.0
 
 ///
 /// Main View Controller of the Application. It is loaded when the application is launched
@@ -1018,7 +1000,6 @@ extension OpenGpxTrackerController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         print("ViewController::didUpdateHeading \(newHeading.trueHeading)")
         map.updateHeading(newHeading)
-        
     }
 }
 

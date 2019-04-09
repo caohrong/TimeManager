@@ -13,10 +13,10 @@ import Foundation
 /// It gets info like filename, modified date, filesize
 ///
 ///
-class GPXFileInfo: NSObject {
-    
+
+struct FileDetailInfo {
     /// file URL
-    var fileURL: URL = URL(fileURLWithPath: "")
+    let fileURL: URL
     
     /// last time the file was modified
     var modifiedDate: Date {
@@ -31,6 +31,7 @@ class GPXFileInfo: NSObject {
             return modifiedDate.timeAgo(numericDates: true)
         }
     }
+    
     /// file size in bytes
     var fileSize: Int {
         get {
@@ -51,16 +52,5 @@ class GPXFileInfo: NSObject {
             return fileURL.deletingPathExtension().lastPathComponent
         }
     }
-    
-    ///
-    /// Initializes the object with the URL of the file to get info.
-    ///
-    /// - Parameters:
-    ///     - fileURL: the URL of the GPX file.
-    ///
-    init(fileURL: URL) {
-        self.fileURL = fileURL
-        super.init()
-    }
-    
+
 }

@@ -28,7 +28,6 @@ let kNoFiles = "No gpx files"
 /// It also displays a button "Done" in the navigation bar to return to the map.
 ///
 class GPXFilesTableViewController: UITableViewController, UINavigationBarDelegate {
-   
     /// List of strings with the filenames.
     var fileList: NSMutableArray = [kNoFiles]
     
@@ -40,14 +39,7 @@ class GPXFilesTableViewController: UITableViewController, UINavigationBarDelegat
     
     ///
     weak var delegate: GPXFilesTableViewControllerDelegate?
-    
-    ///
-    /// Setups the view controller.
-    ///
-    /// 1. Sets the title
-    /// 2. Adds the "Done" button
-    /// 3. Loads existing GPX File list.
-    ///
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let navBarFrame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64)
@@ -62,12 +54,15 @@ class GPXFilesTableViewController: UITableViewController, UINavigationBarDelegat
         self.navigationItem.rightBarButtonItems = [shareItem]
         
         // Get gpx files
-        let list: [GPXFileInfo] = GPXFileManager.fileList
+        let list: [FileDetailInfo] = GPXFileManager.fileList
         if list.count != 0 {
             self.fileList.removeAllObjects()
             self.fileList.addObjects(from: list)
             self.gpxFilesFound = true
         }
+        
+        let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last?.path
+        print(filePath!)
     }
     
     
@@ -128,7 +123,7 @@ class GPXFilesTableViewController: UITableViewController, UINavigationBarDelegat
             let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
             //cell.accessoryType = UITableViewCellAccessoryType.DetailDisclosureButton
             //cell.accessoryView = [[ UIImageView alloc ] initWithImage:[UIImage imageNamed:@"Something" ]];
-            let gpxFileInfo = fileList.object(at: (indexPath as NSIndexPath).row) as! GPXFileInfo
+            let gpxFileInfo = fileList.object(at: (indexPath as NSIndexPath).row) as! FileDetailInfo
             cell.textLabel?.text = gpxFileInfo.fileName
             cell.detailTextLabel?.text =
                 "last saved \(gpxFileInfo.modifiedDatetimeAgo) (\(gpxFileInfo.fileSizeHumanised))"
@@ -149,6 +144,7 @@ class GPXFilesTableViewController: UITableViewController, UINavigationBarDelegat
         let mapOption = UIAlertAction(title: "Load in Map", style: .default) { action in
             self.actionLoadFileAtIndex(indexPath.row)
         }
+        
         let shareOption = UIAlertAction(title: "Share", style: .default) { action in
             self.actionShareFileAtIndex(indexPath.row, tableView: tableView, indexPath: indexPath)
         }
@@ -182,16 +178,9 @@ class GPXFilesTableViewController: UITableViewController, UINavigationBarDelegat
     }
     
     internal func fileListObjectTitle(_ rowIndex: Int) -> String {
-        return (fileList.object(at: rowIndex) as! GPXFileInfo).fileName
+        return (fileList.object(at: rowIndex) as! FileDetailInfo).fileName
     }
-    
-    //
-    // MARK: Action Sheet - Actions
-    //
-    
-    // Cancel button is taped.
-    //
-    // Does nothing, it only displays a log message
+
     internal func actionSheetCancel(_ actionSheet: UIAlertController) {
         print("ActionSheet cancel")
     }
@@ -199,8 +188,7 @@ class GPXFilesTableViewController: UITableViewController, UINavigationBarDelegat
     
     /// Deletes from the disk storage the file of `fileList` at `rowIndex`
     internal func actionDeleteFileAtIndex(_ rowIndex: Int) {
-
-        guard let fileURL: URL = (fileList.object(at: rowIndex) as? GPXFileInfo)?.fileURL else {
+        guard let fileURL: URL = (fileList.object(at: rowIndex) as? FileDetailInfo)?.fileURL else {
             print("GPXFileTableViewController:: actionDeleteFileAtIndex: failed to get fileURL")
             return
         }
@@ -216,7 +204,7 @@ class GPXFilesTableViewController: UITableViewController, UINavigationBarDelegat
     
     /// Loads the GPX file that corresponds to rowIndex in fileList in the map.
     internal func actionLoadFileAtIndex(_ rowIndex: Int) {
-        guard let gpxFileInfo: GPXFileInfo = (fileList.object(at: rowIndex) as? GPXFileInfo) else {
+        guard let gpxFileInfo: FileDetailInfo = (fileList.object(at: rowIndex) as? FileDetailInfo) else {
             print("GPXFileTableViewController:: actionLoadFileAtIndex(\(rowIndex)): failed to get fileURL")
             return
         }
@@ -233,7 +221,7 @@ class GPXFilesTableViewController: UITableViewController, UINavigationBarDelegat
     
     /// Shares file at `rowIndex`
     internal func actionShareFileAtIndex(_ rowIndex: Int, tableView: UITableView, indexPath: IndexPath) {
-        guard let gpxFileInfo: GPXFileInfo = (fileList.object(at: rowIndex) as? GPXFileInfo) else {
+        guard let gpxFileInfo: FileDetailInfo = (fileList.object(at: rowIndex) as? FileDetailInfo) else {
             print("Unable to get filename at row \(rowIndex), cannot respond to \(type(of: self))didSelectRowAt")
             return
         }

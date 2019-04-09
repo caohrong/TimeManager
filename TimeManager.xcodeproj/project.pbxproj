@@ -14,11 +14,9 @@
 		7D999D43225B39B1006B49B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D999D21225B39B0006B49B7 /* Images.xcassets */; };
 		7D999D44225B39B1006B49B7 /* iOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D22225B39B0006B49B7 /* iOSVersion.swift */; };
 		7D999D45225B39B1006B49B7 /* OpenGpxTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D23225B39B0006B49B7 /* OpenGpxTracker.xcdatamodeld */; };
-		7D999D46225B39B1006B49B7 /* GPXFileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D26225B39B0006B49B7 /* GPXFileInfo.swift */; };
 		7D999D47225B39B1006B49B7 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D27225B39B0006B49B7 /* GPXWaypoint+MKAnnotation.swift */; };
 		7D999D48225B39B1006B49B7 /* GPXRoot+length.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D28225B39B0006B49B7 /* GPXRoot+length.swift */; };
 		7D999D49225B39B1006B49B7 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D29225B39B0006B49B7 /* GPXExtentCoordinates.swift */; };
-		7D999D4A225B39B1006B49B7 /* GPXFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D2A225B39B0006B49B7 /* GPXFileManager.swift */; };
 		7D999D4B225B39B1006B49B7 /* CachedTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D2B225B39B0006B49B7 /* CachedTileOverlay.swift */; };
 		7D999D4C225B39B1006B49B7 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D2C225B39B0006B49B7 /* GPXTrackSegment+MapKit.swift */; };
 		7D999D4D225B39B1006B49B7 /* StopWatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D2D225B39B0006B49B7 /* StopWatchDelegate.swift */; };
@@ -60,6 +58,9 @@
 		7D9A4221225C820F00355C8D /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41EA225C820F00355C8D /* ServiceManager.swift */; };
 		7D9A4222225C820F00355C8D /* DatabaseMamager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A41EC225C820F00355C8D /* DatabaseMamager.swift */; };
 		7D9A4225225C855200355C8D /* HRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A4224225C855200355C8D /* HRViewController.swift */; };
+		7D9A4228225C892700355C8D /* FileDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A4227225C892700355C8D /* FileDetailInfo.swift */; };
+		7D9A422A225C894B00355C8D /* GPXFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A4229225C894B00355C8D /* GPXFileManager.swift */; };
+		7D9A422C225C8CBD00355C8D /* GPXDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A422B225C8CBD00355C8D /* GPXDataManager.swift */; };
 		7DE9A259223248230039357D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A258223248230039357D /* AuthViewController.swift */; };
 		7DE9A25E22324F030039357D /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A25D22324F030039357D /* LocationController.swift */; };
 		7DFF513F22264B7100D98613 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFF513E22264B7000D98613 /* HealthKit.framework */; };
@@ -103,11 +104,9 @@
 		7D999D21225B39B0006B49B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7D999D22225B39B0006B49B7 /* iOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSVersion.swift; sourceTree = "<group>"; };
 		7D999D24225B39B0006B49B7 /* OpenGpxTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OpenGpxTracker.xcdatamodel; sourceTree = "<group>"; };
-		7D999D26225B39B0006B49B7 /* GPXFileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFileInfo.swift; sourceTree = "<group>"; };
 		7D999D27225B39B0006B49B7 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
 		7D999D28225B39B0006B49B7 /* GPXRoot+length.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXRoot+length.swift"; sourceTree = "<group>"; };
 		7D999D29225B39B0006B49B7 /* GPXExtentCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXExtentCoordinates.swift; sourceTree = "<group>"; };
-		7D999D2A225B39B0006B49B7 /* GPXFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFileManager.swift; sourceTree = "<group>"; };
 		7D999D2B225B39B0006B49B7 /* CachedTileOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedTileOverlay.swift; sourceTree = "<group>"; };
 		7D999D2C225B39B0006B49B7 /* GPXTrackSegment+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrackSegment+MapKit.swift"; sourceTree = "<group>"; };
 		7D999D2D225B39B0006B49B7 /* StopWatchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatchDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +149,9 @@
 		7D9A41EC225C820F00355C8D /* DatabaseMamager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseMamager.swift; sourceTree = "<group>"; };
 		7D9A4223225C843200355C8D /* TimeManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeManager.entitlements; sourceTree = "<group>"; };
 		7D9A4224225C855200355C8D /* HRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRViewController.swift; sourceTree = "<group>"; };
+		7D9A4227225C892700355C8D /* FileDetailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDetailInfo.swift; sourceTree = "<group>"; };
+		7D9A4229225C894B00355C8D /* GPXFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXFileManager.swift; sourceTree = "<group>"; };
+		7D9A422B225C8CBD00355C8D /* GPXDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXDataManager.swift; sourceTree = "<group>"; };
 		7DE9A258223248230039357D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		7DE9A25D22324F030039357D /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		7DFF512822262ED000D98613 /* TimeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,11 +215,9 @@
 		7D999D25225B39B0006B49B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7D999D26225B39B0006B49B7 /* GPXFileInfo.swift */,
 				7D999D27225B39B0006B49B7 /* GPXWaypoint+MKAnnotation.swift */,
 				7D999D28225B39B0006B49B7 /* GPXRoot+length.swift */,
 				7D999D29225B39B0006B49B7 /* GPXExtentCoordinates.swift */,
-				7D999D2A225B39B0006B49B7 /* GPXFileManager.swift */,
 				7D999D2B225B39B0006B49B7 /* CachedTileOverlay.swift */,
 				7D999D2C225B39B0006B49B7 /* GPXTrackSegment+MapKit.swift */,
 				7D999D2D225B39B0006B49B7 /* StopWatchDelegate.swift */,
@@ -317,6 +317,7 @@
 		7D9A41D7225C820F00355C8D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7D9A4226225C890600355C8D /* FileManager */,
 				7D9A41D8225C820F00355C8D /* Maps */,
 				7D9A41DA225C820F00355C8D /* Calendar */,
 				7D9A41DD225C820F00355C8D /* Auth */,
@@ -396,6 +397,16 @@
 				7D9A41EC225C820F00355C8D /* DatabaseMamager.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		7D9A4226225C890600355C8D /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				7D9A4229225C894B00355C8D /* GPXFileManager.swift */,
+				7D9A4227225C892700355C8D /* FileDetailInfo.swift */,
+				7D9A422B225C8CBD00355C8D /* GPXDataManager.swift */,
+			);
+			path = FileManager;
 			sourceTree = "<group>";
 		};
 		7DE9A257223248100039357D /* Controllers */ = {
@@ -668,12 +679,12 @@
 				7D999D55225B39B1006B49B7 /* GPXFilesTableViewController.swift in Sources */,
 				7D999D53225B39B1006B49B7 /* TrackRecorder.swift in Sources */,
 				7D9A421D225C820F00355C8D /* HealthSleepDataManager.swift in Sources */,
+				7D9A422A225C894B00355C8D /* GPXFileManager.swift in Sources */,
 				7D9A421A225C820F00355C8D /* LocationDataManager.swift in Sources */,
 				7D9A4225225C855200355C8D /* HRViewController.swift in Sources */,
 				7D999D49225B39B1006B49B7 /* GPXExtentCoordinates.swift in Sources */,
 				7D9A41F2225C820F00355C8D /* AppDelegate.swift in Sources */,
 				7D9A4217225C820F00355C8D /* CalendarModel.swift in Sources */,
-				7D999D4A225B39B1006B49B7 /* GPXFileManager.swift in Sources */,
 				7D999D4D225B39B1006B49B7 /* StopWatchDelegate.swift in Sources */,
 				7D999D44225B39B1006B49B7 /* iOSVersion.swift in Sources */,
 				7D999D58225B39B1006B49B7 /* PreferencesTableViewControllerDelegate.swift in Sources */,
@@ -689,8 +700,8 @@
 				7D999D4C225B39B1006B49B7 /* GPXTrackSegment+MapKit.swift in Sources */,
 				7D9A421C225C820F00355C8D /* LocationModel.swift in Sources */,
 				7D999D57225B39B1006B49B7 /* MailerManager.swift in Sources */,
+				7D9A4228225C892700355C8D /* FileDetailInfo.swift in Sources */,
 				7D9A4220225C820F00355C8D /* TimeSummaryDataBase.swift in Sources */,
-				7D999D46225B39B1006B49B7 /* GPXFileInfo.swift in Sources */,
 				7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */,
 				7DE9A259223248230039357D /* AuthViewController.swift in Sources */,
 				7D999D54225B39B1006B49B7 /* OpenGpxTrackerController.swift in Sources */,
@@ -705,6 +716,7 @@
 				7D999D4B225B39B1006B49B7 /* CachedTileOverlay.swift in Sources */,
 				7D999D5C225B39B1006B49B7 /* UIDistanceLabel.swift in Sources */,
 				7D999D5D225B39B1006B49B7 /* TrackerButton.swift in Sources */,
+				7D9A422C225C8CBD00355C8D /* GPXDataManager.swift in Sources */,
 				7D9A421E225C820F00355C8D /* HealthDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

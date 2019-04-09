@@ -7,9 +7,6 @@
 
 import Foundation
 
-/// GPX File extension
-let kFileExt = "gpx"
-
 ///
 /// Class to handle actions with GPX files (save, delete, etc..)
 ///
@@ -29,10 +26,10 @@ class GPXFileManager: NSObject {
     ///
     /// Gets the list of `.gpx` files in Documents directory ordered by modified date
     ///
-    class var fileList: [GPXFileInfo] {
+    class var fileList: [FileDetailInfo] {
         get {
             let kFileExts:Set = ["gpx", "GPX"]
-            var GPXFiles: [GPXFileInfo] = []
+            var GPXFiles: [FileDetailInfo] = []
             let fileManager = FileManager.default
             let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
                 do {
@@ -54,7 +51,7 @@ class GPXFileManager: NSObject {
                         //Now we filter GPX Files
                         for (url, modificationDate, fileSize) in sortedURLs {
                             if kFileExts.contains(url.pathExtension) {
-                                GPXFiles.append(GPXFileInfo(fileURL: url))
+                                GPXFiles.append(FileDetailInfo(fileURL: url))
                                 //GPXFiles.append(url.deletingPathExtension().lastPathComponent)
                                 print("\(modificationDate) \(modificationDate.timeAgo(numericDates: true)) \(fileSize)bytes -- \(url.deletingPathExtension().lastPathComponent)")
                             }
@@ -75,9 +72,10 @@ class GPXFileManager: NSObject {
         var fullURL = self.GPXFilesFolderURL.appendingPathComponent(filename)
         print("URLForFilename(\(filename): pathForFilename: \(fullURL)")
         //check if filename has extension
-        if fullURL.pathExtension != kFileExt {
-            fullURL = fullURL.appendingPathExtension(kFileExt)
-        }
+//Mark - Add PathExtension
+//        if fullURL.pathExtension != kFileExt {
+//            fullURL = fullURL.appendingPathExtension(kFileExt)
+//        }
         return fullURL
     }
     
