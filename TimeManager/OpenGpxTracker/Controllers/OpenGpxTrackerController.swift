@@ -41,7 +41,6 @@ class OpenGpxTrackerController: UIViewController, UIGestureRecognizerDelegate  {
                 print("followUser=true")
                 followUserButton.setImage(UIImage(named: "follow_user_high"), for: UIControl.State())
                 map.setCenter((map.userLocation.coordinate), animated: true)
-                
             } else {
                 print("followUser=false")
                followUserButton.setImage(UIImage(named: "follow_user"), for: UIControl.State())

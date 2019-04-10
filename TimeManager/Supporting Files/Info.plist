@@ -20,6 +20,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoiY2FvaHIiLCJhIjoiY2p1YXRhdXh2MDZhNTQ0bWx4ZGlnYzNnOSJ9.pQWEFlzS8PZ4QEQrNFRvOA</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>请求访问日历权限</string>
 	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>

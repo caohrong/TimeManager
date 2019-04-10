@@ -14,6 +14,7 @@ target 'TimeManager' do
     pod 'CoreGPX'
     pod 'Cache'
     pod 'SQLite.swift'
+    pod 'Mapbox-iOS-SDK'
 #    pod 'LocoKit'
 #    pod 'LocoKit/LocalStore'
 #  XML

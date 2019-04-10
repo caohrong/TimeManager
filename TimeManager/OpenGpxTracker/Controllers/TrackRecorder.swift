@@ -47,6 +47,5 @@ open class TrackRecorder: NSObject, CLLocationManagerDelegate {
     open func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.first!
         delegate?.trackRecorder(self, didUpdateToLocation: newLocation)
-
     }
 }

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		38D27FE27892652DF501CC4F /* Pods_TimeManager_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262C8E540A00FE0D2FDAF292 /* Pods_TimeManager_Widget.framework */; };
 		3C3E732D9C0D962B53CE95CD /* Pods_TimeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */; };
+		7D4222B4225D8D5700E41F45 /* CLLocationCoordinate2D+ChinaMapDeviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4222B3225D8D5700E41F45 /* CLLocationCoordinate2D+ChinaMapDeviation.swift */; };
+		7D4222B6225D9A1500E41F45 /* GPXDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4222B5225D9A1500E41F45 /* GPXDataModel.swift */; };
+		7D4222B8225DC21E00E41F45 /* MapboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4222B7225DC21E00E41F45 /* MapboxController.swift */; };
+		7D4222BA225DC44600E41F45 /* 北京-上海.GPX in Resources */ = {isa = PBXBuildFile; fileRef = 7D4222B9225DC44600E41F45 /* 北京-上海.GPX */; };
 		7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D687F992239169500D780E9 /* TimeSummaryController.swift */; };
 		7D999D42225B39B1006B49B7 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D20225B39B0006B49B7 /* GPXTileServer.swift */; };
 		7D999D43225B39B1006B49B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D999D21225B39B0006B49B7 /* Images.xcassets */; };
@@ -103,6 +107,10 @@
 		262C8E540A00FE0D2FDAF292 /* Pods_TimeManager_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManager_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6D0982D83AE56D3F96DB23 /* Pods-TimeManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager/Pods-TimeManager.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D4222B3225D8D5700E41F45 /* CLLocationCoordinate2D+ChinaMapDeviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+ChinaMapDeviation.swift"; sourceTree = "<group>"; };
+		7D4222B5225D9A1500E41F45 /* GPXDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXDataModel.swift; sourceTree = "<group>"; };
+		7D4222B7225DC21E00E41F45 /* MapboxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxController.swift; sourceTree = "<group>"; };
+		7D4222B9225DC44600E41F45 /* 北京-上海.GPX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "北京-上海.GPX"; sourceTree = "<group>"; };
 		7D687F992239169500D780E9 /* TimeSummaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSummaryController.swift; sourceTree = "<group>"; };
 		7D999D20225B39B0006B49B7 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
 		7D999D21225B39B0006B49B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -283,6 +291,7 @@
 				7D9A41A4225C820D00355C8D /* Assets.xcassets */,
 				7D9A41A5225C820D00355C8D /* GoogleService-Info.plist */,
 				7D9A41A6225C820D00355C8D /* LaunchScreen.storyboard */,
+				7D4222B9225DC44600E41F45 /* 北京-上海.GPX */,
 				7D9A41A8225C820D00355C8D /* AppDelegate.swift */,
 				7D9A4246225CB5D700355C8D /* Bridging-Header.h */,
 			);
@@ -420,6 +429,7 @@
 				7D9A4229225C894B00355C8D /* GPXFileManager.swift */,
 				7D9A4227225C892700355C8D /* FileDetailInfo.swift */,
 				7D9A422B225C8CBD00355C8D /* GPXDataManager.swift */,
+				7D4222B5225D9A1500E41F45 /* GPXDataModel.swift */,
 			);
 			path = FileManager;
 			sourceTree = "<group>";
@@ -443,6 +453,7 @@
 				7D9A423F225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.h */,
 				7D9A423C225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.m */,
 				7D9A424A225CB83300355C8D /* china.kml */,
+				7D4222B3225D8D5700E41F45 /* CLLocationCoordinate2D+ChinaMapDeviation.swift */,
 			);
 			path = "Deviation of China Map";
 			sourceTree = "<group>";
@@ -454,6 +465,7 @@
 				7DE9A258223248230039357D /* AuthViewController.swift */,
 				7DE9A25D22324F030039357D /* LocationController.swift */,
 				7D687F992239169500D780E9 /* TimeSummaryController.swift */,
+				7D4222B7225DC21E00E41F45 /* MapboxController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -635,6 +647,7 @@
 				7D9A41F1225C820F00355C8D /* LaunchScreen.storyboard in Resources */,
 				7D9A41EF225C820F00355C8D /* Assets.xcassets in Resources */,
 				7D9A41EE225C820F00355C8D /* Localizable.strings(cn).xcconfig in Resources */,
+				7D4222BA225DC44600E41F45 /* 北京-上海.GPX in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +730,7 @@
 				7D999D5B225B39B1006B49B7 /* MapViewDelegate.swift in Sources */,
 				7D999D55225B39B1006B49B7 /* GPXFilesTableViewController.swift in Sources */,
 				7D999D53225B39B1006B49B7 /* TrackRecorder.swift in Sources */,
+				7D4222B8225DC21E00E41F45 /* MapboxController.swift in Sources */,
 				7D9A421D225C820F00355C8D /* HealthSleepDataManager.swift in Sources */,
 				7D9A422A225C894B00355C8D /* GPXFileManager.swift in Sources */,
 				7D9A421A225C820F00355C8D /* LocationDataManager.swift in Sources */,
@@ -746,6 +760,7 @@
 				7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */,
 				7DE9A259223248230039357D /* AuthViewController.swift in Sources */,
 				7D999D54225B39B1006B49B7 /* OpenGpxTrackerController.swift in Sources */,
+				7D4222B6225D9A1500E41F45 /* GPXDataModel.swift in Sources */,
 				7D9A4241225CB4BF00355C8D /* CLLocation+ChinaMapDeviation.m in Sources */,
 				7D999D50225B39B1006B49B7 /* StopWatch.swift in Sources */,
 				7D999D52225B39B1006B49B7 /* Int+asFilesize.swift in Sources */,
@@ -755,6 +770,7 @@
 				7D999D51225B39B1006B49B7 /* Date+timeAgo.swift in Sources */,
 				7DE9A25E22324F030039357D /* LocationController.swift in Sources */,
 				7D999D59225B39B1006B49B7 /* GPXFilesTableViewControlllerDelegate.swift in Sources */,
+				7D4222B4225D8D5700E41F45 /* CLLocationCoordinate2D+ChinaMapDeviation.swift in Sources */,
 				7D999D4B225B39B1006B49B7 /* CachedTileOverlay.swift in Sources */,
 				7D999D5C225B39B1006B49B7 /* UIDistanceLabel.swift in Sources */,
 				7D999D5D225B39B1006B49B7 /* TrackerButton.swift in Sources */,
