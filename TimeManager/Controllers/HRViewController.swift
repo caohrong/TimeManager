@@ -25,15 +25,12 @@ class HRViewController: UIViewController {
 //        print("https://www.google.com/maps/place/\(chinaLocation.latitude)+\(chinaLocation.longitude)")
 //        print("https://www.google.com/maps/place/\(newLocation.latitude)+\(newLocation.longitude)")
         
-        
 //        let url = URL(string: "mapbox://styles/mapbox/streets-v11")
 //        let mapView = MGLMapView(frame: view.bounds, styleURL: url)
 //        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 //        mapView.setCenter(CLLocationCoordinate2D(latitude: 59.31, longitude: 18.06), zoomLevel: 9, animated: false)
 //        view.addSubview(mapView)
-        
         self.navigationController?.pushViewController(MapboxController(), animated: true)
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
