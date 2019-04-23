@@ -13,7 +13,6 @@
 		7D4222B6225D9A1500E41F45 /* GPXDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4222B5225D9A1500E41F45 /* GPXDataModel.swift */; };
 		7D4222B8225DC21E00E41F45 /* MapboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4222B7225DC21E00E41F45 /* MapboxController.swift */; };
 		7D4222BA225DC44600E41F45 /* 北京-上海.GPX in Resources */ = {isa = PBXBuildFile; fileRef = 7D4222B9225DC44600E41F45 /* 北京-上海.GPX */; };
-		7D5F6B9E225F34BA00C49231 /* Track.GPX in Resources */ = {isa = PBXBuildFile; fileRef = 7D5F6B9D225F34BA00C49231 /* Track.GPX */; };
 		7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D687F992239169500D780E9 /* TimeSummaryController.swift */; };
 		7D999D42225B39B1006B49B7 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D999D20225B39B0006B49B7 /* GPXTileServer.swift */; };
 		7D999D43225B39B1006B49B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D999D21225B39B0006B49B7 /* Images.xcassets */; };
@@ -73,7 +72,6 @@
 		7DE9A259223248230039357D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A258223248230039357D /* AuthViewController.swift */; };
 		7DE9A25E22324F030039357D /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9A25D22324F030039357D /* LocationController.swift */; };
 		7DFF513F22264B7100D98613 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFF513E22264B7000D98613 /* HealthKit.framework */; };
-		7DFF51522226677000D98613 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFF51512226677000D98613 /* CloudKit.framework */; };
 		7DFF515E22269E3100D98613 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFF515D22269E3100D98613 /* NotificationCenter.framework */; };
 		7DFF516122269E3100D98613 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFF516022269E3100D98613 /* TodayViewController.swift */; };
 		7DFF516422269E3100D98613 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFF516222269E3100D98613 /* MainInterface.storyboard */; };
@@ -112,7 +110,6 @@
 		7D4222B5225D9A1500E41F45 /* GPXDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXDataModel.swift; sourceTree = "<group>"; };
 		7D4222B7225DC21E00E41F45 /* MapboxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxController.swift; sourceTree = "<group>"; };
 		7D4222B9225DC44600E41F45 /* 北京-上海.GPX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "北京-上海.GPX"; sourceTree = "<group>"; };
-		7D5F6B9D225F34BA00C49231 /* Track.GPX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Track.GPX; sourceTree = "<group>"; };
 		7D687F992239169500D780E9 /* TimeSummaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSummaryController.swift; sourceTree = "<group>"; };
 		7D999D20225B39B0006B49B7 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
 		7D999D21225B39B0006B49B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -179,7 +176,6 @@
 		7DE9A25D22324F030039357D /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		7DFF512822262ED000D98613 /* TimeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFF513E22264B7000D98613 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		7DFF51512226677000D98613 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		7DFF515C22269E3100D98613 /* TimeManager_Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TimeManager_Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFF515D22269E3100D98613 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7DFF516022269E3100D98613 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -195,7 +191,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DFF51522226677000D98613 /* CloudKit.framework in Frameworks */,
 				3C3E732D9C0D962B53CE95CD /* Pods_TimeManager.framework in Frameworks */,
 				7DFF513F22264B7100D98613 /* HealthKit.framework in Frameworks */,
 			);
@@ -293,7 +288,6 @@
 				7D9A41A4225C820D00355C8D /* Assets.xcassets */,
 				7D9A41A5225C820D00355C8D /* GoogleService-Info.plist */,
 				7D9A41A6225C820D00355C8D /* LaunchScreen.storyboard */,
-				7D5F6B9D225F34BA00C49231 /* Track.GPX */,
 				7D4222B9225DC44600E41F45 /* 北京-上海.GPX */,
 				7D9A41A8225C820D00355C8D /* AppDelegate.swift */,
 				7D9A4246225CB5D700355C8D /* Bridging-Header.h */,
@@ -522,7 +516,6 @@
 		A924AC24761F4A432E58E59E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7DFF51512226677000D98613 /* CloudKit.framework */,
 				7DFF513E22264B7000D98613 /* HealthKit.framework */,
 				4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */,
 				7DFF515D22269E3100D98613 /* NotificationCenter.framework */,
@@ -649,7 +642,6 @@
 				7D9A41F0225C820F00355C8D /* GoogleService-Info.plist in Resources */,
 				7D9A41F1225C820F00355C8D /* LaunchScreen.storyboard in Resources */,
 				7D9A41EF225C820F00355C8D /* Assets.xcassets in Resources */,
-				7D5F6B9E225F34BA00C49231 /* Track.GPX in Resources */,
 				7D9A41EE225C820F00355C8D /* Localizable.strings(cn).xcconfig in Resources */,
 				7D4222BA225DC44600E41F45 /* 北京-上海.GPX in Resources */,
 			);

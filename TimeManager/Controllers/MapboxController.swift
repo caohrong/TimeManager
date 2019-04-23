@@ -38,11 +38,14 @@ class MapboxController: UIViewController, MGLMapViewDelegate {
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
 //        addPolyline(to: mapView.style!)
 //        animatePolyline()
-        if let gpxFile = Bundle.main.url(forResource: "北京-上海", withExtension: "GPX"),
-            let gpx = GPXParser(withURL: gpxFile)?.parsedData() {
-            for trackes in gpx.tracks {
-                for track in trackes.tracksegments {
-                    addPolyline(to: mapView.style!, with: track)
+        
+        GPXDataManager.shared.loadData { (GPXRoot) in
+            
+            if let gpx = GPXRoot {
+                for trackes in gpx.tracks {
+                    for track in trackes.tracksegments {
+                        self.addPolyline(to: mapView.style!, with: track)
+                    }
                 }
             }
         }

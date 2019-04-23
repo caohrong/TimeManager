@@ -12,6 +12,7 @@ import CoreGPX
 /// Load all GPX File From Document Folder
 /// Support GPX or gpx format for now on.
 class GPXDataManager {
+    typealias finish = (GPXRoot?) -> ()
     static var shared:GPXDataManager = GPXDataManager()
     var GPXData:GPXRoot?
     private let queue:DispatchQueue
@@ -21,10 +22,21 @@ class GPXDataManager {
         self.notificationRegister()
         queue.async {
             self.GPXData = self.loadDataFromDocument()
+            print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬加载完成")
         }
+        
     }
     deinit {
         self.notificationUnRegister()
+    }
+    
+    func loadData(finish:@escaping finish) {
+        queue.async {
+            print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬完成")
+            DispatchQueue.main.sync {
+                finish(self.GPXData)
+            }
+        }
     }
 }
 
