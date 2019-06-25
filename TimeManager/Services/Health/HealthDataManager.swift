@@ -55,7 +55,6 @@ class HealthDataManager: NSObject {
     }
     
     func sleepData() {
-        
         let calendar = Calendar.current
         
         let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
@@ -151,6 +150,7 @@ class HealthDataManager: NSObject {
                 break
             }
         }
+        
         for singleValue in dic {
             var tempValues = singleValue.value
             var currentMixitem:HKCategorySample = tempValues.remove(at: 0)

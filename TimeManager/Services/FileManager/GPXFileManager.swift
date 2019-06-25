@@ -32,6 +32,7 @@ class GPXFileManager: NSObject {
             var GPXFiles: [FileDetailInfo] = []
             let fileManager = FileManager.default
             let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            print(documentsURL.absoluteString)
                 do {
                     // Get all files from the directory .documentsURL. Of each file get the URL (~path)
                     // last modification date and file size

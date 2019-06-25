@@ -1,4 +1,5 @@
-source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.jsdelivr.net/cocoa/'
 
 platform :ios, '10.0'
 use_frameworks!
@@ -8,6 +9,7 @@ use_frameworks!
 #end
 
 target 'TimeManager' do
+#    supports_swift_versions '> 4.0', '<= 5.0'
     pod 'Charts'
     pod 'RxSwift'
     pod 'RxCocoa'
@@ -15,11 +17,18 @@ target 'TimeManager' do
     pod 'Cache'
     pod 'SQLite.swift'
     pod 'Mapbox-iOS-SDK'
-#    pod 'LocoKit'
-#    pod 'LocoKit/LocalStore'
-#  XML
-#    pod 'Ono'
     pod 'Kanna'
+    pod 'Upsurge'
+    #    pod 'SwiftLocation'
+    #    pod 'LocoKit/LocalStore'
+    #XML
+    #    pod 'Ono'
+    #    supports_swift_versions '> 4.0', '< 5.0'
+#    pod 'LocoKit'
+    pod 'LocoKit', :git => 'https://github.com/sobri909/LocoKit.git', :branch => 'develop'
+    pod 'LocoKit/Timelines', :git => 'https://github.com/sobri909/LocoKit.git', :branch => 'develop'
+    pod 'LocoKitCore', :git => 'https://github.com/sobri909/LocoKit.git', :branch => 'develop'
+
 end
 
 target 'TimeManager_Widget' do

@@ -30,7 +30,10 @@ class HRViewController: UIViewController {
 //        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 //        mapView.setCenter(CLLocationCoordinate2D(latitude: 59.31, longitude: 18.06), zoomLevel: 9, animated: false)
 //        view.addSubview(mapView)
-        self.navigationController?.pushViewController(MapboxController(), animated: true)
+//        self.navigationController?.pushViewController(MapboxController(), animated: true)
+        
+        let shared = HealthDataManager.shared
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -10,10 +10,18 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
+
+
+///
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     var window: UIWindow?
     
+    /// Application
+    ///
+    /// - Parameters:
+    ///   - application:
+    ///   - launchOptions:
+    /// - Returns:
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -21,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: HRViewController())
         window?.makeKeyAndVisible()
         window?.tintColor = UIColor.black
+        
+        if let url = FileManager.default.urls(for: .userDirectory, in: .userDomainMask).last {
+            print(url.absoluteString)
+        }
+        
         return true
     }
     

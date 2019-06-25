@@ -1,29 +1,51 @@
 PODS:
   - Cache (5.2.0)
-  - Charts (3.2.2):
-    - Charts/Core (= 3.2.2)
-  - Charts/Core (3.2.2)
-  - CoreGPX (0.5.1)
+  - Charts (3.3.0):
+    - Charts/Core (= 3.3.0)
+  - Charts/Core (3.3.0)
+  - CoreGPX (0.5.6)
+  - GRDB.swift (4.1.1):
+    - GRDB.swift/standard (= 4.1.1)
+  - GRDB.swift/standard (4.1.1)
   - Kanna (5.0.0)
-  - Mapbox-iOS-SDK (4.9.0)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxSwift (4.5.0)
-  - SQLite.swift (0.11.5):
-    - SQLite.swift/standard (= 0.11.5)
-  - SQLite.swift/standard (0.11.5)
+  - LocoKit (7.0.0):
+    - LocoKit/Base (= 7.0.0)
+  - LocoKit/Base (7.0.0):
+    - LocoKitCore (= 7.0.0)
+    - Upsurge (~> 0.10)
+  - LocoKit/Timelines (7.0.0):
+    - GRDB.swift (~> 4)
+    - LocoKit/Base
+  - LocoKitCore (7.0.0)
+  - Mapbox-iOS-SDK (5.1.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
+  - Upsurge (0.10.2)
 
 DEPENDENCIES:
   - Cache
   - Charts
   - CoreGPX
   - Kanna
+  - LocoKit (from `https://github.com/sobri909/LocoKit.git`, branch `develop`)
+  - LocoKit/Timelines (from `https://github.com/sobri909/LocoKit.git`, branch `develop`)
+  - LocoKitCore (from `https://github.com/sobri909/LocoKit.git`, branch `develop`)
   - Mapbox-iOS-SDK
   - RxCocoa
   - RxSwift
   - SQLite.swift
+  - Upsurge
 
 SPEC REPOS:
+  https://cdn.jsdelivr.net/cocoa/:
+    - GRDB.swift
   https://github.com/cocoapods/specs.git:
     - Cache
     - Charts
@@ -31,19 +53,42 @@ SPEC REPOS:
     - Kanna
     - Mapbox-iOS-SDK
     - RxCocoa
+    - RxRelay
     - RxSwift
     - SQLite.swift
+    - Upsurge
+
+EXTERNAL SOURCES:
+  LocoKit:
+    :branch: develop
+    :git: https://github.com/sobri909/LocoKit.git
+  LocoKitCore:
+    :branch: develop
+    :git: https://github.com/sobri909/LocoKit.git
+
+CHECKOUT OPTIONS:
+  LocoKit:
+    :commit: 7888c1637e400ad1256a070dfdbb88e127fe39d0
+    :git: https://github.com/sobri909/LocoKit.git
+  LocoKitCore:
+    :commit: 7888c1637e400ad1256a070dfdbb88e127fe39d0
+    :git: https://github.com/sobri909/LocoKit.git
 
 SPEC CHECKSUMS:
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
-  CoreGPX: bad4d892a6fec4c3ead5b9f0d2bb4dc1a7a0ce4b
+  Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
+  CoreGPX: 17db3429e5267e7e7089bead227b8afc94c928d9
+  GRDB.swift: 99b10e1afa666ff024d76e38b37fefd34b57def4
   Kanna: a32875df62975f8f4b871e933b4ea1a5c3b8be0f
-  Mapbox-iOS-SDK: 225036950837cbe408e6b333e51cd6001c122499
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
+  LocoKit: 11697ab6994ff259a773fdab8f8ce239ad2e62b8
+  LocoKitCore: 30cff6a1e4ac5a32eefe232c19e24fd79485661d
+  Mapbox-iOS-SDK: 4106f0f6808a0362233a703fb22369b3af3e9b8c
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  Upsurge: 5866beadc3da27f91c5df4ac795deb3f3238d678
 
-PODFILE CHECKSUM: 0dc77fa1404d9ca8eb6656b23f73ad4ab30b21f9
+PODFILE CHECKSUM: 8783640c361a9e05c457a6301b153df4ce349b9a
 
-COCOAPODS: 1.7.0.beta.3
+COCOAPODS: 1.7.2

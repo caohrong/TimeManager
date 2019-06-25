@@ -22,9 +22,7 @@ class GPXDataManager {
         self.notificationRegister()
         queue.async {
             self.GPXData = self.loadDataFromDocument()
-            print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬加载完成")
         }
-        
     }
     deinit {
         self.notificationUnRegister()
@@ -32,7 +30,6 @@ class GPXDataManager {
     
     func loadData(finish:@escaping finish) {
         queue.async {
-            print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬完成")
             DispatchQueue.main.sync {
                 finish(self.GPXData)
             }
