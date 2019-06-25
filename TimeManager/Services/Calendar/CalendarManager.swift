@@ -45,11 +45,29 @@ struct CalendarManager {
         return nil
     }
     
+    //修复睡眠时间不连续的问题
+    func fixEventWith(fromTime:Date, toTime:Date, eventName:String, calendarName:String) {
+        guard let calender = calenderInSystem(name: calendarName) else { return }
+        
+        let fixableStartTime = Date(timeIntervalSince1970: fromTime.timeIntervalSince1970 - 7200)
+        let fixableEndTime = Date(timeIntervalSince1970: toTime.timeIntervalSince1970 + 7200)
+        
+        var predicate = store.predicateForEvents(withStart: fromTime, end: fixableEndTime, calendars: [calender])
+        let events = store.events(matching: predicate)
+        
+//        guard events.count > 1 else { return }
+        
+        let dataF = DateFormatter()
+        dataF.dateFormat = "yyyy-MM-dd HH:mm"
+        print("一共找到了\(events.count)个  " + dataF.string(from: fromTime) + dataF.string(from: toTime))
+    }
+    
+    //检查事件是不是已经创建
     func checkEventExitst(fromTime:Date, toTime:Date, eventName:String, calendarName:String) -> Bool {
         guard let calender = calenderInSystem(name: calendarName) else { return false }
         
-//        let fixableStartTime = Date(timeIntervalSince1970: fromTime.timeIntervalSince1970 - 10)
-//        let fixableEndTime = Date(timeIntervalSince1970: toTime.timeIntervalSince1970 + 10)
+        let fixableStartTime = Date(timeIntervalSince1970: fromTime.timeIntervalSince1970 - 3600)
+        let fixableEndTime = Date(timeIntervalSince1970: toTime.timeIntervalSince1970 + 3600)
         
         var predicate = store.predicateForEvents(withStart: fromTime, end: toTime, calendars: [calender])
         let events = store.events(matching: predicate)
@@ -57,11 +75,13 @@ struct CalendarManager {
         let dataF = DateFormatter()
         dataF.dateFormat = "yyyy-MM-dd HH:mm"
         
-        print("一共找到了\(events.count)个  " + dataF.string(from: fromTime) + dataF.string(from: toTime))
+//        print("一共找到了\(events.count)个  " + dataF.string(from: fromTime) + dataF.string(from: toTime))
         if events.count >= 1, events.last?.title == "Sleeping" { return true } else { return false}
     }
     
     func createEvent(fromTime:Date, toTime:Date, eventName:String) {
+        fixEventWith(fromTime: fromTime, toTime: toTime, eventName: eventName, calendarName: calenderName)
+        return
         let calenderName = "Useless"
         guard let calender = calenderInSystem(name: calenderName) else { return }
         guard !checkEventExitst(fromTime: fromTime, toTime: toTime, eventName: eventName, calendarName: calenderName) else { return }

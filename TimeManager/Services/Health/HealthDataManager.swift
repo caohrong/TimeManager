@@ -113,10 +113,10 @@ class HealthDataManager: NSObject {
                 
                 break
             case .asleep:
-                print(result + " 睡着了")
+//                print(result + " 睡着了")
                 break
             case .awake:
-                print(result + " 醒着的")
+//                print(result + " 醒着的")
                 break
             }
         }
@@ -128,7 +128,7 @@ class HealthDataManager: NSObject {
             let endDate = Date(timeIntervalSince1970: value)
             let startTime = dataF.string(from: startDate)
             let endTime = dataF.string(from: endDate)
-            print(startTime + "到" + endTime)
+//            print(startTime + "到" + endTime)
             let sampe = HKCategorySample(type: HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!, value: HKCategoryValueSleepAnalysis.inBed.rawValue, start: startDate, end: endDate)
             sleepDatas.append(sampe)
             
