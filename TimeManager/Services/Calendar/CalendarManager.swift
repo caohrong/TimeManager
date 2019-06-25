@@ -37,7 +37,7 @@ struct CalendarManager {
     
     func calenderInSystem(name:String) -> EKCalendar? {
         for calendar in store.calendars(for: .event) {
-            print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬"+calendar.title)
+//            print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬"+calendar.title)
             if calendar.title == name {
                 return calendar
             }
@@ -45,10 +45,27 @@ struct CalendarManager {
         return nil
     }
     
+    func checkEventExitst(fromTime:Date, toTime:Date, eventName:String, calendarName:String) -> Bool {
+        guard let calender = calenderInSystem(name: calendarName) else { return false }
+        
+//        let fixableStartTime = Date(timeIntervalSince1970: fromTime.timeIntervalSince1970 - 10)
+//        let fixableEndTime = Date(timeIntervalSince1970: toTime.timeIntervalSince1970 + 10)
+        
+        var predicate = store.predicateForEvents(withStart: fromTime, end: toTime, calendars: [calender])
+        let events = store.events(matching: predicate)
+        
+        let dataF = DateFormatter()
+        dataF.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        print("一共找到了\(events.count)个  " + dataF.string(from: fromTime) + dataF.string(from: toTime))
+        if events.count >= 1, events.last?.title == "Sleeping" { return true } else { return false}
+    }
+    
     func createEvent(fromTime:Date, toTime:Date, eventName:String) {
-        guard let calender = calenderInSystem(name: "Useless") else {
-            return
-        }
+        let calenderName = "Useless"
+        guard let calender = calenderInSystem(name: calenderName) else { return }
+        guard !checkEventExitst(fromTime: fromTime, toTime: toTime, eventName: eventName, calendarName: calenderName) else { return }
+        
         let event = EKEvent(eventStore: store)
         event.title = eventName
         event.startDate = fromTime
@@ -62,7 +79,7 @@ struct CalendarManager {
     }
     
     func deletedEvent(name:String) {
-        guard let calender = calenderInSystem(name: "Useless") else {
+        guard let calender = calenderInSystem(name: "Caohr") else {
             return
         }
         do {

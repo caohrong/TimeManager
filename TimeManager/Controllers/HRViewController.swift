@@ -32,12 +32,12 @@ class HRViewController: UIViewController {
 //        view.addSubview(mapView)
 //        self.navigationController?.pushViewController(MapboxController(), animated: true)
         
-        let shared = HealthDataManager.shared
+        let shared = HealthDataManager.shared.sleepData()
         
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
-        self.navigationController?.pushViewController(MapboxController(), animated: true)
+//        self.navigationController?.pushViewController(MapboxController(), animated: true)
     }
 }
