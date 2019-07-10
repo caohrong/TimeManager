@@ -11,11 +11,13 @@ import HealthKit
 
 class HealthDataManager: NSObject {
     static var shared:HealthDataManager = HealthDataManager()
+    typealias completeResult = (([HKSample]?)->())
     private let store = HKHealthStore()
     private override init() {
         super.init()
         requestAuth()
     }
+    
     
     func requestAuth() {
         if #available(iOS 12.0, *) {
@@ -53,23 +55,43 @@ class HealthDataManager: NSObject {
         }
     }
     
+    //When user click agree App to use HealthData
+    func getAuth() {
+        
+    }
+    
+    //ma
+    func retrievingSleepDate(start:Date, end:Date, complete:completeResult) {
+        guard let sampleType = HKCategoryType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) else {
+            fatalError("未知的HKCategoryType类型")
+        }
+        retrievingSleepDate(start: start, end: end, complete: complete)
+    }
+    
+    func retrievingHealthDate(start:Date, end:Date, type:HKSampleType, complete:@escaping completeResult) {
+        let predicate = HKQuery.predicateForSamples(withStart: start, end: end, options: [])
+        let query = HKSampleQuery(sampleType: type, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
+            query, results, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            complete(results)
+        }
+        store.execute(query)
+    }
+    
+    
     func sleepData() {
         let calendar = Calendar.current
         
-        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
-        var dateComponts = DateComponents()
-        dateComponts.year = 2019
-        dateComponts.month = 1
-        dateComponts.day = 1
-        dateComponts.hour = 00
-        dateComponts.minute = 00
-        dateComponts.second = 00
+        var oneYearFromNowcomponents = DateComponents()
+        oneYearFromNowcomponents.year = -1
         
-        guard let startDate = calendar.date(from: dateComponts) else {
+        guard let startDate = calendar.date(byAdding: oneYearFromNowcomponents, to: Date()) else {
             fatalError("error")
         }
         
-        let endDate = calendar.date(from: components)
+        let endDate = Date()
         
         guard let sampleType = HKCategoryType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) else {
             fatalError("error")
@@ -128,7 +150,6 @@ class HealthDataManager: NSObject {
             let endDate = Date(timeIntervalSince1970: value)
             let startTime = dataF.string(from: startDate)
             let endTime = dataF.string(from: endDate)
-//            print(startTime + "到" + endTime)
             let sampe = HKCategorySample(type: HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!, value: HKCategoryValueSleepAnalysis.inBed.rawValue, start: startDate, end: endDate)
             sleepDatas.append(sampe)
             
@@ -159,9 +180,6 @@ extension HKCategorySample {
     func sleepDataPrint() {
         let dataF = DateFormatter()
         dataF.dateFormat = "yyyy-MM-dd HH:mm"
-//        if self.sampleType  {
-//            <#code#>
-//        }
     }
 }
 

@@ -52,7 +52,7 @@ struct CalendarManager {
         let fixableStartTime = Date(timeIntervalSince1970: fromTime.timeIntervalSince1970 - 7200)
         let fixableEndTime = Date(timeIntervalSince1970: toTime.timeIntervalSince1970 + 7200)
         
-        var predicate = store.predicateForEvents(withStart: fromTime, end: fixableEndTime, calendars: [calender])
+        var predicate = store.predicateForEvents(withStart: fromTime, end: fixableEndTime, calendars: nil)
         let events = store.events(matching: predicate)
         
 //        guard events.count > 1 else { return }
@@ -66,9 +66,9 @@ struct CalendarManager {
     func checkEventExitst(fromTime:Date, toTime:Date, eventName:String, calendarName:String) -> Bool {
         guard let calender = calenderInSystem(name: calendarName) else { return false }
         
-        let fixableStartTime = Date(timeIntervalSince1970: fromTime.timeIntervalSince1970 - 3600)
-        let fixableEndTime = Date(timeIntervalSince1970: toTime.timeIntervalSince1970 + 3600)
-        
+//        let fixableStartTime = Date(timeIntervalSince1970: fromTime.timeIntervalSince1970 - 3600)
+//        let fixableEndTime = Date(timeIntervalSince1970: toTime.timeIntervalSince1970 + 3600)
+//
         var predicate = store.predicateForEvents(withStart: fromTime, end: toTime, calendars: [calender])
         let events = store.events(matching: predicate)
         
@@ -77,6 +77,29 @@ struct CalendarManager {
         
 //        print("一共找到了\(events.count)个  " + dataF.string(from: fromTime) + dataF.string(from: toTime))
         if events.count >= 1, events.last?.title == "Sleeping" { return true } else { return false}
+    }
+    
+    func deleteEventWithName(name:String, calendar:String, fromTime:Date, toTime:Date) {
+        guard let calendar = calenderInSystem(name: calendar) else { return }
+        
+        let predicate = store.predicateForEvents(withStart: fromTime, end: toTime, calendars: [calendar])
+        let events = store.events(matching: predicate)
+        print("\(fromTime.printer()) + \(toTime.printer())")
+        print("找到\(events.count)条记录")
+        guard events.count > 1 else { return }
+        
+        let filterEvent = events.filter { (event) -> Bool in
+            event.printer()
+            return event.title == name ? true : false
+        }
+        print("筛选\(filterEvent.count)条记录")
+//        for item in filterEvent {
+//            item.printer()
+//        }
+        for event in filterEvent {
+            try! store.remove(event, span: EKSpan.thisEvent)
+            print(event)
+        }
     }
     
     func createEvent(fromTime:Date, toTime:Date, eventName:String) {
@@ -142,7 +165,6 @@ struct CalendarManager {
     }
     
     func event_in_twoday(fromData:Date, endDate:Date) -> Bool {
-        
         return false
     }
     

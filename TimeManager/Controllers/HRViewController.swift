@@ -32,8 +32,18 @@ class HRViewController: UIViewController {
 //        view.addSubview(mapView)
 //        self.navigationController?.pushViewController(MapboxController(), animated: true)
         
-        let shared = HealthDataManager.shared.sleepData()
+        var calendar = Calendar.current
+        var oneDataAgaComponents = DateComponents()
+        oneDataAgaComponents.day = -1
+        let onedayAgo = calendar.date(byAdding: oneDataAgaComponents, to: Date())
+        var oneYearFromNowComponents = DateComponents()
+        oneYearFromNowComponents.year = -1
+        let oneYearFromNow = calendar.date(byAdding: oneYearFromNowComponents, to: Date())
         
+//        if let anAgo = onedayAgo, let aNow = oneYearFromNow {
+//            CalendarManager.shared.deleteEventWithName(name: "Sleeping", calendar: "Useless", fromTime: aNow, toTime: anAgo)
+//        }
+        let shared = HealthDataManager.shared.sleepData()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

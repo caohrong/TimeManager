@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		38D27FE27892652DF501CC4F /* Pods_TimeManager_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262C8E540A00FE0D2FDAF292 /* Pods_TimeManager_Widget.framework */; };
 		3C3E732D9C0D962B53CE95CD /* Pods_TimeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */; };
+		7D343DA622D571ED00690F91 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D343DA522D571ED00690F91 /* Printer.swift */; };
 		7D4222B4225D8D5700E41F45 /* CLLocationCoordinate2D+ChinaMapDeviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4222B3225D8D5700E41F45 /* CLLocationCoordinate2D+ChinaMapDeviation.swift */; };
 		7D4222B6225D9A1500E41F45 /* GPXDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4222B5225D9A1500E41F45 /* GPXDataModel.swift */; };
 		7D4222B8225DC21E00E41F45 /* MapboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4222B7225DC21E00E41F45 /* MapboxController.swift */; };
@@ -106,6 +107,7 @@
 		262C8E540A00FE0D2FDAF292 /* Pods_TimeManager_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManager_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6D0982D83AE56D3F96DB23 /* Pods-TimeManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager/Pods-TimeManager.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D343DA522D571ED00690F91 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		7D4222B3225D8D5700E41F45 /* CLLocationCoordinate2D+ChinaMapDeviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+ChinaMapDeviation.swift"; sourceTree = "<group>"; };
 		7D4222B5225D9A1500E41F45 /* GPXDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXDataModel.swift; sourceTree = "<group>"; };
 		7D4222B7225DC21E00E41F45 /* MapboxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxController.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				7D9A41B1225C820E00355C8D /* FilesManger.swift */,
+				7D343DA522D571ED00690F91 /* Printer.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				7D9A421C225C820F00355C8D /* LocationModel.swift in Sources */,
 				7D999D57225B39B1006B49B7 /* MailerManager.swift in Sources */,
 				7D9A4228225C892700355C8D /* FileDetailInfo.swift in Sources */,
+				7D343DA622D571ED00690F91 /* Printer.swift in Sources */,
 				7D9A4220225C820F00355C8D /* TimeSummaryDataBase.swift in Sources */,
 				7D687F9A2239169600D780E9 /* TimeSummaryController.swift in Sources */,
 				7DE9A259223248230039357D /* AuthViewController.swift in Sources */,
