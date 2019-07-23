@@ -18,7 +18,6 @@ class HealthDataManager: NSObject {
         requestAuth()
     }
     
-    
     func requestAuth() {
         if #available(iOS 12.0, *) {
             guard HKHealthStore.isHealthDataAvailable() else {
@@ -47,7 +46,6 @@ class HealthDataManager: NSObject {
                     // Handle errors here.
                     fatalError("*** An error occurred while requesting authorization: \(error!.localizedDescription) ***")
                 }
-//                self.sleepData()
             }
             
         } else {
@@ -79,7 +77,6 @@ class HealthDataManager: NSObject {
         }
         store.execute(query)
     }
-    
     
     func sleepData() {
         let calendar = Calendar.current
@@ -155,23 +152,6 @@ class HealthDataManager: NSObject {
             
             CalendarManager.shared.createEvent(fromTime: startDate, toTime: endDate, eventName: "Sleeping")
         }
-        
-//        for singleValue in dic {
-//            var tempValues = singleValue.value
-//            var currentMixitem:HKCategorySample = tempValues.remove(at: 0)
-//            for item in tempValues {
-//                let range = item.startDate.timeIntervalSince1970 - item.endDate.timeIntervalSince1970
-//                if currentMixitem.startDate.timeIntervalSince1970 - item.endDate.timeIntervalSince1970 < range {
-//                    currentMixitem = item
-//                }
-//            }
-//            let hours = (currentMixitem.endDate.timeIntervalSince1970 - currentMixitem.startDate.timeIntervalSince1970) / 3600
-//            let dataF = DateFormatter()
-//            dataF.dateFormat = "yyyy-MM-dd HH:mm"
-//            print("从\(dataF.string(from: currentMixitem.startDate))到\(dataF.string(from: currentMixitem.endDate))睡了\(hours)小时")
-//            dicNew[singleValue.key] = currentMixitem
-//            CalendarManager.shared.createEvent(fromTime: currentMixitem.startDate, toTime: currentMixitem.endDate, eventName: "Sleeping")
-//        }
     }
 }
 
@@ -182,46 +162,4 @@ extension HKCategorySample {
         dataF.dateFormat = "yyyy-MM-dd HH:mm"
     }
 }
-
-
-//if case sampelType = item.sampleType {
-//    //确定睡眠时间
-//    //如果是上午
-//    let calendar = Calendar.current
-//    //                    let dataComponent = [.year, .month, .day, .hour, .minute]
-//    let startDate = item.startDate
-//    let endDate = item.startDate
-//
-//    let startComponent  = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: startDate)
-//    let endDateComponent = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: startDate)
-//
-//    //Get current day Range
-//    let currentDayStart:TimeInterval, currentDayEnd:TimeInterval
-//    var rangeStartComponent = startComponent
-//    rangeStartComponent.hour = 16
-//    rangeStartComponent.minute = 00
-//    rangeStartComponent.second = 00
-//    guard let divideDate = calendar.date(from: rangeStartComponent) else {
-//        return
-//    }
-//    //如果是下午
-//    if let hours = startComponent.hour, hours >= 16 {
-//        currentDayStart = divideDate.timeIntervalSince1970
-//        currentDayEnd = currentDayStart + 60 * 60 * 24;
-//    } else {
-//        currentDayEnd = divideDate.timeIntervalSince1970
-//        currentDayStart = currentDayEnd - 60 * 60 * 24;
-//    }
-//
-//    let dateFormatter = DateFormatter()
-//    dateFormatter.dateFormat = "yyyy-MM-dd"
-//    let currentDateKey = dateFormatter.string(from: Date(timeIntervalSince1970: currentDayStart))
-//    print(currentDateKey);
-//    if var existArrayValue = dic[currentDateKey] {
-//        existArrayValue.append(item)
-//        dic[currentDateKey] = existArrayValue
-//    } else {
-//        dic[currentDateKey] = [item]
-//    }
-//}
 

@@ -24,6 +24,18 @@ PODS:
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
+  - SPAlert (1.1.1)
+  - SPLarkController (1.1)
+  - SPPermission/Camera (4.0.5):
+    - SPPermission/Core
+  - SPPermission/Core (4.0.5)
+  - SPPermission/Location (4.0.5):
+    - SPPermission/Core
+  - SPPermission/Microphone (4.0.5):
+    - SPPermission/Core
+  - SPPermission/Notification (4.0.5):
+    - SPPermission/Core
+  - SPStorkController (1.7.6)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
@@ -40,16 +52,22 @@ DEPENDENCIES:
   - Mapbox-iOS-SDK
   - RxCocoa
   - RxSwift
+  - SPAlert
+  - SPLarkController
+  - SPPermission/Camera
+  - SPPermission/Location
+  - SPPermission/Microphone
+  - SPPermission/Notification
+  - SPStorkController
   - SQLite.swift
   - Upsurge
 
 SPEC REPOS:
   https://cdn.jsdelivr.net/cocoa/:
-    - GRDB.swift
-  https://github.com/cocoapods/specs.git:
     - Cache
     - Charts
     - CoreGPX
+    - GRDB.swift
     - Kanna
     - Mapbox-iOS-SDK
     - RxCocoa
@@ -57,6 +75,11 @@ SPEC REPOS:
     - RxSwift
     - SQLite.swift
     - Upsurge
+  https://github.com/cocoapods/specs.git:
+    - SPAlert
+    - SPLarkController
+    - SPPermission
+    - SPStorkController
 
 EXTERNAL SOURCES:
   LocoKit:
@@ -68,10 +91,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   LocoKit:
-    :commit: 7888c1637e400ad1256a070dfdbb88e127fe39d0
+    :commit: a46553f505d9cd11796a4da1f8712e5a45ec79d9
     :git: https://github.com/sobri909/LocoKit.git
   LocoKitCore:
-    :commit: 7888c1637e400ad1256a070dfdbb88e127fe39d0
+    :commit: a46553f505d9cd11796a4da1f8712e5a45ec79d9
     :git: https://github.com/sobri909/LocoKit.git
 
 SPEC CHECKSUMS:
@@ -80,15 +103,19 @@ SPEC CHECKSUMS:
   CoreGPX: 17db3429e5267e7e7089bead227b8afc94c928d9
   GRDB.swift: 99b10e1afa666ff024d76e38b37fefd34b57def4
   Kanna: a32875df62975f8f4b871e933b4ea1a5c3b8be0f
-  LocoKit: 11697ab6994ff259a773fdab8f8ce239ad2e62b8
+  LocoKit: 4c1bbb1fe8266320f0c8ed9dfcd3d145a77e38ff
   LocoKitCore: 30cff6a1e4ac5a32eefe232c19e24fd79485661d
   Mapbox-iOS-SDK: 4106f0f6808a0362233a703fb22369b3af3e9b8c
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  SPAlert: 292690a27df49ff131d532a0a39d89b08dd93e4d
+  SPLarkController: 22c79e54b12a29705b87ee0179455e1c51f2fdc8
+  SPPermission: ef54994522bdf471ce1fe6aea267bf471a9de701
+  SPStorkController: 6d0d0716a4e9e8245aa80715ffc57491b428569e
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   Upsurge: 5866beadc3da27f91c5df4ac795deb3f3238d678
 
-PODFILE CHECKSUM: 8783640c361a9e05c457a6301b153df4ce349b9a
+PODFILE CHECKSUM: bc94996ca30b08943db76d83ec13b0c0973fbcf4
 
 COCOAPODS: 1.7.2

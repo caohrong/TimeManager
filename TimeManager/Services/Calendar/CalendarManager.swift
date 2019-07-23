@@ -52,7 +52,7 @@ struct CalendarManager {
         let fixableStartTime = Date(timeIntervalSince1970: fromTime.timeIntervalSince1970 - 7200)
         let fixableEndTime = Date(timeIntervalSince1970: toTime.timeIntervalSince1970 + 7200)
         
-        var predicate = store.predicateForEvents(withStart: fromTime, end: fixableEndTime, calendars: nil)
+        var predicate = store.predicateForEvents(withStart: fromTime, end: fixableEndTime, calendars: [calender])
         let events = store.events(matching: predicate)
         
 //        guard events.count > 1 else { return }
@@ -85,17 +85,12 @@ struct CalendarManager {
         let predicate = store.predicateForEvents(withStart: fromTime, end: toTime, calendars: [calendar])
         let events = store.events(matching: predicate)
         print("\(fromTime.printer()) + \(toTime.printer())")
-        print("找到\(events.count)条记录")
         guard events.count > 1 else { return }
         
         let filterEvent = events.filter { (event) -> Bool in
-            event.printer()
             return event.title == name ? true : false
         }
         print("筛选\(filterEvent.count)条记录")
-//        for item in filterEvent {
-//            item.printer()
-//        }
         for event in filterEvent {
             try! store.remove(event, span: EKSpan.thisEvent)
             print(event)
@@ -103,9 +98,7 @@ struct CalendarManager {
     }
     
     func createEvent(fromTime:Date, toTime:Date, eventName:String) {
-        fixEventWith(fromTime: fromTime, toTime: toTime, eventName: eventName, calendarName: calenderName)
-        return
-        let calenderName = "Useless"
+        
         guard let calender = calenderInSystem(name: calenderName) else { return }
         guard !checkEventExitst(fromTime: fromTime, toTime: toTime, eventName: eventName, calendarName: calenderName) else { return }
         
@@ -115,14 +108,15 @@ struct CalendarManager {
         event.endDate = toTime
         event.calendar = calender
         do {
+            event.printer()
             try store.save(event, span: EKSpan.futureEvents)
         } catch {
             print(error.localizedDescription)
         }
     }
     
-    func deletedEvent(name:String) {
-        guard let calender = calenderInSystem(name: "Caohr") else {
+    func deletedEvent(name:String, inCalender:String) {
+        guard let calender = calenderInSystem(name: inCalender) else {
             return
         }
         do {

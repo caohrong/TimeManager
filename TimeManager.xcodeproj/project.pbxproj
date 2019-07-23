@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38D27FE27892652DF501CC4F /* Pods_TimeManager_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262C8E540A00FE0D2FDAF292 /* Pods_TimeManager_Widget.framework */; };
 		3C3E732D9C0D962B53CE95CD /* Pods_TimeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */; };
 		7D343DA622D571ED00690F91 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D343DA522D571ED00690F91 /* Printer.swift */; };
 		7D4222B4225D8D5700E41F45 /* CLLocationCoordinate2D+ChinaMapDeviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4222B3225D8D5700E41F45 /* CLLocationCoordinate2D+ChinaMapDeviation.swift */; };
@@ -104,7 +103,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		262C8E540A00FE0D2FDAF292 /* Pods_TimeManager_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManager_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6D0982D83AE56D3F96DB23 /* Pods-TimeManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager/Pods-TimeManager.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D343DA522D571ED00690F91 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
@@ -183,8 +181,6 @@
 		7DFF516022269E3100D98613 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		7DFF516322269E3100D98613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7DFF516522269E3100D98613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5CD7FEE22ACE6BEF33BC3EF /* Pods-TimeManager_Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager_Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager_Widget/Pods-TimeManager_Widget.release.xcconfig"; sourceTree = "<group>"; };
-		CB074745B6FA9F35852192A9 /* Pods-TimeManager_Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager_Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager_Widget/Pods-TimeManager_Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		ED5FC6DEDD20FDB83F5D3D10 /* Pods-TimeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeManager/Pods-TimeManager.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DFF515E22269E3100D98613 /* NotificationCenter.framework in Frameworks */,
-				38D27FE27892652DF501CC4F /* Pods_TimeManager_Widget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +517,6 @@
 				7DFF513E22264B7000D98613 /* HealthKit.framework */,
 				4D5F13B987B4F8515F0AC5F4 /* Pods_TimeManager.framework */,
 				7DFF515D22269E3100D98613 /* NotificationCenter.framework */,
-				262C8E540A00FE0D2FDAF292 /* Pods_TimeManager_Widget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -532,8 +526,6 @@
 			children = (
 				2F6D0982D83AE56D3F96DB23 /* Pods-TimeManager.debug.xcconfig */,
 				ED5FC6DEDD20FDB83F5D3D10 /* Pods-TimeManager.release.xcconfig */,
-				CB074745B6FA9F35852192A9 /* Pods-TimeManager_Widget.debug.xcconfig */,
-				A5CD7FEE22ACE6BEF33BC3EF /* Pods-TimeManager_Widget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -566,7 +558,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DFF516922269E3100D98613 /* Build configuration list for PBXNativeTarget "TimeManager_Widget" */;
 			buildPhases = (
-				04799F6CEB452DCD47C5C197 /* [CP] Check Pods Manifest.lock */,
 				7DFF515822269E3100D98613 /* Sources */,
 				7DFF515922269E3100D98613 /* Frameworks */,
 				7DFF515A22269E3100D98613 /* Resources */,
@@ -661,24 +652,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04799F6CEB452DCD47C5C197 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TimeManager_Widget-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		11DA9D191EF4754EA7B90C18 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -987,7 +960,6 @@
 		};
 		7DFF516A22269E3100D98613 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB074745B6FA9F35852192A9 /* Pods-TimeManager_Widget.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EJ866KW4R6;
@@ -1007,7 +979,6 @@
 		};
 		7DFF516B22269E3100D98613 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5CD7FEE22ACE6BEF33BC3EF /* Pods-TimeManager_Widget.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EJ866KW4R6;
