@@ -9,5 +9,6 @@ target 'PhotoBrowse' do
     pod 'SPAlert'
     pod 'SPStorkController'
     pod 'SPPermissions/PhotoLibrary'
+    pod 'SnapKit'
 end
 

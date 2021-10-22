@@ -52,7 +52,7 @@ class AssetGridViewController: UICollectionViewController {
         // the default "All Photos" view.
         if fetchResult == nil {
             let allPhotosOptions = PHFetchOptions()
-            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
             fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
         }
         

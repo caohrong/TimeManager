@@ -6,11 +6,11 @@ Implements the collection view cell for displaying an asset in the grid view.
 */
 
 import UIKit
+import SnapKit
 
 class GridViewCell: UICollectionViewCell {
     
     var imageView: UIImageView!
-    var livePhotoBadgeImageView: UIImageView!
     
     var representedAssetIdentifier: String!
     
@@ -23,7 +23,11 @@ class GridViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        imageView = UIImageView()
         contentView.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalTo(self.contentView)
+        }
         contentView.backgroundColor = UIColor.lightGray
     }
     

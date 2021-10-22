@@ -1,4 +1,5 @@
 PODS:
+  - SnapKit (5.0.1)
   - SPAlert (2.1.1)
   - SPLarkController (1.1)
   - SPPermissions/Core (5.2.6)
@@ -7,6 +8,7 @@ PODS:
   - SPStorkController (1.7.9)
 
 DEPENDENCIES:
+  - SnapKit
   - SPAlert
   - SPLarkController
   - SPPermissions/PhotoLibrary
@@ -14,17 +16,19 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - SnapKit
     - SPAlert
     - SPLarkController
     - SPPermissions
     - SPStorkController
 
 SPEC CHECKSUMS:
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SPAlert: 4ea95d93f3bc6b2df533559e7ff96ce378d2507e
   SPLarkController: 22c79e54b12a29705b87ee0179455e1c51f2fdc8
   SPPermissions: a11dd5e68bcbf0b7de7b4ba86ba008e77ae66abd
   SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
 
-PODFILE CHECKSUM: d93b54b641aad0029c29961e2ecb82ce1ba54a2d
+PODFILE CHECKSUM: c9d0e0dd42b0382d3d92265232280c2bcc9bdec3
 
 COCOAPODS: 1.11.2
