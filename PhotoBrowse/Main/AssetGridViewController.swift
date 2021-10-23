@@ -21,7 +21,9 @@ class AssetGridViewController: UICollectionViewController {
     var fetchResult: PHFetchResult<PHAsset>!
     var assetCollection: PHAssetCollection!
     var availableWidth: CGFloat = 0
-    var newcollection:PHAssetCollection?
+    
+    var collectionHR:PHAssetCollection?
+    var collectionDuplication:PHAssetCollection?
     
     var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
@@ -52,7 +54,7 @@ class AssetGridViewController: UICollectionViewController {
         // the default "All Photos" view.
         if fetchResult == nil {
             let allPhotosOptions = PHFetchOptions()
-            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
             fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
         }
         
@@ -61,11 +63,53 @@ class AssetGridViewController: UICollectionViewController {
         for index in 0..<collections.count {
             let collection = collections.object(at: index)
             if collection.localizedTitle == "HR" {
-                newcollection = collection
+                collectionHR = collection
                 print("-----找到相册", collection.localizedTitle!)
-                break
+            }
+            
+            if collection.localizedTitle == "Duplication" {
+                collectionDuplication = collection
+                print("-----找到相册", collection.localizedTitle!)
             }
         }
+        
+        print("----一共找到照片", fetchResult.count)
+        var pre:PHAsset = fetchResult.object(at: 0)
+        pre.requestContentEditingInput(with: nil) { input, info in
+            print("---------1")
+//            let fullImage = CIImage(contentsOf: (input?.fullSizeImageURL!)!)
+//            print(fullImage?.properties ?? "不存在")
+        }
+        
+//        [pre requestContentEditingInputWithOptions:nil completionHandler:^(PHContentEditingInput * _Nullable contentEditingInput, NSDictionary * _Nonnull info) {
+//            CIImage *fullImage = [CIImage imageWithContentsOfURL:contentEditingInput.fullSizeImageURL];
+//            NSLog(@"%@",fullImage.properties);
+//        }];
+        
+        for i in 1..<fetchResult.count {
+            let asset = fetchResult.object(at: i)
+            
+//            guard let fileSize = asset.value(forKey: "fileSize") as? Float else {
+//                return
+//            }
+        
+            if (asset.creationDate?.timeIntervalSince1970 == pre.creationDate?.timeIntervalSince1970
+                && asset.pixelWidth == pre.pixelWidth
+                && asset.pixelHeight == pre.pixelHeight) {
+                PHPhotoLibrary.shared().performChanges({
+                    let creationRequest1 = PHAssetChangeRequest(for: pre)
+                    let creationRequest2 = PHAssetChangeRequest(for: asset)
+                    if let assetCollection = self.collectionDuplication {
+                        let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
+                        addAssetRequest?.addAssets([creationRequest1, creationRequest2] as NSArray)
+                    }
+                }, completionHandler: {success, error in
+                    if !success { print("-----❌Error creating the asset: \(String(describing: error))") }
+                })
+            }
+            pre = asset
+        }
+        
     }
     
     deinit {
@@ -115,7 +159,6 @@ class AssetGridViewController: UICollectionViewController {
     }
     
     // MARK: UICollectionView
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fetchResult.count
     }
@@ -140,14 +183,17 @@ class AssetGridViewController: UICollectionViewController {
                 cell.thumbnailImage = image
             }
         })
-        
-        changeSomething(asset)
-        findLocationInfo(asset)
+//        checkShootTimeInfo(asset)
+//        checkLocationInfo(asset)
         
         return cell
     }
     
-    func changeSomething(_ asset: PHAsset) {
+    func checkDuplicationPic() {
+        
+    }
+    
+    func checkShootTimeInfo(_ asset: PHAsset) {
         let result = needChangeDataTime(asset)
         guard result.0 else {
             return
@@ -161,7 +207,7 @@ class AssetGridViewController: UICollectionViewController {
         }
     }
     
-    func findLocationInfo (_ asset: PHAsset) {
+    func checkLocationInfo (_ asset: PHAsset) {
         guard let location = asset.location else {
             return
         }
@@ -234,7 +280,7 @@ class AssetGridViewController: UICollectionViewController {
             let creationRequest = PHAssetChangeRequest(for: asset)
             creationRequest.creationDate = newData
             
-            if let assetCollection = self.newcollection {
+            if let assetCollection = self.collectionHR {
                 let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
                 addAssetRequest?.addAssets([creationRequest] as NSArray)
             }

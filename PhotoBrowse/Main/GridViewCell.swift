@@ -24,6 +24,8 @@ class GridViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.edges.equalTo(self.contentView)
