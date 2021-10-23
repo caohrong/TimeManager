@@ -31,6 +31,10 @@ class AssetGridViewController: UICollectionViewController {
     fileprivate var thumbnailSize: CGSize!
     fileprivate var previousPreheatRect = CGRect.zero
     
+    let serialQueue = DispatchQueue(label: "com.leo.serialQueue")
+    var locationsInfo:Set = ["中国北京市"]
+    let address = CLGeocoder()
+    
     // MARK: UIViewController / Life Cycle
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -40,6 +44,52 @@ class AssetGridViewController: UICollectionViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func doSomethingAtBackground() {
+        serialQueue.async {
+            self.taskBackground()
+        }
+    }
+    
+    func doSomethingWithCell(asset: PHAsset) {
+        serialQueue.async {
+//            checkShootTimeInfo(asset)
+            self.checkLocationInfo(asset)
+        }
+    }
+    
+    func taskBackground() {
+        print("----一共找到照片", fetchResult.count)
+        var pre:PHAsset = fetchResult.object(at: 0)
+        pre.requestContentEditingInput(with: nil) { input, info in
+            print("---------1")
+            guard let fileURL = input?.fullSizeImageURL, let fullImage = CIImage(contentsOf: fileURL)
+            else { return }
+            print(fullImage.properties)
+        }
+        for i in 1..<fetchResult.count {
+            let asset = fetchResult.object(at: i)
+            checkLocationInfo(asset)
+//            if (asset.creationDate?.timeIntervalSince1970 == pre.creationDate?.timeIntervalSince1970
+//                && asset.pixelWidth == pre.pixelWidth
+//                && asset.pixelHeight == pre.pixelHeight) {
+//
+//                print("---------1", i)
+//                PHPhotoLibrary.shared().performChanges({
+//                    let creationRequest1 = PHAssetChangeRequest(for: pre)
+//                    let creationRequest2 = PHAssetChangeRequest(for: asset)
+//                    if let assetCollection = self.collectionDuplication {
+//                        let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
+//                        addAssetRequest?.addAssets([creationRequest1, creationRequest2] as NSArray)
+//                    }
+//
+//                }, completionHandler: {success, error in
+//                    if !success { print("-----❌Error creating the asset: \(String(describing: error))") }
+//                })
+//            }
+            pre = asset
+        }
     }
     
     override func viewDidLoad() {
@@ -72,44 +122,8 @@ class AssetGridViewController: UICollectionViewController {
                 print("-----找到相册", collection.localizedTitle!)
             }
         }
-        
-        print("----一共找到照片", fetchResult.count)
-        var pre:PHAsset = fetchResult.object(at: 0)
-        pre.requestContentEditingInput(with: nil) { input, info in
-            print("---------1")
-//            let fullImage = CIImage(contentsOf: (input?.fullSizeImageURL!)!)
-//            print(fullImage?.properties ?? "不存在")
-        }
-        
-//        [pre requestContentEditingInputWithOptions:nil completionHandler:^(PHContentEditingInput * _Nullable contentEditingInput, NSDictionary * _Nonnull info) {
-//            CIImage *fullImage = [CIImage imageWithContentsOfURL:contentEditingInput.fullSizeImageURL];
-//            NSLog(@"%@",fullImage.properties);
-//        }];
-        
-        for i in 1..<fetchResult.count {
-            let asset = fetchResult.object(at: i)
-            
-//            guard let fileSize = asset.value(forKey: "fileSize") as? Float else {
-//                return
-//            }
-        
-            if (asset.creationDate?.timeIntervalSince1970 == pre.creationDate?.timeIntervalSince1970
-                && asset.pixelWidth == pre.pixelWidth
-                && asset.pixelHeight == pre.pixelHeight) {
-                PHPhotoLibrary.shared().performChanges({
-                    let creationRequest1 = PHAssetChangeRequest(for: pre)
-                    let creationRequest2 = PHAssetChangeRequest(for: asset)
-                    if let assetCollection = self.collectionDuplication {
-                        let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
-                        addAssetRequest?.addAssets([creationRequest1, creationRequest2] as NSArray)
-                    }
-                }, completionHandler: {success, error in
-                    if !success { print("-----❌Error creating the asset: \(String(describing: error))") }
-                })
-            }
-            pre = asset
-        }
-        
+        UserDefaults.standard.set(["cn"], forKey: "AppleLanguages")
+        doSomethingAtBackground()
     }
     
     deinit {
@@ -183,8 +197,8 @@ class AssetGridViewController: UICollectionViewController {
                 cell.thumbnailImage = image
             }
         })
-//        checkShootTimeInfo(asset)
-//        checkLocationInfo(asset)
+        
+        doSomethingWithCell(asset: asset)
         
         return cell
     }
@@ -207,21 +221,26 @@ class AssetGridViewController: UICollectionViewController {
         }
     }
     
-    func checkLocationInfo (_ asset: PHAsset) {
+    func checkLocationInfo(_ asset: PHAsset) {
         guard let location = asset.location else {
             return
         }
         
-        guard let imageOriginalName = asset.value(forKey: "originalFilename") as? String else {
-            return
-        }
+        sleep(1)
         
-        print(imageOriginalName, location)
-        let address = CLGeocoder()
-        print("---------")
         address.reverseGeocodeLocation(location) { addressMarks, error in
-            guard let marks = addressMarks, marks.count > 0 else { return }
-            print(marks[0])
+            guard let marks = addressMarks, marks.count > 0 else {
+                if let errorInfo = error {
+                    print(errorInfo.localizedDescription)
+                    self.checkLocationInfo(asset)
+                }
+                return
+            }
+            let address:CLPlacemark = marks[0]
+            
+            let addressString = (address.country ?? "") + (address.administrativeArea ?? "") + (address.locality ?? "")
+            print(addressString)
+            self.locationsInfo.insert(addressString)
         }
     }
     
