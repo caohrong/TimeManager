@@ -1,4 +1,21 @@
 PODS:
+  - CocoaLumberjack/Core (3.6.1)
+  - CocoaLumberjack/Swift (3.6.1):
+    - CocoaLumberjack/Core
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - JTAppleCalendar (8.0.3)
+  - Mantle (2.1.1):
+    - Mantle/extobjc (= 2.1.1)
+  - Mantle/extobjc (2.1.1)
+  - MBProgressHUD (1.2.0)
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
   - SnapKit (5.0.1)
   - SPAlert (2.1.1)
   - SPLarkController (1.1)
@@ -6,35 +23,51 @@ PODS:
   - SPPermissions/PhotoLibrary (5.2.6):
     - SPPermissions/Core
   - SPStorkController (1.7.9)
-  - SQLite.swift (0.12.2):
-    - SQLite.swift/standard (= 0.12.2)
-  - SQLite.swift/standard (0.12.2)
 
 DEPENDENCIES:
+  - CocoaLumberjack/Swift
+  - FMDB
+  - JTAppleCalendar
+  - Mantle
+  - MBProgressHUD
+  - RxCocoa
   - SnapKit
   - SPAlert
   - SPLarkController
   - SPPermissions/PhotoLibrary
   - SPStorkController
-  - SQLite.swift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - CocoaLumberjack
+    - FMDB
+    - JTAppleCalendar
+    - Mantle
+    - MBProgressHUD
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SnapKit
     - SPAlert
     - SPLarkController
     - SPPermissions
     - SPStorkController
-    - SQLite.swift
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
+  Mantle: 35238ae6f2e2b2d474fa7b67fee82a59fea71915
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SPAlert: 4ea95d93f3bc6b2df533559e7ff96ce378d2507e
   SPLarkController: 22c79e54b12a29705b87ee0179455e1c51f2fdc8
   SPPermissions: a11dd5e68bcbf0b7de7b4ba86ba008e77ae66abd
   SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
-  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
 
-PODFILE CHECKSUM: 6b9ab3356a262ff9554655569d8ba5bee0a242db
+PODFILE CHECKSUM: 74f8e6d08b96ba2c9fd641c24026dda8130ff8f9
 
 COCOAPODS: 1.11.2

@@ -21,6 +21,7 @@
 		7D8F9AFD272DA84500005D0F /* DBTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F9AFC272DA84500005D0F /* DBTools.swift */; };
 		7DD84642272E38E4003DBACF /* ToolsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD84641272E38E4003DBACF /* ToolsController.swift */; };
 		7DD84644272E3AC3003DBACF /* LocationManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD84643272E3AC3003DBACF /* LocationManagerController.swift */; };
+		7DD84647272EA53F003DBACF /* DailyModeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD84646272EA53F003DBACF /* DailyModeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		7D8F9AFC272DA84500005D0F /* DBTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTools.swift; sourceTree = "<group>"; };
 		7DD84641272E38E4003DBACF /* ToolsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsController.swift; sourceTree = "<group>"; };
 		7DD84643272E3AC3003DBACF /* LocationManagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerController.swift; sourceTree = "<group>"; };
+		7DD84646272EA53F003DBACF /* DailyModeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyModeController.swift; sourceTree = "<group>"; };
 		FE22DA5448B9B52D4A8BA9D6 /* Pods_PhotoBrowse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBrowse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 		7D0190DD2722B80E008AB2F5 /* PhotoBrowse */ = {
 			isa = PBXGroup;
 			children = (
+				7DD84645272EA526003DBACF /* Daily */,
 				7DD84640272E38CB003DBACF /* Tools */,
 				7D0190F22722BA2D008AB2F5 /* Main */,
 				7D0190DE2722B80F008AB2F5 /* AppDelegate.swift */,
@@ -126,6 +129,14 @@
 				7DD84643272E3AC3003DBACF /* LocationManagerController.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		7DD84645272EA526003DBACF /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				7DD84646272EA53F003DBACF /* DailyModeController.swift */,
+			);
+			path = Daily;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +263,7 @@
 				7D0190E12722B80F008AB2F5 /* SceneDelegate.swift in Sources */,
 				7D0191002722BC61008AB2F5 /* AssetGridViewController.swift in Sources */,
 				7DD84644272E3AC3003DBACF /* LocationManagerController.swift in Sources */,
+				7DD84647272EA53F003DBACF /* DailyModeController.swift in Sources */,
 				7D8F9AFD272DA84500005D0F /* DBTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +417,8 @@
 				DEVELOPMENT_TEAM = 9DKGDPPUHD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotoBrowse/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "访问照片";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -435,6 +449,8 @@
 				DEVELOPMENT_TEAM = 9DKGDPPUHD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotoBrowse/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "访问照片";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

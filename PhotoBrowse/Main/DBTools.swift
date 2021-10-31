@@ -28,10 +28,32 @@ class DBTools : NSObject {
             print(error)
         }
         
-        for i in 0..<40 {
-            let asset:PHAsset = fetchResult.object(at: i);
-            print(asset)
+        //Create Table
+        let t_photos = Table("Photos")
+        let id = Expression<String>("id")
+        let checkDate = Expression<String?>("checkDate")
+
+        do {
+//            try db.run(t_photos.create { t in
+//            t.column(id, primaryKey: true)
+//            t.column(checkDate)
+//            })
+            
+            for i in 0..<fetchResult.count {
+                let asset:PHAsset = fetchResult.object(at: i)
+                let insert = t_photos.insert(id <- asset.localIdentifier, checkDate <- "20211031")
+                let rowid = try db.run(insert)
+                print(rowid)
+    //            if let location = asset.location {
+    //                print(location)
+    //            }
+            }
+        } catch {
+            print(error)
         }
+    }
+    
+    func addLocationInfoLabel(asset:PHAsset) {
         
     }
 }

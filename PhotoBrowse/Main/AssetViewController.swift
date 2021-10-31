@@ -7,7 +7,8 @@ Implements the view controller that displays a single asset.
 
 import UIKit
 import Photos
-import PhotosUI
+//import PhotosUI
+import SnapKit
 
 class AssetViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class AssetViewController: UIViewController {
     fileprivate lazy var formatIdentifier = Bundle.main.bundleIdentifier!
     fileprivate let formatVersion = "1.0"
     fileprivate lazy var ciContext = CIContext()
+    fileprivate var imageView:UIImageView!
     
     // MARK: UIViewController / Life Cycle
     
@@ -72,9 +74,55 @@ class AssetViewController: UIViewController {
 //            trashButton.isEnabled = asset.canPerform(.delete)
         }
         
+        imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        self.view.addSubview(imageView)
+        
+        imageView.snp.makeConstraints { make in
+            make.edges.equalTo(self.view)
+        }
+        
         // Make sure the view layout happens before requesting an image sized to fit the view.
         view.layoutIfNeeded()
         updateImage()
+        
+        addLocationInfoToLabel()
+    }
+    
+    func addLocationInfoToLabel() {
+        // 1.
+        guard self.asset.location != nil else {
+            print("该图片不包含位置信息")
+            return
+        }
+        
+        var usernameTextField: UITextField?
+        
+        // 2.
+        let alertController = UIAlertController(
+          title: "Log in",
+          message: "Please enter your credentials",
+          preferredStyle: .alert)
+
+        let loginAction = UIAlertAction(
+            title: "Log in", style: .default) {
+            (action) -> Void in
+              if let username = usernameTextField?.text {
+                print(" Username = \(username)")
+                DBTools().addLocationInfoLabel(asset: self.asset)
+              } else {
+                print("No Username entered")
+              }
+        }
+
+        alertController.addTextField {
+          (txtUsername) -> Void in
+            usernameTextField = txtUsername
+            usernameTextField!.placeholder = "<Your username here>"
+        }
+
+        alertController.addAction(loginAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -275,7 +323,7 @@ class AssetViewController: UIViewController {
                                                 // Show the image.
 //                                                self.livePhotoView.isHidden = true
 //                                                self.imageView.isHidden = false
-//                                                self.imageView.image = image
+                                                self.imageView.image = image
         })
     }
     
@@ -431,12 +479,12 @@ extension AssetViewController: PHPhotoLibraryChangeObserver {
 }
 
 // MARK: PHLivePhotoViewDelegate
-extension AssetViewController: PHLivePhotoViewDelegate {
-    func livePhotoView(_ livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
-        isPlayingHint = (playbackStyle == .hint)
-    }
-    
-    func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
-        isPlayingHint = (playbackStyle == .hint)
-    }
-}
+//extension AssetViewController: PHLivePhotoViewDelegate {
+//    func livePhotoView(_ livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
+//        isPlayingHint = (playbackStyle == .hint)
+//    }
+//
+//    func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
+//        isPlayingHint = (playbackStyle == .hint)
+//    }
+//}

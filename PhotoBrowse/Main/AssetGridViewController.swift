@@ -128,6 +128,17 @@ class AssetGridViewController: UICollectionViewController {
         }
         UserDefaults.standard.set(["cn"], forKey: "AppleLanguages")
         doSomethingAtBackground()
+        
+        self.collectionView.allowsSelection = true
+        self.collectionView.scrollToItem(at: IndexPath(item: fetchResult.count - 1, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     deinit {
@@ -147,6 +158,10 @@ class AssetGridViewController: UICollectionViewController {
             collectionViewFlowLayout.minimumLineSpacing = 3
             collectionViewFlowLayout.minimumInteritemSpacing = 3
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -215,6 +230,13 @@ class AssetGridViewController: UICollectionViewController {
         }
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = AssetViewController()
+        vc.asset = self.fetchResult.object(at: indexPath.row)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func checkDuplicationPic() {
