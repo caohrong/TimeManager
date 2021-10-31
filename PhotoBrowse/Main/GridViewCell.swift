@@ -11,14 +11,13 @@ import SnapKit
 class GridViewCell: UICollectionViewCell {
     
     var imageView: UIImageView!
-    
     var representedAssetIdentifier: String!
-    
     var thumbnailImage: UIImage! {
         didSet {
             imageView.image = thumbnailImage
         }
     }
+    var locationImageView: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,7 +29,14 @@ class GridViewCell: UICollectionViewCell {
         imageView.snp.makeConstraints { make in
             make.edges.equalTo(self.contentView)
         }
-        contentView.backgroundColor = UIColor.lightGray
+        
+        locationImageView = UIImageView(image: UIImage(named: "locationMark"))
+        contentView.addSubview(locationImageView)
+        locationImageView.snp.makeConstraints { make in
+            make.right.equalTo(self.contentView).offset(-2)
+            make.bottom.equalTo(self.contentView).offset(-2)
+            make.width.height.equalTo(15)
+        }
     }
     
     required init?(coder: NSCoder) {

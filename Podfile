@@ -10,5 +10,6 @@ target 'PhotoBrowse' do
     pod 'SPStorkController'
     pod 'SPPermissions/PhotoLibrary'
     pod 'SnapKit'
+    pod 'SQLite.swift'
 end
 

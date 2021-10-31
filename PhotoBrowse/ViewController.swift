@@ -19,10 +19,16 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         self.modalPresentationStyle = .fullScreen
+        let tabbar = UITabBarController()
         
-        let vc = AssetGridViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        let mainPage = UINavigationController(rootViewController: AssetGridViewController())
+        mainPage.tabBarItem = UITabBarItem(title: "图片", image: nil, tag: 0)
+        
+        let toolsPage = UINavigationController(rootViewController: ToolsController())
+        toolsPage.tabBarItem = UITabBarItem(title: "工具", image: nil, tag: 1)
+        
+        tabbar.setViewControllers([mainPage, toolsPage], animated: false)
+        tabbar.modalPresentationStyle = .fullScreen
+        self.present(tabbar, animated: true, completion: nil)
     }
 }
-

@@ -34,6 +34,7 @@ class AssetGridViewController: UICollectionViewController {
     let serialQueue = DispatchQueue(label: "com.leo.serialQueue")
     var locationsInfo:Set = ["中国北京市"]
     let address = CLGeocoder()
+    let db = DBTools()
     
     // MARK: UIViewController / Life Cycle
     init() {
@@ -55,22 +56,25 @@ class AssetGridViewController: UICollectionViewController {
     func doSomethingWithCell(asset: PHAsset) {
         serialQueue.async {
 //            checkShootTimeInfo(asset)
-            self.checkLocationInfo(asset)
+//            self.checkLocationInfo(asset)
         }
     }
     
     func taskBackground() {
         print("----一共找到照片", fetchResult.count)
-        var pre:PHAsset = fetchResult.object(at: 0)
-        pre.requestContentEditingInput(with: nil) { input, info in
-            print("---------1")
-            guard let fileURL = input?.fullSizeImageURL, let fullImage = CIImage(contentsOf: fileURL)
-            else { return }
-            print(fullImage.properties)
-        }
-        for i in 1..<fetchResult.count {
-            let asset = fetchResult.object(at: i)
-            checkLocationInfo(asset)
+        db.saveAllPhotosResult(fetchResult: fetchResult)
+        
+//        var pre:PHAsset = fetchResult.object(at: 0)
+//        pre.requestContentEditingInput(with: nil) { input, info in
+//            print("---------1")
+//            guard let fileURL = input?.fullSizeImageURL, let fullImage = CIImage(contentsOf: fileURL)
+//            else { return }
+//            print(fullImage.properties)
+//        }
+//
+//        for i in 1..<fetchResult.count {
+//            let asset = fetchResult.object(at: i)
+//            checkLocationInfo(asset)
 //            if (asset.creationDate?.timeIntervalSince1970 == pre.creationDate?.timeIntervalSince1970
 //                && asset.pixelWidth == pre.pixelWidth
 //                && asset.pixelHeight == pre.pixelHeight) {
@@ -88,8 +92,8 @@ class AssetGridViewController: UICollectionViewController {
 //                    if !success { print("-----❌Error creating the asset: \(String(describing: error))") }
 //                })
 //            }
-            pre = asset
-        }
+//            pre = asset
+//        }
     }
     
     override func viewDidLoad() {
@@ -132,13 +136,16 @@ class AssetGridViewController: UICollectionViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        
         let width = view.bounds.inset(by: view.safeAreaInsets).width
-        // Adjust the item size if the available width has changed.
+//        // Adjust the item size if the available width has changed.
         if availableWidth != width {
             availableWidth = width
-            let columnCount = (availableWidth / 80).rounded(.towardZero)
-            let itemLength = (availableWidth - columnCount - 1) / columnCount
-            collectionViewFlowLayout.itemSize = CGSize(width: itemLength, height: itemLength)
+            
+            let itemWidth = (UIScreen.main.bounds.size.width - 4 * 3) / 5
+            collectionViewFlowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+            collectionViewFlowLayout.minimumLineSpacing = 3
+            collectionViewFlowLayout.minimumInteritemSpacing = 3
         }
     }
     
@@ -199,6 +206,13 @@ class AssetGridViewController: UICollectionViewController {
         })
         
         doSomethingWithCell(asset: asset)
+        cell.contentView.backgroundColor = UIColor.lightGray
+        
+        if asset.location != nil {
+            cell.locationImageView.isHidden = false
+        } else {
+            cell.locationImageView.isHidden = true
+        }
         
         return cell
     }

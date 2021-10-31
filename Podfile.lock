@@ -6,6 +6,9 @@ PODS:
   - SPPermissions/PhotoLibrary (5.2.6):
     - SPPermissions/Core
   - SPStorkController (1.7.9)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
 
 DEPENDENCIES:
   - SnapKit
@@ -13,6 +16,7 @@ DEPENDENCIES:
   - SPLarkController
   - SPPermissions/PhotoLibrary
   - SPStorkController
+  - SQLite.swift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -21,6 +25,7 @@ SPEC REPOS:
     - SPLarkController
     - SPPermissions
     - SPStorkController
+    - SQLite.swift
 
 SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
@@ -28,7 +33,8 @@ SPEC CHECKSUMS:
   SPLarkController: 22c79e54b12a29705b87ee0179455e1c51f2fdc8
   SPPermissions: a11dd5e68bcbf0b7de7b4ba86ba008e77ae66abd
   SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
 
-PODFILE CHECKSUM: c9d0e0dd42b0382d3d92265232280c2bcc9bdec3
+PODFILE CHECKSUM: 6b9ab3356a262ff9554655569d8ba5bee0a242db
 
 COCOAPODS: 1.11.2
