@@ -19,13 +19,13 @@ class DBTools : NSObject {
     }
     
     func saveAllPhotosResult(fetchResult: PHFetchResult<PHAsset>) {
+        print(Thread.current)
         guard db.open() else {
             print("Unable to open database")
             return
         }
-
         do {
-            try db.executeUpdate("create table if not exists Photos(id integer primary key autoincrement, identifier test, checkDate text)", values: nil)
+            try db.executeUpdate("create table if not exists Photos(id integer primary key autoincrement, identifier text, checkDate text)", values: nil)
             
             //TODO
             //确定是否需要更新
@@ -34,15 +34,18 @@ class DBTools : NSObject {
             formatter.dateFormat = "yyyy-MM-dd"
             let dateString = formatter.string(from: Date())
             
-//            for i in 0..<fetchResult.count {
-//                let asset:PHAsset = fetchResult.object(at: i)
-//                try db.executeUpdate("insert into Photos (identifier, checkDate) values (?, ?)", values: [asset.localIdentifier, dateString])
-//            }
-            
-            let rs = try db.executeQuery("select count(*) from Photos", values: nil)
-            while (rs.next()) {
-                print(rs.int(forColumn: "count"))
+            for i in 0..<fetchResult.count {
+                print(i)
+                let asset:PHAsset = fetchResult.object(at: i)
+                
+                let rs = try db.executeQuery("select identifier checkDate from Photos", values: [asset.localIdentifier])
+                
+                if rs.hasAnotherRow() { continue }
+                
+                try db.executeUpdate("insert into Photos (identifier, checkDate) values (?, ?)", values: [asset.localIdentifier, dateString])
+                print("插入数据:\(i)")
             }
+            print("🏆插入数据完成----------")
         } catch {
             print("报错: \(error.localizedDescription)")
         }
@@ -50,45 +53,22 @@ class DBTools : NSObject {
         db.close()
     }
     
-//    func saveAllPhotosResult(fetchResult: PHFetchResult<PHAsset>) {
-//        print("saveAllPhotosResult")
-//        var dburl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        dburl.appendPathComponent("db.sqlite3")
-//        print(dburl.absoluteString)
-//
-//        do {
-//            db = try Connection(dburl.absoluteString)
-//        } catch {
-//            print(error)
-//        }
-//
-//        //Create Table
-//        let t_photos = Table("Photos")
-//        let id = Expression<String>("id")
-//        let checkDate = Expression<String?>("checkDate")
-//
-//        do {
-////            try db.run(t_photos.create { t in
-////            t.column(id, primaryKey: true)
-////            t.column(checkDate)
-////            })
-//
-//            for i in 0..<fetchResult.count {
-//                let asset:PHAsset = fetchResult.object(at: i)
-//                let insert = t_photos.insert(id <- asset.localIdentifier, checkDate <- "20211031")
-//                let rowid = try db.run(insert)
-//                print(rowid)
-//    //            if let location = asset.location {
-//    //                print(location)
-//    //            }
-//            }
-//        } catch {
-//            print(error)
-//        }
-//    }
-    
-    func addLocationInfoLabel(asset:PHAsset) {
-        
+    func addLocationInfoLabel(asset:PHAsset, name:String) {
+        guard db.open() else {
+            print("Unable to open database")
+            return
+        }
+        do {
+            try db.executeUpdate("create table if not exists locationLabel(id integer primary key autoincrement, identifier text, labelName text, latitude text, longitude text, speed text, altitude text, course text, date text)", values: nil)
+            
+            guard let location = asset.location else { return }
+            
+            try db.executeUpdate("insert into locationLabel (identifier, labelName, latitude, longitude, speed, altitude, course, date) values (?, ?, ?, ?, ?, ?, ?, ?)", values: [asset.localIdentifier, name, location.coordinate.latitude, location.coordinate.longitude, location.speed, location.altitude, location.course, location.timestamp.timeIntervalSince1970])
+        } catch {
+            print("报错: \(error.localizedDescription)")
+        }
+
+        db.close()
     }
 }
 

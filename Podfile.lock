@@ -23,6 +23,7 @@ PODS:
   - SPPermissions/PhotoLibrary (5.2.6):
     - SPPermissions/Core
   - SPStorkController (1.7.9)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - SPLarkController
   - SPPermissions/PhotoLibrary
   - SPStorkController
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -52,6 +54,7 @@ SPEC REPOS:
     - SPLarkController
     - SPPermissions
     - SPStorkController
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
@@ -67,7 +70,8 @@ SPEC CHECKSUMS:
   SPLarkController: 22c79e54b12a29705b87ee0179455e1c51f2fdc8
   SPPermissions: a11dd5e68bcbf0b7de7b4ba86ba008e77ae66abd
   SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 74f8e6d08b96ba2c9fd641c24026dda8130ff8f9
+PODFILE CHECKSUM: d98f0e91fa82b2f59f3d5ee78a3ec3001d5b15ab
 
 COCOAPODS: 1.11.2

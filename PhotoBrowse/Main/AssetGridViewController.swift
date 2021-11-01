@@ -47,55 +47,6 @@ class AssetGridViewController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func doSomethingAtBackground() {
-        serialQueue.async {
-            self.taskBackground()
-        }
-    }
-    
-    func doSomethingWithCell(asset: PHAsset) {
-        serialQueue.async {
-//            checkShootTimeInfo(asset)
-//            self.checkLocationInfo(asset)
-        }
-    }
-    
-    func taskBackground() {
-        print("----一共找到照片", fetchResult.count)
-        db.saveAllPhotosResult(fetchResult: fetchResult)
-        
-//        var pre:PHAsset = fetchResult.object(at: 0)
-//        pre.requestContentEditingInput(with: nil) { input, info in
-//            print("---------1")
-//            guard let fileURL = input?.fullSizeImageURL, let fullImage = CIImage(contentsOf: fileURL)
-//            else { return }
-//            print(fullImage.properties)
-//        }
-//
-//        for i in 1..<fetchResult.count {
-//            let asset = fetchResult.object(at: i)
-//            checkLocationInfo(asset)
-//            if (asset.creationDate?.timeIntervalSince1970 == pre.creationDate?.timeIntervalSince1970
-//                && asset.pixelWidth == pre.pixelWidth
-//                && asset.pixelHeight == pre.pixelHeight) {
-//
-//                print("---------1", i)
-//                PHPhotoLibrary.shared().performChanges({
-//                    let creationRequest1 = PHAssetChangeRequest(for: pre)
-//                    let creationRequest2 = PHAssetChangeRequest(for: asset)
-//                    if let assetCollection = self.collectionDuplication {
-//                        let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
-//                        addAssetRequest?.addAssets([creationRequest1, creationRequest2] as NSArray)
-//                    }
-//
-//                }, completionHandler: {success, error in
-//                    if !success { print("-----❌Error creating the asset: \(String(describing: error))") }
-//                })
-//            }
-//            pre = asset
-//        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -130,7 +81,7 @@ class AssetGridViewController: UICollectionViewController {
         doSomethingAtBackground()
         
         self.collectionView.allowsSelection = true
-        self.collectionView.scrollToItem(at: IndexPath(item: fetchResult.count - 1, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: false)
+//        self.collectionView.scrollToItem(at: IndexPath(item: fetchResult.count - 1, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -241,6 +192,55 @@ class AssetGridViewController: UICollectionViewController {
     
     func checkDuplicationPic() {
         
+    }
+    
+    func doSomethingAtBackground() {
+        serialQueue.async {
+            self.taskBackground()
+        }
+    }
+    
+    func doSomethingWithCell(asset: PHAsset) {
+        serialQueue.async {
+//            checkShootTimeInfo(asset)
+//            self.checkLocationInfo(asset)
+        }
+    }
+    
+    func taskBackground() {
+        print("----一共找到照片", fetchResult.count)
+        db.saveAllPhotosResult(fetchResult: fetchResult)
+        
+//        var pre:PHAsset = fetchResult.object(at: 0)
+//        pre.requestContentEditingInput(with: nil) { input, info in
+//            print("---------1")
+//            guard let fileURL = input?.fullSizeImageURL, let fullImage = CIImage(contentsOf: fileURL)
+//            else { return }
+//            print(fullImage.properties)
+//        }
+//
+//        for i in 1..<fetchResult.count {
+//            let asset = fetchResult.object(at: i)
+//            checkLocationInfo(asset)
+//            if (asset.creationDate?.timeIntervalSince1970 == pre.creationDate?.timeIntervalSince1970
+//                && asset.pixelWidth == pre.pixelWidth
+//                && asset.pixelHeight == pre.pixelHeight) {
+//
+//                print("---------1", i)
+//                PHPhotoLibrary.shared().performChanges({
+//                    let creationRequest1 = PHAssetChangeRequest(for: pre)
+//                    let creationRequest2 = PHAssetChangeRequest(for: asset)
+//                    if let assetCollection = self.collectionDuplication {
+//                        let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
+//                        addAssetRequest?.addAssets([creationRequest1, creationRequest2] as NSArray)
+//                    }
+//
+//                }, completionHandler: {success, error in
+//                    if !success { print("-----❌Error creating the asset: \(String(describing: error))") }
+//                })
+//            }
+//            pre = asset
+//        }
     }
     
     func checkShootTimeInfo(_ asset: PHAsset) {

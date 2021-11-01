@@ -91,7 +91,7 @@ class AssetViewController: UIViewController {
     
     func addLocationInfoToLabel() {
         // 1.
-        guard self.asset.location != nil else {
+        guard let location = self.asset.location  else {
             print("该图片不包含位置信息")
             return
         }
@@ -100,20 +100,22 @@ class AssetViewController: UIViewController {
         
         // 2.
         let alertController = UIAlertController(
-          title: "Log in",
-          message: "Please enter your credentials",
+          title: "位置标签",
+          message: "命名位置标签",
           preferredStyle: .alert)
 
         let loginAction = UIAlertAction(
-            title: "Log in", style: .default) {
+            title: "添加", style: .default) {
             (action) -> Void in
               if let username = usernameTextField?.text {
                 print(" Username = \(username)")
-                DBTools().addLocationInfoLabel(asset: self.asset)
+                  DBTools().addLocationInfoLabel(asset: self.asset, name: username)
               } else {
                 print("No Username entered")
               }
         }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
 
         alertController.addTextField {
           (txtUsername) -> Void in
@@ -122,6 +124,7 @@ class AssetViewController: UIViewController {
         }
 
         alertController.addAction(loginAction)
+        alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
     }
     

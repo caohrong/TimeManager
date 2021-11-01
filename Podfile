@@ -15,5 +15,6 @@ target 'PhotoBrowse' do
     pod 'Mantle'
     pod 'CocoaLumberjack/Swift'
     pod 'FMDB'
+    pod 'SwiftyJSON'
 end
 
