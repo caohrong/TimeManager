@@ -9,7 +9,6 @@ import Foundation
 
 ///
 protocol StopWatchDelegate: class {
-    
     /// Called when the stopwatch updated the elapsed time.
     func stopWatch(_ stropWatch: StopWatch, didUpdateElapsedTimeString elapsedTimeString: String)
 }

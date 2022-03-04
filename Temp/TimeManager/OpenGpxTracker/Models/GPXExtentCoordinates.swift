@@ -13,12 +13,10 @@ import MapKit
 /// Defines an area extension by its top left and bottom right points
 ///
 class GPXExtentCoordinates: NSObject {
-    
     var topLeftCoordinate = CLLocationCoordinate2D(latitude: 0.00, longitude: 0.00)
     var bottomRightCoordinate = CLLocationCoordinate2D(latitude: 0.00, longitude: 0.00)
-    
-    
-    //sets the area to einclude the location point
+
+    // sets the area to einclude the location point
     func extendAreaToIncludeLocation(_ location: CLLocationCoordinate2D) {
         if (topLeftCoordinate.latitude == 0.00) || (location.latitude < topLeftCoordinate.latitude) {
             topLeftCoordinate.latitude = location.latitude
@@ -26,7 +24,7 @@ class GPXExtentCoordinates: NSObject {
         if (bottomRightCoordinate.latitude == 0.00) || (location.latitude > bottomRightCoordinate.latitude) {
             bottomRightCoordinate.latitude = location.latitude
         }
-        
+
         if (topLeftCoordinate.longitude == 0.00) || (location.longitude > topLeftCoordinate.longitude) {
             topLeftCoordinate.longitude = location.longitude
         }
@@ -34,32 +32,27 @@ class GPXExtentCoordinates: NSObject {
             bottomRightCoordinate.longitude = location.longitude
         }
     }
-    
-    
-    
-    //The extent coordinates as a MKCoordinateRegion
+
+    // The extent coordinates as a MKCoordinateRegion
     var region: MKCoordinateRegion {
         set {
-            topLeftCoordinate.latitude = newValue.center.latitude - newValue.span.latitudeDelta/2
-            topLeftCoordinate.longitude = newValue.center.longitude + newValue.span.longitudeDelta/2
-            
-            bottomRightCoordinate.latitude = newValue.center.latitude + newValue.span.latitudeDelta/2
-            bottomRightCoordinate.longitude = newValue.center.longitude - newValue.span.longitudeDelta/2
+            topLeftCoordinate.latitude = newValue.center.latitude - newValue.span.latitudeDelta / 2
+            topLeftCoordinate.longitude = newValue.center.longitude + newValue.span.longitudeDelta / 2
+
+            bottomRightCoordinate.latitude = newValue.center.latitude + newValue.span.latitudeDelta / 2
+            bottomRightCoordinate.longitude = newValue.center.longitude - newValue.span.longitudeDelta / 2
         }
-        
+
         get {
             let centerLat = (bottomRightCoordinate.latitude + topLeftCoordinate.latitude) / 2
             let centerLon = (bottomRightCoordinate.longitude + topLeftCoordinate.longitude) / 2
-            let center: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon)
-            
+            let center: CLLocationCoordinate2D = .init(latitude: centerLat, longitude: centerLon)
+
             let latitudeDelta = bottomRightCoordinate.latitude - topLeftCoordinate.latitude
             let longitudeDelta = topLeftCoordinate.longitude - bottomRightCoordinate.longitude
-            let span: MKCoordinateSpan = MKCoordinateSpan.init(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
-            
-            return MKCoordinateRegion.init(center: center, span: span)
+            let span: MKCoordinateSpan = .init(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+
+            return MKCoordinateRegion(center: center, span: span)
         }
     }
-    
-
-    
 }

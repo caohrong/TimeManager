@@ -8,10 +8,8 @@
 import Foundation
 import UIKit
 
-class LocationManagerController : UIViewController {
-    
+class LocationManagerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 }

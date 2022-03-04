@@ -1,15 +1,14 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+ See LICENSE folder for this sample’s licensing information.
 
-Abstract:
-Implements the collection view cell for displaying an asset in the grid view.
-*/
+ Abstract:
+ Implements the collection view cell for displaying an asset in the grid view.
+ */
 
-import UIKit
 import SnapKit
+import UIKit
 
 class GridViewCell: UICollectionViewCell {
-    
     var imageView: UIImageView!
     var representedAssetIdentifier: String!
     var thumbnailImage: UIImage! {
@@ -17,11 +16,12 @@ class GridViewCell: UICollectionViewCell {
             imageView.image = thumbnailImage
         }
     }
+
     var locationImageView: UIImageView!
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
@@ -29,7 +29,7 @@ class GridViewCell: UICollectionViewCell {
         imageView.snp.makeConstraints { make in
             make.edges.equalTo(self.contentView)
         }
-        
+
         locationImageView = UIImageView(image: UIImage(named: "locationMark"))
         contentView.addSubview(locationImageView)
         locationImageView.snp.makeConstraints { make in
@@ -38,11 +38,12 @@ class GridViewCell: UICollectionViewCell {
             make.width.height.equalTo(15)
         }
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil

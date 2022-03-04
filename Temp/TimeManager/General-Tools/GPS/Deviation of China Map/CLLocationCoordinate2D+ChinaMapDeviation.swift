@@ -10,11 +10,12 @@ import Foundation
 
 extension CLLocationCoordinate2D {
     func deviatedCoordinates() -> CLLocationCoordinate2D {
-        let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
+        let location = CLLocation(latitude: latitude, longitude: longitude)
         return location.deviatedCoordinates()
     }
+
     func unDeviatedCoordinates() -> CLLocationCoordinate2D {
-        let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
+        let location = CLLocation(latitude: latitude, longitude: longitude)
         return location.undeviatedCoordinates()
     }
 }

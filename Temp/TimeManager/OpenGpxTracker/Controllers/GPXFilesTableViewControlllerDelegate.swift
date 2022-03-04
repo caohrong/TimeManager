@@ -5,8 +5,8 @@
 //  Created by merlos on 23/09/14.
 //
 
-import Foundation
 import CoreGPX
+import Foundation
 
 ///
 /// Delegate protocol for the view controller that displays the list of files (GPXFilesTableViewController).
@@ -14,7 +14,6 @@ import CoreGPX
 /// Used to inform the main ViewController that user wants to load a GPX File on it.
 ///
 protocol GPXFilesTableViewControllerDelegate: class {
-  
     ///
     /// GPXFilesTableView controller will be dismissed after calling this method
     ///
@@ -26,5 +25,4 @@ protocol GPXFilesTableViewControllerDelegate: class {
     ///     - [iOS-GPX-Framework](https://github.com/merlos/iOS-GPX-Framework)
     ///
     func didLoadGPXFileWithName(_ gpxFilename: String, gpxRoot: GPXRoot)
-    
 }

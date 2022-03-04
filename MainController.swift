@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-class MainController : UIViewController {
+class MainController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = UIColor.blue
     }
 }

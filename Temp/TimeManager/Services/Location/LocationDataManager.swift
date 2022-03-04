@@ -6,9 +6,9 @@
 //  Copyright © 2019 Huanrong. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
 import SQLite
-import CoreLocation
 
 struct DataBaserTableHelper {
     let location_table = Table("R_LOCATION")
@@ -17,8 +17,8 @@ struct DataBaserTableHelper {
     let latitude = Expression<Double>("latitude")
     let longitude = Expression<Double>("longitude")
     let altitude = Expression<Double>("altitude")
-    
-    func rowCoverToLocation(row:Row) -> CLLocation {
+
+    func rowCoverToLocation(row: Row) -> CLLocation {
 //        let helper = DataBaserTableHelper()
         let date = Date(timeIntervalSince1970: row[timestamp])
         let location = CLLocation(coordinate: CLLocationCoordinate2DMake(row[altitude], row[longitude]), altitude: row[altitude], horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: date)
@@ -30,7 +30,7 @@ extension DatabaseMamager {
     func create_location_table() {
         let helper = DataBaserTableHelper()
         do {
-            try db?.run(helper.location_table.create(block: { (t) in
+            try db?.run(helper.location_table.create(block: { t in
                 t.column(helper.id, primaryKey: true)
                 t.column(helper.timestamp)
                 t.column(helper.latitude)
@@ -41,11 +41,11 @@ extension DatabaseMamager {
             print(error.localizedDescription)
         }
     }
-    
-    func insertLocation(location:CLLocation) {
-        guard case(true) = needUpdateLocation(location: location) else {
+
+    func insertLocation(location: CLLocation) {
+        guard case true = needUpdateLocation(location: location) else {
             print("❌不需要更新")
-            return;
+            return
         }
         let helper = DataBaserTableHelper()
         let insert = helper.location_table.insert(helper.timestamp <- location.timestamp.timeIntervalSince1970, helper.latitude <- location.coordinate.latitude, helper.longitude <- location.coordinate.longitude, helper.altitude <- location.coordinate.latitude)
@@ -56,16 +56,16 @@ extension DatabaseMamager {
             print("插入数据错误▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
         }
     }
-    
-    private func needUpdateLocation(location:CLLocation) -> Bool {
+
+    private func needUpdateLocation(location: CLLocation) -> Bool {
         if let latest_location = latestLocationInDataBase() {
-            //distance max than 200 meters
+            // distance max than 200 meters
             let distance = latest_location.distance(from: location)
 //            print(distance)
             if distance > 200 {
                 return true
             }
-            //time max than 1 hours
+            // time max than 1 hours
             let time = latest_location.timestamp.timeIntervalSince1970 - Date().timeIntervalSince1970
 //            print(time)
             if time > 60 * 60 * 6 {
@@ -74,7 +74,7 @@ extension DatabaseMamager {
         }
         return false
     }
-    
+
     func latestLocationInDataBase() -> CLLocation? {
         let helper = DataBaserTableHelper()
         do {
@@ -85,30 +85,27 @@ extension DatabaseMamager {
                     let latitude = user[helper.latitude]
                     let longitude = user[helper.longitude]
                     let altitude = user[helper.altitude]
-                    let date = Date.init(timeIntervalSince1970: user[helper.timestamp])
+                    let date = Date(timeIntervalSince1970: user[helper.timestamp])
                     let location = CLLocation(coordinate: CLLocationCoordinate2DMake(latitude, longitude), altitude: altitude, horizontalAccuracy: 0, verticalAccuracy: 0, timestamp: date)
                     return location
                 }
             }
-        } catch  {
-            print(error.localizedDescription);
+        } catch {
+            print(error.localizedDescription)
         }
         return nil
     }
-    
-    func allLocationInDataBase(finish: ([CLLocation])->()) {
+
+    func allLocationInDataBase(finish: ([CLLocation]) -> Void) {
         let helper = DataBaserTableHelper()
         do {
-            var locations:[CLLocation] = []
+            var locations: [CLLocation] = []
             for location in try (db?.prepare(helper.location_table))! {
                 locations.append(helper.rowCoverToLocation(row: location))
             }
             finish(locations)
-        } catch {
-            
-        }
-        
-        
+        } catch {}
+
 //        do {
 //            let query =
 //        } catch {

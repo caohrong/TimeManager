@@ -6,22 +6,23 @@
 //  Copyright © 2019 Huanrong. All rights reserved.
 //
 
-import Foundation
 import EventKit
+import Foundation
 protocol Printable {
     func printer() -> String
 }
 
-extension Date : Printable {
+extension Date: Printable {
     func printer() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         return dateFormatter.string(from: self)
     }
 }
-extension EKEvent :Printable {
+
+extension EKEvent: Printable {
     func printer() -> String {
-        let stringValue = "Event:【"+title+"】"+startDate.printer()+"_"+endDate.printer()
+        let stringValue = "Event:【" + title + "】" + startDate.printer() + "_" + endDate.printer()
         print(stringValue)
         return stringValue
     }

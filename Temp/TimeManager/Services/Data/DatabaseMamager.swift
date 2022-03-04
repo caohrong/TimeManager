@@ -6,22 +6,22 @@
 //  Copyright © 2019 Huanrong. All rights reserved.
 //
 
-import UIKit
 import SQLite
+import UIKit
 
 class DatabaseMamager {
-    var db:Connection?
-    static var shared:DatabaseMamager = DatabaseMamager()
+    var db: Connection?
+    static var shared: DatabaseMamager = .init()
     private init() {
-        let fileManager = FileManager.default;
+        let fileManager = FileManager.default
         if var path = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
             path.appendPathComponent("db.sqlite3")
             print(path.absoluteURL)
-            self.db = try? Connection(path.absoluteString)
+            db = try? Connection(path.absoluteString)
 //            create_table()
         }
     }
-    
+
     private func create_table() {
         create_location_table()
     }

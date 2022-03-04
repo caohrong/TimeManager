@@ -7,12 +7,12 @@
 //
 
 import UIKit
-//import FirebaseUI
+// import FirebaseUI
 
 class AuthViewController: UIViewController {
 //    let authUI = FUIAuth.defaultAuthUI()
     // You need to adopt a FUIAuthDelegate protocol to receive callback
-    
+
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //
@@ -26,9 +26,9 @@ class AuthViewController: UIViewController {
 //        // Do any additional setup after loading the view.
 //        authUI?.delegate = self
 //        let providers: [FUIAuthProvider] = [
-////            FUIGoogleAuth(),
-////            FUIFacebookAuth(),
-////            FUITwitterAuth(),
+    ////            FUIGoogleAuth(),
+    ////            FUIFacebookAuth(),
+    ////            FUITwitterAuth(),
 //            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
 //            ]
 //        self.authUI?.providers = providers

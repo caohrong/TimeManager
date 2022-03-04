@@ -8,11 +8,10 @@
 import Foundation
 import UIKit
 
-class ToolsController : UIViewController {
-    
+class ToolsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor.white
+
+        view.backgroundColor = UIColor.white
     }
 }

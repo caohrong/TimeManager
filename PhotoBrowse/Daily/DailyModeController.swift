@@ -8,6 +8,4 @@
 import Foundation
 import UIKit
 
-class DailyModeController : UIViewController {
-    
-}
+class DailyModeController: UIViewController {}

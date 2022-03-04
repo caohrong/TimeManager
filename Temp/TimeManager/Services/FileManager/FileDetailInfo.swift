@@ -17,40 +17,29 @@ import Foundation
 struct FileDetailInfo {
     /// file URL
     let fileURL: URL
-    
+
     /// last time the file was modified
     var modifiedDate: Date {
-        get {
-            return try! fileURL.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate ?? Date.distantPast
-        }
-    }
-    
-    //
-    var modifiedDatetimeAgo: String {
-        get {
-            return modifiedDate.timeAgo(numericDates: true)
-        }
-    }
-    
-    /// file size in bytes
-    var fileSize: Int {
-        get {
-            return try! fileURL.resourceValues(forKeys: [.fileSizeKey]).fileSize ?? 0
-        }
-    }
-    
-    ///
-    var fileSizeHumanised: String {
-        get {
-            return fileSize.asFileSize()
-        }
-    }
-    
-    /// The filename without extension
-    var fileName: String {
-        get {
-            return fileURL.deletingPathExtension().lastPathComponent
-        }
+        return try! fileURL.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate ?? Date.distantPast
     }
 
+    //
+    var modifiedDatetimeAgo: String {
+        return modifiedDate.timeAgo(numericDates: true)
+    }
+
+    /// file size in bytes
+    var fileSize: Int {
+        return try! fileURL.resourceValues(forKeys: [.fileSizeKey]).fileSize ?? 0
+    }
+
+    ///
+    var fileSizeHumanised: String {
+        return fileSize.asFileSize()
+    }
+
+    /// The filename without extension
+    var fileName: String {
+        return fileURL.deletingPathExtension().lastPathComponent
+    }
 }

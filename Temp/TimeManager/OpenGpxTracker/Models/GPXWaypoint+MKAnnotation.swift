@@ -5,60 +5,58 @@
 //  Created by merlos on 16/09/14.
 //
 
-import Foundation
-//import UIKit
-import MapKit
 import CoreGPX
+import Foundation
+// import UIKit
+import MapKit
 
-extension GPXWaypoint : MKAnnotation {
-    
-    convenience init (coordinate: CLLocationCoordinate2D) {
-       
+extension GPXWaypoint: MKAnnotation {
+    convenience init(coordinate: CLLocationCoordinate2D) {
         self.init(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        //set default title and subtitle
-        
+        // set default title and subtitle
+
         // Default title now
         let timeFormat = DateFormatter()
         timeFormat.dateStyle = DateFormatter.Style.none
         timeFormat.timeStyle = DateFormatter.Style.medium
-        //timeFormat.setLocalizedDateFormatFromTemplate("HH:mm:ss")
-        
+        // timeFormat.setLocalizedDateFormatFromTemplate("HH:mm:ss")
+
         let subtitleFormat = DateFormatter()
-        //dateFormat.setLocalizedDateFormatFromTemplate("MMM dd, yyyy")
+        // dateFormat.setLocalizedDateFormatFromTemplate("MMM dd, yyyy")
         subtitleFormat.dateStyle = DateFormatter.Style.medium
         subtitleFormat.timeStyle = DateFormatter.Style.medium
-        
+
         let now = Date()
-        self.time = now
-        self.title = timeFormat.string(from: now)
-        self.subtitle = subtitleFormat.string(from: now)
+        time = now
+        title = timeFormat.string(from: now)
+        subtitle = subtitleFormat.string(from: now)
     }
-    
+
     public var title: String? {
         set {
-            self.name = newValue
+            name = newValue
         }
         get {
-            return self.name
+            return name
         }
     }
-    
+
     public var subtitle: String? {
         set {
-            self.desc = newValue
+            desc = newValue
         }
         get {
-            return self.desc
+            return desc
         }
     }
-    
+
     public var coordinate: CLLocationCoordinate2D {
         set {
-            self.latitude = newValue.latitude
-            self.longitude = newValue.longitude
+            latitude = newValue.latitude
+            longitude = newValue.longitude
         }
         get {
-            return CLLocationCoordinate2D(latitude: self.latitude!, longitude: CLLocationDegrees(self.longitude!))
+            return CLLocationCoordinate2D(latitude: latitude!, longitude: CLLocationDegrees(longitude!))
         }
-    }    
+    }
 }

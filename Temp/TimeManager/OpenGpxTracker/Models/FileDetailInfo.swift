@@ -14,44 +14,34 @@ import Foundation
 ///
 ///
 class FileDetailInfo: NSObject {
-    
     /// file URL
-    var fileURL: URL = URL(fileURLWithPath: "")
-    
+    var fileURL: URL = .init(fileURLWithPath: "")
+
     /// last time the file was modified
     var modifiedDate: Date {
-        get {
-            return try! fileURL.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate ?? Date.distantPast
-        }
+        return try! fileURL.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate ?? Date.distantPast
     }
-    
+
     //
     var modifiedDatetimeAgo: String {
-        get {
-            return modifiedDate.timeAgo(numericDates: true)
-        }
+        return modifiedDate.timeAgo(numericDates: true)
     }
+
     /// file size in bytes
     var fileSize: Int {
-        get {
-            return try! fileURL.resourceValues(forKeys: [.fileSizeKey]).fileSize ?? 0
-        }
+        return try! fileURL.resourceValues(forKeys: [.fileSizeKey]).fileSize ?? 0
     }
-    
+
     ///
     var fileSizeHumanised: String {
-        get {
-            return fileSize.asFileSize()
-        }
+        return fileSize.asFileSize()
     }
-    
+
     /// The filename without extension
     var fileName: String {
-        get {
-            return fileURL.deletingPathExtension().lastPathComponent
-        }
+        return fileURL.deletingPathExtension().lastPathComponent
     }
-    
+
     ///
     /// Initializes the object with the URL of the file to get info.
     ///
@@ -62,5 +52,4 @@ class FileDetailInfo: NSObject {
         self.fileURL = fileURL
         super.init()
     }
-    
 }

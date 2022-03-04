@@ -7,6 +7,4 @@
 //
 
 import Foundation
-class FilesManger: NSObject {
-    
-}
+class FilesManger: NSObject {}

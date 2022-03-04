@@ -12,9 +12,7 @@ import Foundation
 ///
 ///
 protocol PreferencesTableViewControllerDelegate: class {
-    
     func didUpdateTileServer(_ newGpxTileServer: Int)
-    
+
     func didUpdateUseCache(_ newUseCache: Bool)
-    
 }

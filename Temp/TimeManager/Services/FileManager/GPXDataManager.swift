@@ -6,29 +6,30 @@
 //  Copyright © 2019 Huanrong. All rights reserved.
 //
 
-import Foundation
 import CoreGPX
+import Foundation
 
 /// Load all GPX File From Document Folder
 /// Support GPX or gpx format for now on.
 class GPXDataManager {
-    typealias finish = (GPXRoot?) -> ()
-    static var shared:GPXDataManager = GPXDataManager()
-    var GPXData:GPXRoot?
-    private let queue:DispatchQueue
-    
+    typealias finish = (GPXRoot?) -> Void
+    static var shared: GPXDataManager = .init()
+    var GPXData: GPXRoot?
+    private let queue: DispatchQueue
+
     private init() {
         queue = DispatchQueue(label: "com.caohr.GPXDatamanager")
-        self.notificationRegister()
+        notificationRegister()
         queue.async {
             self.GPXData = self.loadDataFromDocument()
         }
     }
+
     deinit {
         self.notificationUnRegister()
     }
-    
-    func loadData(finish:@escaping finish) {
+
+    func loadData(finish: @escaping finish) {
         queue.async {
             DispatchQueue.main.sync {
                 finish(self.GPXData)
@@ -37,9 +38,9 @@ class GPXDataManager {
     }
 }
 
-///Data Loading
-extension GPXDataManager {
-    fileprivate func loadDataFromDocument() -> GPXRoot? {
+/// Data Loading
+private extension GPXDataManager {
+    func loadDataFromDocument() -> GPXRoot? {
         let fileList: [FileDetailInfo] = GPXFileManager.fileList
         let gpxs = GPXRoot()
         for file in fileList {
@@ -52,24 +53,22 @@ extension GPXDataManager {
     }
 }
 
-extension GPXDataManager {
-    fileprivate func notificationRegister() {
+private extension GPXDataManager {
+    func notificationRegister() {
         NotificationCenter.default.addObserver(self, selector: #selector(memoryWarningAction), name: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil)
     }
-    
-    fileprivate func notificationUnRegister() {
-        
-    }
-    
-    @objc fileprivate func memoryWarningAction() {
+
+    func notificationUnRegister() {}
+
+    @objc func memoryWarningAction() {
         print("▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬内存告急")
     }
 }
 
 extension GPXRoot {
-    func add(gpx:GPXRoot) {
-        self.add(routes: gpx.routes)
-        self.add(tracks: gpx.tracks)
-        self.add(waypoints: gpx.waypoints)
+    func add(gpx: GPXRoot) {
+        add(routes: gpx.routes)
+        add(tracks: gpx.tracks)
+        add(waypoints: gpx.waypoints)
     }
 }

@@ -10,66 +10,61 @@ import Foundation
 import HealthKit
 
 class HealthDataManager: NSObject {
-    static var shared:HealthDataManager = HealthDataManager()
-    typealias completeResult = (([HKSample]?)->())
+    static var shared: HealthDataManager = .init()
+    typealias completeResult = ([HKSample]?) -> Void
     private let store = HKHealthStore()
-    private override init() {
+    override private init() {
         super.init()
         requestAuth()
     }
-    
+
     func requestAuth() {
         if #available(iOS 12.0, *) {
             guard HKHealthStore.isHealthDataAvailable() else {
                 print("没有health的功能")
-                return;
+                return
             }
-            
+
             guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
-                    fatalError("*** Unable to create the requested types ***")
+                fatalError("*** Unable to create the requested types ***")
             }
-            
+
             switch store.authorizationStatus(for: sleepType) {
             case .notDetermined:
                 print("还没请求认证")
-                break
             case .sharingAuthorized:
                 print("已经认证")
-                break
             case .sharingDenied:
                 print("被拒绝")
-                break
             }
-            
-            store.requestAuthorization(toShare: nil, read: [sleepType]) { (success, error) in
+
+            store.requestAuthorization(toShare: nil, read: [sleepType]) { success, error in
                 guard success else {
                     // Handle errors here.
                     fatalError("*** An error occurred while requesting authorization: \(error!.localizedDescription) ***")
                 }
             }
-            
+
         } else {
             // Fallback on earlier versions
         }
     }
-    
-    //When user click agree App to use HealthData
-    func getAuth() {
-        
-    }
-    
-    //ma
-    func retrievingSleepDate(start:Date, end:Date, complete:completeResult) {
+
+    // When user click agree App to use HealthData
+    func getAuth() {}
+
+    // ma
+    func retrievingSleepDate(start: Date, end: Date, complete: completeResult) {
         guard let sampleType = HKCategoryType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) else {
             fatalError("未知的HKCategoryType类型")
         }
         retrievingSleepDate(start: start, end: end, complete: complete)
     }
-    
-    func retrievingHealthDate(start:Date, end:Date, type:HKSampleType, complete:@escaping completeResult) {
+
+    func retrievingHealthDate(start: Date, end: Date, type: HKSampleType, complete: @escaping completeResult) {
         let predicate = HKQuery.predicateForSamples(withStart: start, end: end, options: [])
         let query = HKSampleQuery(sampleType: type, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
-            query, results, error in
+            _, results, error in
             if let error = error {
                 print(error.localizedDescription)
             }
@@ -77,27 +72,27 @@ class HealthDataManager: NSObject {
         }
         store.execute(query)
     }
-    
+
     func sleepData() {
         let calendar = Calendar.current
-        
+
         var oneYearFromNowcomponents = DateComponents()
         oneYearFromNowcomponents.year = -1
-        
+
         guard let startDate = calendar.date(byAdding: oneYearFromNowcomponents, to: Date()) else {
             fatalError("error")
         }
-        
+
         let endDate = Date()
-        
+
         guard let sampleType = HKCategoryType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) else {
             fatalError("error")
         }
-        
+
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
-        
+
         let query = HKSampleQuery(sampleType: sampleType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
-            query, results, error in
+            _, results, error in
             if let error = error {
                 print(error.localizedDescription)
             }
@@ -105,15 +100,14 @@ class HealthDataManager: NSObject {
         }
         store.execute(query)
     }
-    
-    func sleepTime(withData:[HKCategorySample]) {
-        
+
+    func sleepTime(withData: [HKCategorySample]) {
         let dataF = DateFormatter()
         dataF.dateFormat = "yyyy-MM-dd HH:mm"
-        
-        var dic:[Double:Double] = [:]
+
+        var dic: [Double: Double] = [:]
         for item in withData {
-            let startTimeString =  dataF.string(from: item.startDate)
+            let startTimeString = dataF.string(from: item.startDate)
             let endTimeString = dataF.string(from: item.endDate)
             let result = "StartTime:" + startTimeString + "到" + endTimeString
             let type = HKCategoryValueSleepAnalysis(rawValue: item.value)
@@ -121,16 +115,15 @@ class HealthDataManager: NSObject {
             case .inBed:
                 let startTime = item.startDate.timeIntervalSince1970
                 let endTime = item.endDate.timeIntervalSince1970
-                
+
                 if let tempEndTime = dic[startTime] {
-                    if tempEndTime < endTime  {
-                        dic[startTime] = endTime;
+                    if tempEndTime < endTime {
+                        dic[startTime] = endTime
                     }
                 } else {
                     dic[startTime] = endTime
                 }
-                
-                break
+
             case .asleep:
 //                print(result + " 睡着了")
                 break
@@ -139,9 +132,9 @@ class HealthDataManager: NSObject {
                 break
             }
         }
-        
-        //Test
-        var sleepDatas:[HKCategorySample] = []
+
+        // Test
+        var sleepDatas: [HKCategorySample] = []
         for (key, value) in dic {
             let startDate = Date(timeIntervalSince1970: key)
             let endDate = Date(timeIntervalSince1970: value)
@@ -149,12 +142,11 @@ class HealthDataManager: NSObject {
             let endTime = dataF.string(from: endDate)
             let sampe = HKCategorySample(type: HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!, value: HKCategoryValueSleepAnalysis.inBed.rawValue, start: startDate, end: endDate)
             sleepDatas.append(sampe)
-            
+
             CalendarManager.shared.createEvent(fromTime: startDate, toTime: endDate, eventName: "Sleeping")
         }
     }
 }
-
 
 extension HKCategorySample {
     func sleepDataPrint() {
@@ -162,4 +154,3 @@ extension HKCategorySample {
         dataF.dateFormat = "yyyy-MM-dd HH:mm"
     }
 }
-

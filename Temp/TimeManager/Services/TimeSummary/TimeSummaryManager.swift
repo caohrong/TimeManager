@@ -10,22 +10,16 @@ import UIKit
 
 struct TimeSummaryManager {
     static var shared = TimeSummaryManager()
-    let dispatch:DispatchQueue
-    
+    let dispatch: DispatchQueue
+
     private init() {
         dispatch = DispatchQueue(label: "com.caohr.timeManager")
     }
-    
-    public func start() {
-        
-    }
-    public func stop() {
-        
-    }
+
+    public func start() {}
+
+    public func stop() {}
 }
 
-//Calender
-extension TimeSummaryManager {
-    
-}
-
+// Calender
+extension TimeSummaryManager {}

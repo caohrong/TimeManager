@@ -17,36 +17,37 @@ import Foundation
 /// on the interface and a URL template.
 ///
 enum GPXTileServer: Int {
-    
     /// Apple tile server
     case apple
-    
+
     /// Open Street Map tile server
     case openStreetMap
-    //case AnotherMap
-    
+    // case AnotherMap
+
     /// CartoDB tile server
     case cartoDB
-    
-    ///String that describes the selected tile server.
+
+    /// String that describes the selected tile server.
     var name: String {
         switch self {
         case .apple: return "Apple Mapkit (no offline cache)"
         case .openStreetMap: return "Open Street Map"
         case .cartoDB: return "Carto DB"
-        //case .AnotherMap: return "My Map"
+            // case .AnotherMap: return "My Map"
         }
     }
+
     /// URL template of current tile server (it is of the form http://{s}.map.tile.server/{z}/{x}/{y}.png
     var templateUrl: String {
         switch self {
         case .apple: return ""
         case .openStreetMap: return "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         case .cartoDB: return "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
-            
-        //case .AnotherMap: return "http://another.map.tile.server/{z}/{x}/{y}.png"
+
+            // case .AnotherMap: return "http://another.map.tile.server/{z}/{x}/{y}.png"
         }
     }
+
     // Number of tile servers defined
-    static var count: Int { return GPXTileServer.cartoDB.rawValue + 1}
+    static var count: Int { return GPXTileServer.cartoDB.rawValue + 1 }
 }

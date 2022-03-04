@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import UIKit
 import MapKit
+import UIKit
 
 ///
 /// A label to display distances.
@@ -18,19 +18,18 @@ import MapKit
 /// To update the text displayed use the distance variable.
 ///
 open class UIDistanceLabel: UILabel {
-    
     /// Distance in meters
     open var distance: CLLocationDistance {
         get {
             return 0
         }
         set {
-            if newValue > 1000.0 { //use km
-                let formatted = String(format: "%.2f", (newValue/1000.0))
-                self.text = "\(formatted)km"
+            if newValue > 1000.0 { // use km
+                let formatted = String(format: "%.2f", newValue / 1000.0)
+                text = "\(formatted)km"
             } else {
-                let formatted = String(format: "%.0f", (newValue))
-                self.text = "\(formatted)m"
+                let formatted = String(format: "%.0f", newValue)
+                text = "\(formatted)m"
             }
         }
     }
