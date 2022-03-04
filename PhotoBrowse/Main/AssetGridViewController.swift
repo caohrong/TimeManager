@@ -50,7 +50,6 @@ class AssetGridViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         collectionView.register(GridViewCell.self, forCellWithReuseIdentifier: "GridViewCell")
         resetCachedAssets()
         PHPhotoLibrary.shared().register(self)
@@ -116,7 +115,8 @@ class AssetGridViewController: UICollectionViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         // Determine the size of the thumbnails to request from the PHCachingImageManager.
         let scale = UIScreen.main.scale
         let cellSize = collectionViewFlowLayout.itemSize

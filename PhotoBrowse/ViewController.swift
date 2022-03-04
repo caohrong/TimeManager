@@ -21,10 +21,10 @@ class ViewController: UIViewController {
         let tabbar = UITabBarController()
 
         let mainPage = UINavigationController(rootViewController: AssetGridViewController())
-        mainPage.tabBarItem = UITabBarItem(title: "图片", image: nil, tag: 0)
+        mainPage.tabBarItem = UITabBarItem(title: "图片", image: UIImage(systemName: "photo.tv"), tag: 0)
 
         let toolsPage = UINavigationController(rootViewController: ToolsController())
-        toolsPage.tabBarItem = UITabBarItem(title: "工具", image: nil, tag: 1)
+        toolsPage.tabBarItem = UITabBarItem(title: "工具", image: UIImage(systemName: "tv.inset.filled"), tag: 1)
 
         tabbar.setViewControllers([mainPage, toolsPage], animated: false)
         tabbar.modalPresentationStyle = .fullScreen
