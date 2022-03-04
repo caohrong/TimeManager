@@ -18,6 +18,7 @@ class GridViewCell: UICollectionViewCell {
     }
 
     var locationImageView: UIImageView!
+    var videoImageView: UIImageView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,12 +31,18 @@ class GridViewCell: UICollectionViewCell {
             make.edges.equalTo(self.contentView)
         }
 
-        locationImageView = UIImageView(image: UIImage(named: "locationMark"))
+        locationImageView = UIImageView(image: UIImage(systemName: "location.fill"))
         contentView.addSubview(locationImageView)
         locationImageView.snp.makeConstraints { make in
             make.right.equalTo(self.contentView).offset(-2)
             make.bottom.equalTo(self.contentView).offset(-2)
             make.width.height.equalTo(15)
+        }
+        
+        videoImageView = UIImageView(image: UIImage(systemName: "play.fill"))
+        contentView.addSubview(videoImageView)
+        videoImageView.snp.makeConstraints { make in
+            make.center.equalTo(self.contentView)
         }
     }
 

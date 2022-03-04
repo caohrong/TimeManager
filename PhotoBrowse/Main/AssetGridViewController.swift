@@ -52,15 +52,20 @@ class AssetGridViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView.register(GridViewCell.self, forCellWithReuseIdentifier: "GridViewCell")
         resetCachedAssets()
+        
+        let items = ["All","Photos", "Video"]
+        let frame =  CGRect(x: 0, y: UIScreen.main.bounds.height - 130, width: UIScreen.main.bounds.width, height: 40)
+        let segmented = UISegmentedControl(items: items)
+        segmented.frame = frame
+        segmented.selectedSegmentIndex = 0
+        segmented.backgroundColor = UIColor.gray
+        segmented.addTarget(self, action: #selector(segmentedDidSeleted), for: UIControl.Event.valueChanged)
+        view.addSubview(segmented)
+        
         PHPhotoLibrary.shared().register(self)
-
-        // Reaching this point without a segue means that this AssetGridViewController
-        // became visible at app launch. As such, match the behavior of the segue from
-        // the default "All Photos" view.
+        
         if fetchResult == nil {
-            let allPhotosOptions = PHFetchOptions()
-            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-            fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+            fetchAssest(type: .unknown)
         }
 
         // 找到HR相册
@@ -82,6 +87,30 @@ class AssetGridViewController: UICollectionViewController {
 
         collectionView.allowsSelection = true
 //        self.collectionView.scrollToItem(at: IndexPath(item: fetchResult.count - 1, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: false)
+    }
+    
+    @objc func segmentedDidSeleted(segment: UISegmentedControl) {
+        print("--- \(segment.selectedSegmentIndex)")
+        if let type = PHAssetMediaType(rawValue: segment.selectedSegmentIndex) {
+            fetchAssest(type: type)
+        }
+    }
+    
+    func fetchAssest(type: PHAssetMediaType) {
+        let allPhotosOptions = PHFetchOptions()
+        if type != .unknown {
+            allPhotosOptions.predicate = NSPredicate(format: "mediaType = %d", type.rawValue)
+        }
+        
+        var sorts = [NSSortDescriptor]()
+        if type == .video {
+            sorts.append(NSSortDescriptor(key: "size", ascending: true))
+        }
+        sorts.append(NSSortDescriptor(key: "creationDate", ascending: true))
+        allPhotosOptions.sortDescriptors = sorts
+        fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+        
+        collectionView.reloadData()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -161,6 +190,8 @@ class AssetGridViewController: UICollectionViewController {
         if asset.mediaSubtypes.contains(.photoLive) {
 //            cell.livePhotoBadgeImage = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
         }
+        
+        cell.locationImageView.isHidden = asset.mediaType == .video
 
         // Request an image for the asset from the PHCachingImageManager.
         cell.representedAssetIdentifier = asset.localIdentifier
@@ -175,11 +206,7 @@ class AssetGridViewController: UICollectionViewController {
         doSomethingWithCell(asset: asset)
         cell.contentView.backgroundColor = UIColor.lightGray
 
-        if asset.location != nil {
-            cell.locationImageView.isHidden = false
-        } else {
-            cell.locationImageView.isHidden = true
-        }
+        cell.locationImageView.isHidden = asset.location == nil
 
         return cell
     }
