@@ -38,7 +38,7 @@ class GridViewCell: UICollectionViewCell {
             make.bottom.equalTo(self.contentView).offset(-2)
             make.width.height.equalTo(15)
         }
-        
+
         videoImageView = UIImageView(image: UIImage(systemName: "play.fill"))
         contentView.addSubview(videoImageView)
         videoImageView.snp.makeConstraints { make in

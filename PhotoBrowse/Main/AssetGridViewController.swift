@@ -16,7 +16,7 @@ private extension UICollectionView {
     }
 }
 
-class AssetGridViewController: UICollectionViewController {
+class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDelegate {
     var fetchResult: PHFetchResult<PHAsset>!
     var assetCollection: PHAssetCollection!
     var availableWidth: CGFloat = 0
@@ -35,6 +35,8 @@ class AssetGridViewController: UICollectionViewController {
     let address = CLGeocoder()
     let db = DBTools()
 
+    var selectedLocation: CLLocation?
+
     // MARK: UIViewController / Life Cycle
 
     init() {
@@ -52,18 +54,18 @@ class AssetGridViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView.register(GridViewCell.self, forCellWithReuseIdentifier: "GridViewCell")
         resetCachedAssets()
-        
-        let items = ["All","Photos", "Video"]
-        let frame =  CGRect(x: 0, y: UIScreen.main.bounds.height - 130, width: UIScreen.main.bounds.width, height: 40)
+
+        let items = ["All", "Photos", "Video"]
+        let frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 130, width: UIScreen.main.bounds.width, height: 40)
         let segmented = UISegmentedControl(items: items)
         segmented.frame = frame
         segmented.selectedSegmentIndex = 0
         segmented.backgroundColor = UIColor.gray
         segmented.addTarget(self, action: #selector(segmentedDidSeleted), for: UIControl.Event.valueChanged)
         view.addSubview(segmented)
-        
+
         PHPhotoLibrary.shared().register(self)
-        
+
         if fetchResult == nil {
             fetchAssest(type: .unknown)
         }
@@ -87,21 +89,23 @@ class AssetGridViewController: UICollectionViewController {
 
         collectionView.allowsSelection = true
 //        self.collectionView.scrollToItem(at: IndexPath(item: fetchResult.count - 1, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: false)
+
+        setupLongGestureRecognizerOnCollection()
     }
-    
+
     @objc func segmentedDidSeleted(segment: UISegmentedControl) {
         print("--- \(segment.selectedSegmentIndex)")
         if let type = PHAssetMediaType(rawValue: segment.selectedSegmentIndex) {
             fetchAssest(type: type)
         }
     }
-    
+
     func fetchAssest(type: PHAssetMediaType) {
         let allPhotosOptions = PHFetchOptions()
         if type != .unknown {
             allPhotosOptions.predicate = NSPredicate(format: "mediaType = %d", type.rawValue)
         }
-        
+
         var sorts = [NSSortDescriptor]()
 //        if type == .video {
 //            sorts.append(NSSortDescriptor(key: "size", ascending: true))
@@ -109,7 +113,7 @@ class AssetGridViewController: UICollectionViewController {
         sorts.append(NSSortDescriptor(key: "creationDate", ascending: false))
         allPhotosOptions.sortDescriptors = sorts
         fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
-        
+
         collectionView.reloadData()
     }
 
@@ -144,8 +148,8 @@ class AssetGridViewController: UICollectionViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
+        navigationController?.setNavigationBarHidden(true, animated: false)
         // Determine the size of the thumbnails to request from the PHCachingImageManager.
         let scale = UIScreen.main.scale
         let cellSize = collectionViewFlowLayout.itemSize
@@ -174,6 +178,7 @@ class AssetGridViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionView
+
     override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return fetchResult.count
     }
@@ -192,15 +197,16 @@ class AssetGridViewController: UICollectionViewController {
                 cell.thumbnailImage = image
             }
         })
-        
-        //public.heic,public.jpeg, com.apple.quicktime-movie
-        if let imageType:String = asset.value(forKey: "uniformTypeIdentifier") as? String {
-            if (imageType == "public.jpeg") {
-                print("public.jpeg")
-                
+
+        // public.heic,public.jpeg, com.apple.quicktime-movie
+        if let imageType: String = asset.value(forKey: "uniformTypeIdentifier") as? String {
+            print(imageType)
+            if imageType == "public.jpeg" {
+//                print("public.jpeg")
             }
+            if imageType == "com.apple.quicktime-movie" {}
         }
-        
+
         doSomethingWithCell(asset: asset)
         cell.contentView.backgroundColor = UIColor.lightGray
 
@@ -210,7 +216,7 @@ class AssetGridViewController: UICollectionViewController {
         if asset.mediaSubtypes.contains(.photoLive) {
 //            cell.livePhotoBadgeImage = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
         }
-        
+
         return cell
     }
 
@@ -218,6 +224,32 @@ class AssetGridViewController: UICollectionViewController {
         let vc = AssetViewController()
         vc.asset = fetchResult.object(at: indexPath.row)
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func setupLongGestureRecognizerOnCollection() {
+        let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        longPressedGesture.minimumPressDuration = 0.5
+        longPressedGesture.delegate = self
+        longPressedGesture.delaysTouchesBegan = true
+        collectionView?.addGestureRecognizer(longPressedGesture)
+    }
+
+    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        guard gestureRecognizer.state == .began else { return }
+        
+        let p = gestureRecognizer.location(in: collectionView)
+        if let indexPath = collectionView?.indexPathForItem(at: p) {
+            print("Long press at item: \(indexPath.row)")
+            let asset = fetchResult.object(at: indexPath.row)
+            if let location = asset.location {
+                print("拷贝地址---")
+                self.selectedLocation = location
+            } else {
+                guard let location = selectedLocation else { return }
+                changeImageLocationTime(asset, location)
+                print("粘贴地址---")
+            }
+        }
     }
 
     func checkDuplicationPic() {}
@@ -238,24 +270,24 @@ class AssetGridViewController: UICollectionViewController {
     func taskBackground() {
         print("----一共找到照片", fetchResult.count)
         db.saveAllPhotosResult(fetchResult: fetchResult)
-        
+
         return
-        
-        var pre:PHAsset = fetchResult.object(at: 0)
-        pre.requestContentEditingInput(with: nil) { input, info in
+
+        var pre: PHAsset = fetchResult.object(at: 0)
+        pre.requestContentEditingInput(with: nil) { input, _ in
             print("---------1")
             guard let fileURL = input?.fullSizeImageURL, let fullImage = CIImage(contentsOf: fileURL)
             else { return }
             print(fullImage.properties)
         }
 
-        for i in 1..<fetchResult.count {
+        for i in 1 ..< fetchResult.count {
             let asset = fetchResult.object(at: i)
             checkLocationInfo(asset)
-            if (asset.creationDate?.timeIntervalSince1970 == pre.creationDate?.timeIntervalSince1970
-                && asset.pixelWidth == pre.pixelWidth
-                && asset.pixelHeight == pre.pixelHeight) {
-
+            if asset.creationDate?.timeIntervalSince1970 == pre.creationDate?.timeIntervalSince1970,
+               asset.pixelWidth == pre.pixelWidth,
+               asset.pixelHeight == pre.pixelHeight
+            {
                 print("---------1", i)
                 PHPhotoLibrary.shared().performChanges({
                     let creationRequest1 = PHAssetChangeRequest(for: pre)
@@ -265,7 +297,7 @@ class AssetGridViewController: UICollectionViewController {
                         addAssetRequest?.addAssets([creationRequest1, creationRequest2] as NSArray)
                     }
 
-                }, completionHandler: {success, error in
+                }, completionHandler: { success, error in
                     if !success { print("-----❌Error creating the asset: \(String(describing: error))") }
                 })
             }
@@ -364,6 +396,21 @@ class AssetGridViewController: UICollectionViewController {
             print("----------🏆修改:", imageOriginalName, "新时间:", newData, "原始时间:", asset.creationDate!)
             let creationRequest = PHAssetChangeRequest(for: asset)
             creationRequest.creationDate = newData
+
+            if let assetCollection = self.collectionHR {
+                let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
+                addAssetRequest?.addAssets([creationRequest] as NSArray)
+            }
+
+        }, completionHandler: { success, error in
+            if !success { print("-----❌Error creating the asset: \(String(describing: error))") }
+        })
+    }
+
+    func changeImageLocationTime(_ asset: PHAsset, _ location: CLLocation) {
+        PHPhotoLibrary.shared().performChanges({
+            let creationRequest = PHAssetChangeRequest(for: asset)
+            creationRequest.location = location
 
             if let assetCollection = self.collectionHR {
                 let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
