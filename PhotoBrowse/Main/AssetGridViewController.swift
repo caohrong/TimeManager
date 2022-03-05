@@ -103,10 +103,10 @@ class AssetGridViewController: UICollectionViewController {
         }
         
         var sorts = [NSSortDescriptor]()
-        if type == .video {
-            sorts.append(NSSortDescriptor(key: "size", ascending: true))
-        }
-        sorts.append(NSSortDescriptor(key: "creationDate", ascending: true))
+//        if type == .video {
+//            sorts.append(NSSortDescriptor(key: "size", ascending: true))
+//        }
+        sorts.append(NSSortDescriptor(key: "creationDate", ascending: false))
         allPhotosOptions.sortDescriptors = sorts
         fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
         
@@ -174,7 +174,6 @@ class AssetGridViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionView
-
     override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return fetchResult.count
     }
@@ -186,28 +185,32 @@ class AssetGridViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridViewCell", for: indexPath) as? GridViewCell
         else { fatalError("Unexpected cell in collection view") }
 
+        // Request an image for the asset from the PHCachingImageManager.
+        cell.representedAssetIdentifier = asset.localIdentifier
+        imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+            if cell.representedAssetIdentifier == asset.localIdentifier {
+                cell.thumbnailImage = image
+            }
+        })
+        
+        //public.heic,public.jpeg, com.apple.quicktime-movie
+        if let imageType:String = asset.value(forKey: "uniformTypeIdentifier") as? String {
+            if (imageType == "public.jpeg") {
+                print("public.jpeg")
+                
+            }
+        }
+        
+        doSomethingWithCell(asset: asset)
+        cell.contentView.backgroundColor = UIColor.lightGray
+
+        cell.locationImageView.isHidden = asset.location == nil
+        cell.videoImageView.isHidden = asset.mediaType != .video
         // Add a badge to the cell if the PHAsset represents a Live Photo.
         if asset.mediaSubtypes.contains(.photoLive) {
 //            cell.livePhotoBadgeImage = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
         }
         
-        cell.locationImageView.isHidden = asset.mediaType == .video
-
-        // Request an image for the asset from the PHCachingImageManager.
-        cell.representedAssetIdentifier = asset.localIdentifier
-        imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
-            // UIKit may have recycled this cell by the handler's activation time.
-            // Set the cell's thumbnail image only if it's still showing the same asset.
-            if cell.representedAssetIdentifier == asset.localIdentifier {
-                cell.thumbnailImage = image
-            }
-        })
-
-        doSomethingWithCell(asset: asset)
-        cell.contentView.backgroundColor = UIColor.lightGray
-
-        cell.locationImageView.isHidden = asset.location == nil
-
         return cell
     }
 
@@ -235,37 +238,39 @@ class AssetGridViewController: UICollectionViewController {
     func taskBackground() {
         print("----一共找到照片", fetchResult.count)
         db.saveAllPhotosResult(fetchResult: fetchResult)
+        
+        return
+        
+        var pre:PHAsset = fetchResult.object(at: 0)
+        pre.requestContentEditingInput(with: nil) { input, info in
+            print("---------1")
+            guard let fileURL = input?.fullSizeImageURL, let fullImage = CIImage(contentsOf: fileURL)
+            else { return }
+            print(fullImage.properties)
+        }
 
-//        var pre:PHAsset = fetchResult.object(at: 0)
-//        pre.requestContentEditingInput(with: nil) { input, info in
-//            print("---------1")
-//            guard let fileURL = input?.fullSizeImageURL, let fullImage = CIImage(contentsOf: fileURL)
-//            else { return }
-//            print(fullImage.properties)
-//        }
-//
-//        for i in 1..<fetchResult.count {
-//            let asset = fetchResult.object(at: i)
-//            checkLocationInfo(asset)
-//            if (asset.creationDate?.timeIntervalSince1970 == pre.creationDate?.timeIntervalSince1970
-//                && asset.pixelWidth == pre.pixelWidth
-//                && asset.pixelHeight == pre.pixelHeight) {
-//
-//                print("---------1", i)
-//                PHPhotoLibrary.shared().performChanges({
-//                    let creationRequest1 = PHAssetChangeRequest(for: pre)
-//                    let creationRequest2 = PHAssetChangeRequest(for: asset)
-//                    if let assetCollection = self.collectionDuplication {
-//                        let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
-//                        addAssetRequest?.addAssets([creationRequest1, creationRequest2] as NSArray)
-//                    }
-//
-//                }, completionHandler: {success, error in
-//                    if !success { print("-----❌Error creating the asset: \(String(describing: error))") }
-//                })
-//            }
-//            pre = asset
-//        }
+        for i in 1..<fetchResult.count {
+            let asset = fetchResult.object(at: i)
+            checkLocationInfo(asset)
+            if (asset.creationDate?.timeIntervalSince1970 == pre.creationDate?.timeIntervalSince1970
+                && asset.pixelWidth == pre.pixelWidth
+                && asset.pixelHeight == pre.pixelHeight) {
+
+                print("---------1", i)
+                PHPhotoLibrary.shared().performChanges({
+                    let creationRequest1 = PHAssetChangeRequest(for: pre)
+                    let creationRequest2 = PHAssetChangeRequest(for: asset)
+                    if let assetCollection = self.collectionDuplication {
+                        let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
+                        addAssetRequest?.addAssets([creationRequest1, creationRequest2] as NSArray)
+                    }
+
+                }, completionHandler: {success, error in
+                    if !success { print("-----❌Error creating the asset: \(String(describing: error))") }
+                })
+            }
+            pre = asset
+        }
     }
 
     func checkShootTimeInfo(_ asset: PHAsset) {
