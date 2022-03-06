@@ -10,7 +10,7 @@ target 'PhotoBrowse' do
     pod 'SPPermissions/PhotoLibrary'
     pod 'SnapKit'
     pod 'JTAppleCalendar'
-    pod 'MBProgressHUD'
+    pod 'Toast-Swift'
     pod 'Mantle'
     pod 'CocoaLumberjack/Swift'
     pod 'FMDB'

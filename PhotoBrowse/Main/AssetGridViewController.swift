@@ -8,6 +8,7 @@
 import Photos
 import PhotosUI
 import UIKit
+import Toast_Swift
 
 private extension UICollectionView {
     func indexPathsForElements(in rect: CGRect) -> [IndexPath] {
@@ -55,7 +56,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
         collectionView.register(GridViewCell.self, forCellWithReuseIdentifier: "GridViewCell")
         resetCachedAssets()
 
-        let items = ["All", "Photos", "Video"]
+        let items = ["All", "Photos", "Video", "location"]
         let frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 130, width: UIScreen.main.bounds.width, height: 40)
         let segmented = UISegmentedControl(items: items)
         segmented.frame = frame
@@ -69,7 +70,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
         if fetchResult == nil {
             fetchAssest(type: .unknown)
         }
-
+        
         // 找到HR相册
         let collections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumRegular, options: nil)
         for index in 0 ..< collections.count {
@@ -105,12 +106,12 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
         if type != .unknown {
             allPhotosOptions.predicate = NSPredicate(format: "mediaType = %d", type.rawValue)
         }
-
+        
         var sorts = [NSSortDescriptor]()
 //        if type == .video {
 //            sorts.append(NSSortDescriptor(key: "size", ascending: true))
 //        }
-        sorts.append(NSSortDescriptor(key: "creationDate", ascending: false))
+        sorts.append(NSSortDescriptor(key: "creationDate", ascending: true))
         allPhotosOptions.sortDescriptors = sorts
         fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
 
@@ -150,6 +151,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
         super.viewWillAppear(animated)
 
         navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
         // Determine the size of the thumbnails to request from the PHCachingImageManager.
         let scale = UIScreen.main.scale
         let cellSize = collectionViewFlowLayout.itemSize
@@ -243,11 +245,19 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
             let asset = fetchResult.object(at: indexPath.row)
             if let location = asset.location {
                 print("拷贝地址---")
+                addressReverse(location: location) { address in
+                    self.view.makeToast("拷贝地址:\(address)", duration: 3.0, position: .top)
+                }
                 self.selectedLocation = location
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
             } else {
                 guard let location = selectedLocation else { return }
                 changeImageLocationTime(asset, location)
                 print("粘贴地址---")
+                addressReverse(location: location) { address in
+                    self.view.makeToast("粘贴地址:\(address)", duration: 3.0, position: .top)
+                }
+                UIImpactFeedbackGenerator(style: .light).impactOccurred()
             }
         }
     }
@@ -341,6 +351,23 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
             self.locationsInfo.insert(addressString)
         }
     }
+    
+    func addressReverse(location: CLLocation, completion:@escaping (String)->()?) {
+        address.reverseGeocodeLocation(location) { addressMarks, error in
+            guard let marks = addressMarks, marks.count > 0 else {
+                if let errorInfo = error {
+                    print(errorInfo.localizedDescription)
+                }
+                return
+            }
+            let address: CLPlacemark = marks[0]
+
+            let addressString = (address.administrativeArea ?? "") + (address.locality ?? "") + (address.subLocality ?? "") + (address.name ?? "")
+            print(addressString)
+            completion(addressString)
+        }
+    }
+    
 
     func needChangeDataTime(_ asset: PHAsset) -> (Bool, Date?) {
         guard var imageOriginalName = asset.value(forKey: "originalFilename") as? String else {
