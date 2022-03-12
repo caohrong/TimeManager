@@ -57,13 +57,17 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
         resetCachedAssets()
 
         let items = ["All", "Photos", "Video", "location"]
-        let frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 130, width: UIScreen.main.bounds.width, height: 40)
         let segmented = UISegmentedControl(items: items)
-        segmented.frame = frame
         segmented.selectedSegmentIndex = 0
         segmented.backgroundColor = UIColor.gray
         segmented.addTarget(self, action: #selector(segmentedDidSeleted), for: UIControl.Event.valueChanged)
         view.addSubview(segmented)
+        segmented.snp.makeConstraints { make in
+            make.left.equalTo(view).offset(15)
+            make.right.equalTo(view).offset(-15)
+            make.height.equalTo(44)
+            make.bottom.equalTo(view).offset(-100)
+        }
 
         PHPhotoLibrary.shared().register(self)
 
@@ -135,11 +139,15 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
         let width = view.bounds.inset(by: view.safeAreaInsets).width
         if availableWidth != width {
             availableWidth = width
-
-            let itemWidth = (UIScreen.main.bounds.size.width - 4 * 3) / 5
+            
+            let itemWidth = (view.frame.size.width - 4 * 3) / 5
             collectionViewFlowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
             collectionViewFlowLayout.minimumLineSpacing = 3
             collectionViewFlowLayout.minimumInteritemSpacing = 3
+            
+            let scale = UIScreen.main.scale
+            let cellSize = collectionViewFlowLayout.itemSize
+            thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
         }
     }
 
