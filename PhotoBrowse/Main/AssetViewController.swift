@@ -86,7 +86,7 @@ class AssetViewController: UIViewController {
         view.layoutIfNeeded()
         updateImage()
 
-        addLocationInfoToLabel()
+//        addLocationInfoToLabel()
     }
 
     func addLocationInfoToLabel() {

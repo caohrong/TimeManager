@@ -15,6 +15,7 @@ class DBTools: NSObject {
     override init() {
         var fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         fileURL.appendPathComponent("db.sqlite3")
+        print("🌵SQLite:\(fileURL.path)")
         db = FMDatabase(url: fileURL)
     }
 
