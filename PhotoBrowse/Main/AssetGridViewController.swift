@@ -7,8 +7,8 @@
 
 import Photos
 import PhotosUI
-import UIKit
 import Toast_Swift
+import UIKit
 
 private extension UICollectionView {
     func indexPathsForElements(in rect: CGRect) -> [IndexPath] {
@@ -70,7 +70,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
         if fetchResult == nil {
             fetchAssest(type: .unknown)
         }
-        
+
         // 找到HR相册
         let collections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumRegular, options: nil)
         for index in 0 ..< collections.count {
@@ -106,12 +106,12 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
         if type != .unknown {
             allPhotosOptions.predicate = NSPredicate(format: "mediaType = %d", type.rawValue)
         }
-        
+
         var sorts = [NSSortDescriptor]()
 //        if type == .video {
 //            sorts.append(NSSortDescriptor(key: "size", ascending: true))
 //        }
-        sorts.append(NSSortDescriptor(key: "creationDate", ascending: true))
+        sorts.append(NSSortDescriptor(key: "creationDate", ascending: false))
         allPhotosOptions.sortDescriptors = sorts
         fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
 
@@ -151,7 +151,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
         super.viewWillAppear(animated)
 
         navigationController?.setNavigationBarHidden(true, animated: false)
-        self.tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
         // Determine the size of the thumbnails to request from the PHCachingImageManager.
         let scale = UIScreen.main.scale
         let cellSize = collectionViewFlowLayout.itemSize
@@ -238,7 +238,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
 
     @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
         guard gestureRecognizer.state == .began else { return }
-        
+
         let p = gestureRecognizer.location(in: collectionView)
         if let indexPath = collectionView?.indexPathForItem(at: p) {
             print("Long press at item: \(indexPath.row)")
@@ -248,7 +248,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
                 addressReverse(location: location) { address in
                     self.view.makeToast("拷贝地址:\(address)", duration: 3.0, position: .top)
                 }
-                self.selectedLocation = location
+                selectedLocation = location
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             } else {
                 guard let location = selectedLocation else { return }
@@ -351,8 +351,8 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
             self.locationsInfo.insert(addressString)
         }
     }
-    
-    func addressReverse(location: CLLocation, completion:@escaping (String)->()?) {
+
+    func addressReverse(location: CLLocation, completion: @escaping (String) -> Void?) {
         address.reverseGeocodeLocation(location) { addressMarks, error in
             guard let marks = addressMarks, marks.count > 0 else {
                 if let errorInfo = error {
@@ -367,7 +367,6 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
             completion(addressString)
         }
     }
-    
 
     func needChangeDataTime(_ asset: PHAsset) -> (Bool, Date?) {
         guard var imageOriginalName = asset.value(forKey: "originalFilename") as? String else {

@@ -27,7 +27,7 @@ class AssetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         PHPhotoLibrary.shared().register(self)
-        self.tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
     }
 
     deinit {
