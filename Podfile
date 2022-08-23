@@ -15,5 +15,6 @@ target 'PhotoBrowse' do
     pod 'CocoaLumberjack/Swift'
     pod 'FMDB'
     pod 'SwiftyJSON'
+    pod 'mobile-ffmpeg-full', '~> 4.4'
 end
 

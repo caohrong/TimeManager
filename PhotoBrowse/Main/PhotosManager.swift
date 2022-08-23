@@ -5,15 +5,14 @@
 //  Created by Huanrong Cao on 2022/3/12.
 //
 
+import Foundation
 import Photos
 import PhotosUI
 import Toast_Swift
-import Foundation
-
 
 class PhotosManager {
     static let shared = PhotosManager()
-    
+
     var fetchResult: PHFetchResult<PHAsset>!
     var assetCollection: PHAssetCollection!
     var collectionHR: PHAssetCollection?
@@ -22,13 +21,12 @@ class PhotosManager {
     let serialQueue = DispatchQueue(label: "com.leo.serialQueue")
     let db = DBTools()
     let address = CLGeocoder()
-    
-    private init() {
 
+    private init() {
         if fetchResult == nil {
             fetchAssest(type: .unknown)
         }
-        
+
         // 找到HR相册
         let collections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumRegular, options: nil)
         for index in 0 ..< collections.count {
@@ -43,10 +41,10 @@ class PhotosManager {
                 print("-----找到相册", collection.localizedTitle!)
             }
         }
-        
+
         UserDefaults.standard.set(["cn"], forKey: "AppleLanguages")
     }
-    
+
     func fetchAssest(type: PHAssetMediaType) {
         let allPhotosOptions = PHFetchOptions()
         if type != .unknown {
@@ -61,7 +59,7 @@ class PhotosManager {
         allPhotosOptions.sortDescriptors = sorts
         fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
     }
-    
+
     func taskBackground() {
         print("----一共找到照片", fetchResult.count)
         db.saveAllPhotosResult(fetchResult: fetchResult)
@@ -99,7 +97,7 @@ class PhotosManager {
             pre = asset
         }
     }
-    
+
     func checkDuplicationPic() {}
 
     func doSomethingAtBackground() {
@@ -114,7 +112,7 @@ class PhotosManager {
 //            self.checkLocationInfo(asset)
         }
     }
-    
+
     func checkShootTimeInfo(_ asset: PHAsset) {
         let result = needChangeDataTime(asset)
         guard result.0 else {
@@ -152,7 +150,7 @@ class PhotosManager {
         }
     }
 
-    func addressReverse(location: CLLocation, completion: @escaping (String) -> Void?) {
+    func addressReverse(location: CLLocation, completion: @escaping (String) -> Void) {
         address.reverseGeocodeLocation(location) { addressMarks, error in
             guard let marks = addressMarks, marks.count > 0 else {
                 if let errorInfo = error {
@@ -249,6 +247,4 @@ class PhotosManager {
     }
 
     func saveEditImageInAblum(_: PHAsset) {}
-
-    
 }

@@ -420,6 +420,7 @@
 				DEVELOPMENT_TEAM = 9DKGDPPUHD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotoBrowse/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "访问照片";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -435,7 +436,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HR.PhotoBrowse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HR.PhotoBrows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -456,6 +457,7 @@
 				DEVELOPMENT_TEAM = 9DKGDPPUHD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotoBrowse/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "访问照片";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -471,7 +473,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HR.PhotoBrowse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HR.PhotoBrows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

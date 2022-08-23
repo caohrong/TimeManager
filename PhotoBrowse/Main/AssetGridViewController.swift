@@ -18,14 +18,12 @@ private extension UICollectionView {
 }
 
 class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDelegate {
-    
     var availableWidth: CGFloat = 0
     var collectionViewFlowLayout: UICollectionViewFlowLayout!
 
     fileprivate var thumbnailSize: CGSize!
     fileprivate var previousPreheatRect = CGRect.zero
 
-    
     var locationsInfo: Set = ["中国北京市"]
 
     var selectedLocation: CLLocation?
@@ -67,21 +65,23 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
     @objc func segmentedDidSeleted(segment: UISegmentedControl) {
         print("--- \(segment.selectedSegmentIndex)")
         if let type = PHAssetMediaType(rawValue: segment.selectedSegmentIndex) {
-//            fetchAssest(type: type)
+            switch segment.selectedSegmentIndex {
+            case 0:
+            }
         }
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let width = view.bounds.inset(by: view.safeAreaInsets).width
         if availableWidth != width {
             availableWidth = width
-            
+
             let itemWidth = (view.frame.size.width - 4 * 3) / 5
             collectionViewFlowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
             collectionViewFlowLayout.minimumLineSpacing = 3
             collectionViewFlowLayout.minimumInteritemSpacing = 3
-            
+
             let scale = UIScreen.main.scale
             let cellSize = collectionViewFlowLayout.itemSize
             thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
@@ -140,11 +140,10 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
 
         let assets = PHAssetResource.assetResources(for: asset)
         if let result = assets.first?.value(forKey: "locallyAvailable") as? Bool, result == true {
-            
         } else {
             print("🌵----不在本地🌵")
         }
-        
+
         cell.contentView.backgroundColor = UIColor.lightGray
 
         cell.locationImageView.isHidden = asset.location == nil
@@ -181,7 +180,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
             if let location = asset.location {
                 print("拷贝地址---")
                 PhotosManager.shared.addressReverse(location: location) { address in
-                    self.view.makeToast("拷贝地址:\(address)", duration: 3.0, position: .top)
+                    self.view.makeToast("😈拷贝地址:\(address)", duration: 3.0, position: .top)
                 }
                 selectedLocation = location
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -190,14 +189,13 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
                 PhotosManager.shared.changeImageLocationTime(asset, location)
                 print("粘贴地址---")
                 PhotosManager.shared.addressReverse(location: location) { address in
-                    self.view.makeToast("粘贴地址:\(address)", duration: 3.0, position: .top)
+                    self.view.makeToast("🌵粘贴地址:\(address)", duration: 3.0, position: .top)
+                    self.collectionView.reloadData()
                 }
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
             }
         }
     }
-
-
 
     /// - Tag: UpdateAssets
 //    fileprivate func updateCachedAssets() {
@@ -229,7 +227,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
 //        // Store the computed rectangle for future comparison.
 //        previousPreheatRect = preheatRect
 //    }
-    
+
     // MARK: UIScrollView
 
     override func scrollViewDidScroll(_: UIScrollView) {
@@ -298,7 +296,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
 
 // MARK: PHPhotoLibraryChangeObserver
 
-//extension AssetGridViewController: PHPhotoLibraryChangeObserver {
+// extension AssetGridViewController: PHPhotoLibraryChangeObserver {
 //    func photoLibraryDidChange(_ changeInstance: PHChange) {
 //        guard let changes = changeInstance.changeDetails(for: fetchResult)
 //        else { return }
@@ -337,4 +335,4 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
 //            resetCachedAssets()
 //        }
 //    }
-//}
+// }
