@@ -50,7 +50,6 @@ class PhotosManager {
         if type != .unknown {
             allPhotosOptions.predicate = NSPredicate(format: "mediaType = %d", type.rawValue)
         }
-
         var sorts = [NSSortDescriptor]()
 //        if type == .video {
 //            sorts.append(NSSortDescriptor(key: "size", ascending: true))
@@ -58,6 +57,18 @@ class PhotosManager {
         sorts.append(NSSortDescriptor(key: "creationDate", ascending: false))
         allPhotosOptions.sortDescriptors = sorts
         fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+    }
+
+    func fetchCollectionAssest() {
+        let allPhotosOptions = PHFetchOptions()
+        var sorts = [NSSortDescriptor]()
+        sorts.append(NSSortDescriptor(key: "creationDate", ascending: false))
+        allPhotosOptions.sortDescriptors = sorts
+
+        if let collectionDuplication = collectionDuplication {
+            fetchResult = PHAsset.fetchAssets(in: collectionDuplication, options: nil)
+        }
+        print("----一共找到照片", fetchResult.count)
     }
 
     func taskBackground() {
@@ -232,6 +243,9 @@ class PhotosManager {
     }
 
     func changeImageLocationTime(_ asset: PHAsset, _ location: CLLocation) {
+        PhotosManager.shared.addressReverse(location: location) { address in
+            print("😈Location:\(address)")
+        }
         PHPhotoLibrary.shared().performChanges({
             let creationRequest = PHAssetChangeRequest(for: asset)
             creationRequest.location = location

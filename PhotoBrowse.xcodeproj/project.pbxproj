@@ -17,6 +17,10 @@
 		7D0191002722BC61008AB2F5 /* AssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0190FC2722BC60008AB2F5 /* AssetGridViewController.swift */; };
 		7D0191012722BC61008AB2F5 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0190FD2722BC60008AB2F5 /* AssetViewController.swift */; };
 		7D0191022722BC61008AB2F5 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0190FE2722BC60008AB2F5 /* MainController.swift */; };
+		7D01E62E29CEAFBA00798C76 /* ImageToolsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01E62D29CEAFBA00798C76 /* ImageToolsDelegate.swift */; };
+		7D5037C829CE98FB002CA052 /* PhotosAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5037C729CE98FB002CA052 /* PhotosAlbumViewController.swift */; };
+		7D5037CA29CEA4CD002CA052 /* AlbumGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5037C929CEA4CD002CA052 /* AlbumGridViewController.swift */; };
+		7D6AD29329D0321C00925FDA /* AlbumObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AD29229D0321C00925FDA /* AlbumObserver.swift */; };
 		7D8F9AFD272DA84500005D0F /* DBTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8F9AFC272DA84500005D0F /* DBTools.swift */; };
 		7DD84642272E38E4003DBACF /* ToolsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD84641272E38E4003DBACF /* ToolsController.swift */; };
 		7DD84644272E3AC3003DBACF /* LocationManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD84643272E3AC3003DBACF /* LocationManagerController.swift */; };
@@ -38,6 +42,10 @@
 		7D0190FC2722BC60008AB2F5 /* AssetGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetGridViewController.swift; sourceTree = "<group>"; };
 		7D0190FD2722BC60008AB2F5 /* AssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 		7D0190FE2722BC60008AB2F5 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		7D01E62D29CEAFBA00798C76 /* ImageToolsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageToolsDelegate.swift; sourceTree = "<group>"; };
+		7D5037C729CE98FB002CA052 /* PhotosAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAlbumViewController.swift; sourceTree = "<group>"; };
+		7D5037C929CEA4CD002CA052 /* AlbumGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumGridViewController.swift; sourceTree = "<group>"; };
+		7D6AD29229D0321C00925FDA /* AlbumObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumObserver.swift; sourceTree = "<group>"; };
 		7D8F9AFC272DA84500005D0F /* DBTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTools.swift; sourceTree = "<group>"; };
 		7DD84641272E38E4003DBACF /* ToolsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsController.swift; sourceTree = "<group>"; };
 		7DD84643272E3AC3003DBACF /* LocationManagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerController.swift; sourceTree = "<group>"; };
@@ -114,6 +122,7 @@
 		7D0190F22722BA2D008AB2F5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7D6AD29129D0280E00925FDA /* Album */,
 				7D0190FC2722BC60008AB2F5 /* AssetGridViewController.swift */,
 				7DD9D21327DC8434009CC486 /* PhotosManager.swift */,
 				7D0190FD2722BC60008AB2F5 /* AssetViewController.swift */,
@@ -122,6 +131,17 @@
 				7D8F9AFC272DA84500005D0F /* DBTools.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		7D6AD29129D0280E00925FDA /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				7D5037C729CE98FB002CA052 /* PhotosAlbumViewController.swift */,
+				7D5037C929CEA4CD002CA052 /* AlbumGridViewController.swift */,
+				7D01E62D29CEAFBA00798C76 /* ImageToolsDelegate.swift */,
+				7D6AD29229D0321C00925FDA /* AlbumObserver.swift */,
+			);
+			path = Album;
 			sourceTree = "<group>";
 		};
 		7DD84640272E38CB003DBACF /* Tools */ = {
@@ -259,9 +279,13 @@
 				7D0191022722BC61008AB2F5 /* MainController.swift in Sources */,
 				7D0191012722BC61008AB2F5 /* AssetViewController.swift in Sources */,
 				7D0190DF2722B80F008AB2F5 /* AppDelegate.swift in Sources */,
+				7D5037C829CE98FB002CA052 /* PhotosAlbumViewController.swift in Sources */,
 				7D0190FF2722BC61008AB2F5 /* GridViewCell.swift in Sources */,
+				7D5037CA29CEA4CD002CA052 /* AlbumGridViewController.swift in Sources */,
+				7D6AD29329D0321C00925FDA /* AlbumObserver.swift in Sources */,
 				7DD84642272E38E4003DBACF /* ToolsController.swift in Sources */,
 				7DD9D21427DC8434009CC486 /* PhotosManager.swift in Sources */,
+				7D01E62E29CEAFBA00798C76 /* ImageToolsDelegate.swift in Sources */,
 				7D0190E12722B80F008AB2F5 /* SceneDelegate.swift in Sources */,
 				7D0191002722BC61008AB2F5 /* AssetGridViewController.swift in Sources */,
 				7DD84644272E3AC3003DBACF /* LocationManagerController.swift in Sources */,
@@ -430,18 +454,17 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HR.PhotoBrows;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HR.PhotoBrows1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -467,18 +490,17 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HR.PhotoBrows;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HR.PhotoBrows1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

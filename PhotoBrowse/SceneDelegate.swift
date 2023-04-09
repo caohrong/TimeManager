@@ -23,12 +23,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let mainPage = UINavigationController(rootViewController: AssetGridViewController())
             mainPage.tabBarItem = UITabBarItem(title: "图片", image: UIImage(systemName: "photo.tv"), tag: 0)
 
+            let albumPage = UINavigationController(rootViewController: PhotosAlbumViewController())
+            albumPage.tabBarItem = UITabBarItem(title: "相册", image: UIImage(systemName: "tv.inset.filled"), tag: 1)
+            
             let toolsPage = UINavigationController(rootViewController: ToolsController())
-            toolsPage.tabBarItem = UITabBarItem(title: "工具", image: UIImage(systemName: "tv.inset.filled"), tag: 1)
+            toolsPage.tabBarItem = UITabBarItem(title: "工具", image: UIImage(systemName: "tv.inset.filled"), tag: 2)
+            
 
-            tabbar.setViewControllers([mainPage, toolsPage], animated: false)
+            tabbar.setViewControllers([mainPage, albumPage, toolsPage], animated: false)
 
             window.rootViewController = tabbar
+            tabbar.selectedIndex = 1
             self.window = window
             window.makeKeyAndVisible()
         }

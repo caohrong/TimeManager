@@ -27,9 +27,7 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
     var locationsInfo: Set = ["中国北京市"]
 
     var selectedLocation: CLLocation?
-
-    // MARK: UIViewController / Life Cycle
-
+    
     init() {
         let layout = UICollectionViewFlowLayout()
         super.init(collectionViewLayout: layout)
@@ -66,8 +64,17 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
         print("--- \(segment.selectedSegmentIndex)")
         if let type = PHAssetMediaType(rawValue: segment.selectedSegmentIndex) {
             switch segment.selectedSegmentIndex {
-            case 0:
+            case 1:
+                PhotosManager.shared.fetchAssest(type: .image)
+                collectionView.reloadData()
+            case 2:
+                PhotosManager.shared.fetchAssest(type: .video)
+            case 3:
+                PhotosManager.shared.fetchCollectionAssest()
+            default:
+                PhotosManager.shared.fetchAssest(type: .unknown)
             }
+            collectionView.reloadData()
         }
     }
 
@@ -172,15 +179,16 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
 
     @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
         guard gestureRecognizer.state == .began else { return }
-
+        
         let p = gestureRecognizer.location(in: collectionView)
+        
         if let indexPath = collectionView?.indexPathForItem(at: p) {
             print("Long press at item: \(indexPath.row)")
             let asset = PhotosManager.shared.fetchResult.object(at: indexPath.row)
             if let location = asset.location {
                 print("拷贝地址---")
                 PhotosManager.shared.addressReverse(location: location) { address in
-                    self.view.makeToast("😈拷贝地址:\(address)", duration: 3.0, position: .top)
+                    self.view.makeToast("😈拷贝地址:\(address)", duration: 3.0, position: .bottom)
                 }
                 selectedLocation = location
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
@@ -189,10 +197,23 @@ class AssetGridViewController: UICollectionViewController, UIGestureRecognizerDe
                 PhotosManager.shared.changeImageLocationTime(asset, location)
                 print("粘贴地址---")
                 PhotosManager.shared.addressReverse(location: location) { address in
-                    self.view.makeToast("🌵粘贴地址:\(address)", duration: 3.0, position: .top)
+                    self.view.makeToast("🌵粘贴地址:\(address)", duration: 3.0, position: .bottom)
                     self.collectionView.reloadData()
                 }
                 UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                                
+                PHPhotoLibrary.shared().performChanges {
+                    if let collection = PhotosManager.shared.collectionDuplication {
+                        PHAssetCollectionChangeRequest(for: collection)?.removeAssets([asset] as NSArray)
+                    }
+                } completionHandler: { _,_  in
+                    
+                }
+
+//                PHPhotoLibrary.shared().performChanges({
+//                        let request = PHAssetCollectionChangeRequest(for: self.assetCollection)!
+//                        request.removeAssets([self.asset as Any] as NSArray)
+//                    }, completionHandler: completion)
             }
         }
     }

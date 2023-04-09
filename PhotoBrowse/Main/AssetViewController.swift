@@ -487,15 +487,3 @@ extension AssetViewController: PHPhotoLibraryChangeObserver {
         }
     }
 }
-
-// MARK: PHLivePhotoViewDelegate
-
-// extension AssetViewController: PHLivePhotoViewDelegate {
-//    func livePhotoView(_ livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
-//        isPlayingHint = (playbackStyle == .hint)
-//    }
-//
-//    func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
-//        isPlayingHint = (playbackStyle == .hint)
-//    }
-// }
